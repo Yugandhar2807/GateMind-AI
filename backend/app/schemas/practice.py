@@ -1,13 +1,13 @@
-from datetime import datetime
+import uuid
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
 
 from app.models.enums import Difficulty, QuestionSource, QuestionType
 
 
 class PracticeStartRequest(BaseModel):
-    topic_id: int | None = None
-    subject_id: int | None = None
+    topic_id: uuid.UUID | None = None
+    subject_id: uuid.UUID | None = None
     difficulty: Difficulty | None = None
     question_count: int = 10
 
@@ -15,10 +15,8 @@ class PracticeStartRequest(BaseModel):
 class QuestionPublic(BaseModel):
     """Question as shown DURING an attempt — never includes the answer."""
 
-    model_config = ConfigDict(from_attributes=True)
-
-    id: int
-    topic_id: int
+    id: uuid.UUID
+    topic_id: uuid.UUID
     question_type: QuestionType
     difficulty: Difficulty
     source: QuestionSource
@@ -31,13 +29,13 @@ class QuestionPublic(BaseModel):
 
 
 class PracticeAttemptStarted(BaseModel):
-    attempt_id: int
-    topic_id: int | None
+    attempt_id: uuid.UUID
+    topic_id: uuid.UUID | None
     questions: list[QuestionPublic]
 
 
 class PracticeAnswerRequest(BaseModel):
-    question_id: int
+    question_id: uuid.UUID
     selected_indices: list[int] | None = None
     nat_value: float | None = None
     is_skipped: bool = False
@@ -45,7 +43,7 @@ class PracticeAnswerRequest(BaseModel):
 
 
 class PracticeAnswerResult(BaseModel):
-    question_id: int
+    question_id: uuid.UUID
     is_correct: bool | None
     marks_awarded: float
     correct_option_indices: list[int]
@@ -54,7 +52,7 @@ class PracticeAnswerResult(BaseModel):
 
 
 class PracticeSubmitResponse(BaseModel):
-    attempt_id: int
+    attempt_id: uuid.UUID
     score: float
     max_score: float
     accuracy_percent: float
@@ -63,18 +61,6 @@ class PracticeSubmitResponse(BaseModel):
     skipped_count: int
     negative_marks_lost: float
     avg_time_per_question_seconds: float
-
-
-class PracticeAttemptSummary(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    id: int
-    topic_id: int | None
-    started_at: datetime
-    submitted_at: datetime | None
-    score: float | None
-    accuracy_percent: float | None
-    is_complete: bool
 
 
 class TopicQuestionStats(BaseModel):

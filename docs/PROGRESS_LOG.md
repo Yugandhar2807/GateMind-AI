@@ -119,5 +119,23 @@ focus + updates last-session & streak. Live app restarted on :8000, reachable vi
 **Verified on Neon:** note create/list/patch; 114 flashcards, review advances box + schedules review;
 favorite/bookmark state toggles; bookmark toggle + live-resolved list. `tsc -b` clean.
 
-**Next (premium SaaS, remaining):** Practice Engine · Roadmap/Topic redesign · Mock Engine ·
-Analytics · AI Mentor (Ollama) · Gamification · Settings/Notifications/Admin · Deployment.
+## 2026-07-20 — Phase 9: Practice Engine ✅
+**Why:** topic-wise practice with real grading feeds accuracy into progress + the dashboard.
+- Backend on the normalized `questions`/`question_options` + `attempts`/`attempt_answers` tables:
+  `schemas/practice`, `practice_repository`, `practice_service`, `routers/practice`.
+  Endpoints: `GET /practice/topics/{id}/stats`, `POST /practice/start`,
+  `POST /practice/attempts/{id}/answer` (MCQ/MSQ/NAT grading + negative marking),
+  `POST /practice/attempts/{id}/submit` (score/accuracy → rolls into `user_topic_progress`
+  accuracy, powering the dashboard weak/strong widget). Wired into the router.
+- **Data:** the referenced `pyq_questions.json` never existed in the repo, so — honoring "no fake
+  data" — seeded a **hand-verified 11-question starter set** (`seed_practice_questions.py` +
+  `practice_questions.json`), labelled `source=practice` (not claimed official PYQs). A full
+  verified PYQ bank is a separate curation effort (needs a product decision).
+**Verified on Neon:** start (subject filter) → answer (all types graded) → submit (3/3, 100%) →
+topic stats; accuracy rolled into progress. `tsc -b` clean.
+
+**MILESTONE: core study loop is fully functional** (auth · dashboard · study sessions · roadmap ·
+topic · notes · flashcards · bookmarks · practice) on Neon Postgres.
+
+**Remaining:** Roadmap/Topic premium redesign · Mock Engine · Analytics · AI Mentor (Ollama) ·
+Gamification · Settings/Notifications/Admin · full PYQ + resource curation · Deployment.

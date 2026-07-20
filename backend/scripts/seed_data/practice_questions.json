@@ -1,0 +1,132 @@
+[
+  {
+    "subject": "Probability & Statistics",
+    "questions": [
+      {
+        "topic_name": "Bayes' Theorem",
+        "question_type": "mcq",
+        "difficulty": "medium",
+        "marks": 1,
+        "question_markdown": "A diagnostic test is 99% sensitive and 99% specific for a disease with prevalence 1% in the population. Given a positive test result, what is the probability that the person actually has the disease?",
+        "options": ["0.99", "0.50", "0.01", "0.90"],
+        "correct_option_indices": [1],
+        "explanation_markdown": "By Bayes' theorem: P(D|+) = (0.99 x 0.01) / (0.99 x 0.01 + 0.01 x 0.99) = 0.0099 / 0.0198 = 0.5. Base-rate matters: even a very accurate test gives only 50% posterior for a rare disease."
+      },
+      {
+        "topic_name": "Conditional Probability & Independence",
+        "question_type": "mcq",
+        "difficulty": "easy",
+        "marks": 1,
+        "question_markdown": "If events A and B are independent with P(A) = 0.5 and P(B) = 0.4, what is P(A n B)?",
+        "options": ["0.90", "0.20", "0.10", "0.45"],
+        "correct_option_indices": [1],
+        "explanation_markdown": "For independent events, P(A n B) = P(A) x P(B) = 0.5 x 0.4 = 0.20."
+      }
+    ]
+  },
+  {
+    "subject": "Linear Algebra",
+    "questions": [
+      {
+        "topic_name": "Eigenvalues and eigenvectors (incl. diagonalization, characteristic polynomial, algebraic vs geometric multiplicity)",
+        "question_type": "mcq",
+        "difficulty": "easy",
+        "marks": 1,
+        "question_markdown": "The trace of a square matrix is always equal to:",
+        "options": ["the product of its eigenvalues", "the sum of its eigenvalues", "its largest eigenvalue", "its determinant"],
+        "correct_option_indices": [1],
+        "explanation_markdown": "trace(A) = sum of eigenvalues; det(A) = product of eigenvalues. These are quick sanity checks on any eigenvalue computation."
+      },
+      {
+        "topic_name": "Eigenvalues and eigenvectors (incl. diagonalization, characteristic polynomial, algebraic vs geometric multiplicity)",
+        "question_type": "nat",
+        "difficulty": "easy",
+        "marks": 1,
+        "question_markdown": "A 2x2 matrix has eigenvalues 3 and 5. What is its determinant?",
+        "correct_value": 15,
+        "nat_tolerance": 0.001,
+        "explanation_markdown": "det(A) = product of eigenvalues = 3 x 5 = 15."
+      },
+      {
+        "topic_name": "Rank and nullity (rank-nullity theorem, solvability of systems)",
+        "question_type": "mcq",
+        "difficulty": "easy",
+        "marks": 1,
+        "question_markdown": "For an m x n matrix A, the rank-nullity theorem states that rank(A) + nullity(A) equals:",
+        "options": ["m", "n", "m + n", "min(m, n)"],
+        "correct_option_indices": [1],
+        "explanation_markdown": "rank(A) + nullity(A) = n, the number of columns (dimension of the domain)."
+      }
+    ]
+  },
+  {
+    "subject": "Machine Learning",
+    "questions": [
+      {
+        "topic_name": "Principal Component Analysis (PCA)",
+        "question_type": "mcq",
+        "difficulty": "medium",
+        "marks": 1,
+        "question_markdown": "PCA finds the directions (principal components) that:",
+        "options": ["minimize the variance of the projected data", "maximize the variance of the projected data", "maximize class separation using labels", "minimize the number of original features"],
+        "correct_option_indices": [1],
+        "explanation_markdown": "PCA is unsupervised and picks orthogonal directions maximizing projected variance (equivalently, minimizing reconstruction error) - the top eigenvectors of the covariance matrix."
+      },
+      {
+        "topic_name": "Bias-Variance Trade-off",
+        "question_type": "mcq",
+        "difficulty": "easy",
+        "marks": 1,
+        "question_markdown": "A model with low bias but high variance is most likely:",
+        "options": ["underfitting", "overfitting", "perfectly fit", "unable to learn"],
+        "correct_option_indices": [1],
+        "explanation_markdown": "High variance (sensitive to training data) with low bias is the classic signature of overfitting."
+      },
+      {
+        "topic_name": "k-Nearest Neighbours (kNN)",
+        "question_type": "mcq",
+        "difficulty": "medium",
+        "marks": 1,
+        "question_markdown": "In k-Nearest Neighbours, increasing the value of k generally:",
+        "options": ["increases model variance", "makes the decision boundary smoother (higher bias, lower variance)", "always improves test accuracy", "has no effect on the decision boundary"],
+        "correct_option_indices": [1],
+        "explanation_markdown": "Larger k averages over more neighbours, smoothing the decision boundary - raising bias and lowering variance. Too large a k underfits."
+      }
+    ]
+  },
+  {
+    "subject": "Programming, Data Structures & Algorithms",
+    "questions": [
+      {
+        "topic_name": "Searching algorithms (linear search, binary search)",
+        "question_type": "mcq",
+        "difficulty": "easy",
+        "marks": 1,
+        "question_markdown": "The worst-case time complexity of binary search on a sorted array of n elements is:",
+        "options": ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
+        "correct_option_indices": [1],
+        "explanation_markdown": "Binary search halves the search space each step, giving O(log n) worst-case comparisons."
+      },
+      {
+        "topic_name": "Divide-and-conquer sorting (merge sort, quick sort - including stability and worst/average case)",
+        "question_type": "mcq",
+        "difficulty": "medium",
+        "marks": 1,
+        "question_markdown": "The worst-case time complexity of quicksort is:",
+        "options": ["O(n log n)", "O(n^2)", "O(n)", "O(log n)"],
+        "correct_option_indices": [1],
+        "explanation_markdown": "With poor pivots (e.g. already-sorted input with a naive pivot), quicksort degrades to O(n^2). Its average case is O(n log n)."
+      },
+      {
+        "topic_name": "Divide-and-conquer sorting (merge sort, quick sort - including stability and worst/average case)",
+        "question_type": "msq",
+        "difficulty": "medium",
+        "marks": 2,
+        "question_markdown": "Which of the following comparison-based sorting algorithms have O(n log n) worst-case time complexity? (Select all that apply.)",
+        "options": ["Merge sort", "Quicksort", "Heapsort", "Bubble sort"],
+        "correct_option_indices": [0, 2],
+        "explanation_markdown": "Merge sort and heapsort are O(n log n) worst-case. Quicksort is O(n^2) worst-case; bubble sort is O(n^2)."
+      }
+    ]
+  }
+]
