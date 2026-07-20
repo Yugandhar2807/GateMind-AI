@@ -6,6 +6,7 @@ from app.api.v1.routers import (
     bookmarks,
     dashboard,
     flashcards,
+    mentor,
     notes,
     practice,
     roadmap,
@@ -25,4 +26,5 @@ api_router.include_router(notes.router)
 api_router.include_router(flashcards.router)
 api_router.include_router(bookmarks.router)
 api_router.include_router(practice.router)
+api_router.include_router(mentor.router)
 api_router.include_router(admin.router)

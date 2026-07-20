@@ -166,7 +166,22 @@ resources across 33 topics**, imported via `import_resources.py`. Platform total
 87 Gold / 71 Silver, 73/103 topics covered, only 8 needs_review** (flagged for admin review — never
 fabricated). Integrity-checked (e.g. MIT OCW 18.06 = Strang, confirmed via WebFetch).
 
-**Remaining resource work:** General Aptitude · Deep Learning · Data Science subjects.
-**Remaining platform:** full verified PYQ bank · Admin UI + Learning-Path visualization + resource
-watch-progress UI · Mock Engine · Analytics · AI Mentor (Ollama) · Gamification ·
-Settings/Notifications · Deployment.
+## 2026-07-20 — Deployment prep ✅
+Single-service Docker image (`Dockerfile`: Node builds the SPA → FastAPI serves it + API from one
+origin; runs `alembic upgrade head` on start). `app/main.py` serves `backend/static` in prod (dev
+unaffected). `render.yaml` blueprint (free Docker web service, `/api/health` check,
+DATABASE_URL/JWT_SECRET_KEY as secrets). `docs/DEPLOYMENT.md`. Pushed to GitHub `main` + `feat/saas-rebuild`.
+
+## 2026-07-20 — Phase 12: AI Mentor (Ollama, own-data) ✅
+- `services/llm_provider.py`: `OllamaProvider.chat()` behind a small interface (hosted swap later).
+- `services/mentor_service.py`: **context builder from the user's live DB** (target/exam countdown,
+  streak, completed/in-progress topics, weak/strong by accuracy, revisions due, unresolved mistakes,
+  per-subject completion) → system prompt; persists `ai_conversations`/`ai_messages`.
+- `routers/mentor.py`: `POST /mentor/chat`, `GET /mentor/conversations`, `GET /mentor/conversations/{id}`;
+  clean 503 when Ollama is offline. Model default → `qwen2.5:3b-instruct` (already installed).
+- Frontend: real `MentorPage` chat (Markdown replies, suggested prompts) + `use-mentor` hook.
+**Verified:** real chat via local Ollama returned data-grounded advice ("you've completed Linear
+Algebra… haven't attempted practice yet"); messages persisted. `tsc` clean. (Dev-only; not on Render.)
+
+**Remaining:** Mock Engine · Analytics · Gamification · Settings/Notifications polish · Admin UI +
+Learning-Path visualization · General-Aptitude/DL/Data-Science resources · full verified PYQ bank.

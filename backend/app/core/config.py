@@ -37,7 +37,7 @@ class Settings(BaseSettings):
 
     # ---- AI Mentor (local Ollama for dev; no hosted provider in prod yet) ----
     OLLAMA_BASE_URL: str = "http://localhost:11434"
-    OLLAMA_MODEL: str = "llama3.1:8b"
+    OLLAMA_MODEL: str = "qwen2.5:3b-instruct"
 
     # ---- Exam target (dashboard countdown / predictions) ----
     GATE_EXAM_DATE: date = date(2027, 2, 7)
