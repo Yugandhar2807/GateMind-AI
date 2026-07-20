@@ -80,5 +80,30 @@ mark-complete → 7-rung revision ladder + streak=1 + study_session logged. Fron
 **Note:** `/dashboard`, `/notes`, `/flashcards`, `/bookmarks`, `/practice` endpoints are not wired
 yet (their pages will error until built) — Dashboard is Phase 6 next.
 
-**Next:** Phase 6 — Dashboard (streak, weighted completion, weekly chart, upcoming revisions) over
-the now-populated DB.
+## 2026-07-20 — Phase 6: Premium Dashboard + Study Session system ✅
+**Why:** make the Dashboard the heart of the app (know your status at a glance) and capture real
+study time via explicit focus sessions — all from Postgres, no fake data.
+**Study Sessions (backend):**
+- Migration `db6b859ccb2d`: `study_sessions.interruptions` + `focus_score`.
+- `services/study_service.py` + `routers/study.py`: `POST /study/sessions/start` (one active at a
+  time, resumes on reload), `POST /study/sessions/{id}/stop` (duration + interruptions + focus +
+  notes, updates streak), `GET /study/sessions/active`, `GET /study/sessions` (recent).
+- `activity_service.update_streak()` extracted for reuse.
+**Dashboard (backend):** `services/dashboard_service.py` rewritten for the new schema + enriched:
+greeting, exam countdown (falls back to global GATE date), weighted completion, remaining hours,
+predicted completion date (pace-based, needs ≥3 completions), difficulty distribution, per-subject
+completion, weekly study series + today/week/month minutes, last session, revision-due-today +
+upcoming ladder, today's tasks, weak/strong (onboarding until accuracy exists), honest null
+predicted marks/AIR with `has_accuracy_data`/`has_mock_data` flags.
+**Frontend (premium UI, Linear/Notion-grade):** rebuilt `DashboardPage` — glass hero (greeting +
+days-to-GATE + 4 hero stats), live `StudyTimer` (ticking clock, interruptions, focus-score on
+stop), animated SVG progress ring, Recharts weekly-hours bars + difficulty donut, subject-completion
+bars, today's plan, upcoming revisions, study forecast, last session, weak/strong. Every card shows
+real data or honest onboarding guidance — never "-". `hooks/use-study.ts` + updated dashboard types.
+`tsc -b` clean.
+**Verified on Neon:** dashboard returns 103 topics / 10 subjects / difficulty mix / 478 remaining
+hours; mark-complete → 7-rung upcoming revisions; study start→stop stores duration/interruptions/
+focus + updates last-session & streak. Live app restarted on :8000, reachable via Vite proxy.
+
+**Next (premium SaaS upgrade, remaining):** deep Analytics (Recharts) · Roadmap card redesign ·
+Topic page expansion · AI Mentor (Ollama, own-data) · Gamification (XP/levels/badges) · Settings.

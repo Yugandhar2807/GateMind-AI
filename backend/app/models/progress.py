@@ -55,6 +55,9 @@ class StudySession(Base):
     ended_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     duration_minutes: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # Focus-session metadata (an active session has ended_at IS NULL until stopped).
+    interruptions: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    focus_score: Mapped[int | None] = mapped_column(Integer, nullable=True)
 
 
 class RevisionSchedule(Base):
