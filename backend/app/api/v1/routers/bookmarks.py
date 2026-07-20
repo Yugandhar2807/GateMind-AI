@@ -1,3 +1,5 @@
+import uuid
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
@@ -18,13 +20,13 @@ def list_bookmarks(
     return BookmarkService(db).list_for_user(current_user.id)
 
 
-@router.get("/ids", response_model=list[int])
+@router.get("/ids", response_model=list[uuid.UUID])
 def bookmarked_ids(
     bookmark_type: BookmarkType,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
-) -> list[int]:
-    return sorted(BookmarkService(db).bookmarked_target_ids(current_user.id, bookmark_type))
+) -> list[uuid.UUID]:
+    return BookmarkService(db).bookmarked_target_ids(current_user.id, bookmark_type)
 
 
 @router.post("/toggle", response_model=BookmarkToggleResponse)

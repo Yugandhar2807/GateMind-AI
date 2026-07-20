@@ -105,5 +105,19 @@ real data or honest onboarding guidance — never "-". `hooks/use-study.ts` + up
 hours; mark-complete → 7-rung upcoming revisions; study start→stop stores duration/interruptions/
 focus + updates last-session & streak. Live app restarted on :8000, reachable via Vite proxy.
 
-**Next (premium SaaS upgrade, remaining):** deep Analytics (Recharts) · Roadmap card redesign ·
-Topic page expansion · AI Mentor (Ollama, own-data) · Gamification (XP/levels/badges) · Settings.
+## 2026-07-20 — Phase 8: Study Engine (Notes + Bookmarks + Flashcards) ✅
+**Why:** finish the core study loop so no page errors — Notes, Bookmarks and Flashcards now work.
+- **Notes** (`schemas/note` + `note_repository` + `routers/notes`): CRUD on the new `Note` model
+  (`content_md`, soft-delete). API keeps `content_markdown` for the frontend.
+- **Bookmarks** (`schemas/bookmark` + `bookmark_service` + `routers/bookmarks`): polymorphic
+  (`target_type`/`target_id`) toggle + live resolution of title/subtitle/link from resource/topic/
+  note/flashcard tables (no relationships → explicit queries).
+- **Flashcards** (`schemas/flashcard` + `flashcard_repository` + `flashcard_service` +
+  `routers/flashcards`): Leitner boxes (1/3/7/15/30-day), `next_review_at`, favorite + review-later
+  on `UserFlashcard`, and `is_bookmarked` reused from the generic bookmark system. Adapted
+  `seed_flashcards.py` → **114 flashcards** seeded (matched to real topics). All wired into the router.
+**Verified on Neon:** note create/list/patch; 114 flashcards, review advances box + schedules review;
+favorite/bookmark state toggles; bookmark toggle + live-resolved list. `tsc -b` clean.
+
+**Next (premium SaaS, remaining):** Practice Engine · Roadmap/Topic redesign · Mock Engine ·
+Analytics · AI Mentor (Ollama) · Gamification · Settings/Notifications/Admin · Deployment.

@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime
 
 from pydantic import BaseModel
@@ -7,19 +8,19 @@ from app.models.enums import BookmarkType
 
 class BookmarkToggleRequest(BaseModel):
     bookmark_type: BookmarkType
-    target_id: int
-    notes: str | None = None
+    target_id: uuid.UUID
+    note: str | None = None
 
 
 class BookmarkToggleResponse(BaseModel):
     bookmarked: bool
-    bookmark_id: int | None
+    bookmark_id: uuid.UUID | None
 
 
 class BookmarkRead(BaseModel):
-    id: int
+    id: uuid.UUID
     bookmark_type: BookmarkType
-    target_id: int
+    target_id: uuid.UUID
     notes: str | None
     created_at: datetime
 

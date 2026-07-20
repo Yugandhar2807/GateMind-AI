@@ -25,9 +25,9 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 from sqlalchemy import select  # noqa: E402
 
 from app.db.session import SessionLocal  # noqa: E402
-from app.models.content import Subject, Topic  # noqa: E402
+from app.models.content import Flashcard  # noqa: E402
+from app.models.curriculum import Subject, Topic  # noqa: E402
 from app.models.enums import Difficulty  # noqa: E402
-from app.models.flashcard import Flashcard  # noqa: E402
 
 RESEARCH_DIR = Path(__file__).resolve().parent / "seed_data" / "research"
 
@@ -119,10 +119,10 @@ def main() -> None:
                 db.add(
                     Flashcard(
                         topic_id=topic.id,
-                        front_markdown=term[:400],
-                        back_markdown=bullet,
+                        front_md=term[:400],
+                        back_md=bullet,
                         difficulty=Difficulty.MEDIUM,
-                        is_auto_generated=True,
+                        source="cheat_sheet",
                     )
                 )
                 created_for_subject += 1

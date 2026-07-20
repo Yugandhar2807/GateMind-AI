@@ -1,4 +1,5 @@
-from datetime import datetime
+import uuid
+from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
@@ -13,7 +14,7 @@ router = APIRouter(prefix="/flashcards", tags=["flashcards"])
 
 @router.get("", response_model=list[FlashcardRead])
 def list_flashcards(
-    topic_id: int | None = None,
+    topic_id: uuid.UUID | None = None,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> list[FlashcardRead]:
@@ -25,19 +26,19 @@ def due_flashcards(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> list[FlashcardRead]:
-    return FlashcardService(db).due_today(current_user.id, today=datetime.utcnow().date())
+    return FlashcardService(db).due_today(current_user.id, now=datetime.now(timezone.utc))
 
 
 @router.post("/{flashcard_id}/review", response_model=FlashcardRead)
 def review_flashcard(
-    flashcard_id: int,
+    flashcard_id: uuid.UUID,
     payload: ReviewRequest,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> FlashcardRead:
     try:
         return FlashcardService(db).review(
-            current_user, flashcard_id, correct=payload.correct, today=datetime.utcnow().date()
+            current_user, flashcard_id, correct=payload.correct, now=datetime.now(timezone.utc)
         )
     except FlashcardNotFoundError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Flashcard not found") from exc
@@ -45,12 +46,12 @@ def review_flashcard(
 
 @router.patch("/{flashcard_id}/state", response_model=FlashcardRead)
 def update_flashcard_state(
-    flashcard_id: int,
+    flashcard_id: uuid.UUID,
     payload: FlashcardStateUpdate,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> FlashcardRead:
     try:
-        return FlashcardService(db).update_state(current_user.id, flashcard_id, payload)
+        return FlashcardService(db).update_state(current_user, flashcard_id, payload)
     except FlashcardNotFoundError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Flashcard not found") from exc

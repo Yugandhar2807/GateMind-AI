@@ -1,15 +1,14 @@
-from datetime import date
+import uuid
+from datetime import datetime
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
 
 from app.models.enums import Difficulty
 
 
 class FlashcardRead(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    id: int
-    topic_id: int
+    id: uuid.UUID
+    topic_id: uuid.UUID
     topic_name: str
     subject_name: str
     front_markdown: str
@@ -19,7 +18,7 @@ class FlashcardRead(BaseModel):
     is_bookmarked: bool
     is_favorite: bool
     review_later: bool
-    next_review_at: date | None
+    next_review_at: datetime | None
 
 
 class ReviewRequest(BaseModel):
