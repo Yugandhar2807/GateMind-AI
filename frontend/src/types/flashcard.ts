@@ -1,8 +1,8 @@
 import type { Difficulty } from '@/types/roadmap'
 
 export interface Flashcard {
-  id: number
-  topic_id: number
+  id: string
+  topic_id: string
   topic_name: string
   subject_name: string
   front_markdown: string

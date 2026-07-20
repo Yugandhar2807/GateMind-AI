@@ -57,4 +57,28 @@ See `docs/DATABASE.md` for the schema. Plan of record: 13 phases.
 **Verified end-to-end on Neon:** register→409 dup / 401 wrong-pass / login / `/me` 200 / no-token 401 /
 refresh rotate / **old-refresh reuse ⇒ 401** / PATCH profile 200. Test user cleaned up.
 
-**Next:** Phase 6 — Dashboard (port to new schema: streak, weighted completion, weekly chart).
+## 2026-07-20 — Phase 7: Content ingestion + Roadmap Engine ✅
+**Why:** normalize the GATE-DA-2027 research into Postgres (single source of truth) and drive the
+roadmap dynamically from the DB — no syllabus hardcoded in the frontend.
+**Content (scripts/seed_content.py + seed_topic_resources.py, reusing scripts/seed_data/research/*):**
+- **10 subjects, 103 topics** (difficulty/importance/pyq-frequency, derived estimated hours +
+  revision cadence), **35 prerequisite edges** (dependency graph), **134 resources** (81 subject-wide
+  + 53 curated topic-specific; 64 with real URLs), 914 topic↔resource links. Weightages parsed
+  (Prob&Stats 16-20%, Programming 14-21%, GA 15%). Idempotent; never fabricates URLs.
+**Roadmap Engine (backend):**
+- `repositories/roadmap_repository.py`, `services/roadmap_service.py`, `schemas/roadmap.py` +
+  `schemas/topic_detail.py`, `routers/roadmap.py` — rewritten for UUID/Postgres, reusing the old
+  contract + revision-ladder logic. `services/activity_service.py` (streak + study-session) reworked.
+- Endpoints: `GET /roadmap` (subject→topic tree + per-user progress summary),
+  `GET /roadmap/topics/{id}` (detail + resources), `PATCH /roadmap/topics/{id}/progress`
+  (completing a topic auto-schedules the 1/3/7/15/30/60/90-day revision ladder + updates streak).
+- API keeps the frontend's field names (resource_type/platform/theory_markdown…) so the frontend
+  only needed id `number → string` (UUID) across all types/hooks/components. `tsc -b` clean.
+**Verified on Neon:** roadmap returns 10 subjects/103 topics; topic detail 200 with resources;
+mark-complete → 7-rung revision ladder + streak=1 + study_session logged. Frontend type-checks.
+
+**Note:** `/dashboard`, `/notes`, `/flashcards`, `/bookmarks`, `/practice` endpoints are not wired
+yet (their pages will error until built) — Dashboard is Phase 6 next.
+
+**Next:** Phase 6 — Dashboard (streak, weighted completion, weekly chart, upcoming revisions) over
+the now-populated DB.

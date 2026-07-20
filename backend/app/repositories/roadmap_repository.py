@@ -1,7 +1,9 @@
-from sqlalchemy import select
-from sqlalchemy.orm import Session, selectinload
+import uuid
 
-from app.models.content import Resource, Subject, Topic, TopicResource
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+
+from app.models.curriculum import Resource, Subject, Topic, TopicResource
 from app.models.progress import UserTopicProgress
 
 
@@ -9,27 +11,25 @@ class RoadmapRepository:
     def __init__(self, db: Session):
         self.db = db
 
-    def list_subjects_with_topics(self) -> list[Subject]:
-        stmt = (
-            select(Subject)
-            .options(selectinload(Subject.topics))
-            .order_by(Subject.order_index)
-        )
-        return list(self.db.scalars(stmt).unique().all())
+    def list_subjects(self) -> list[Subject]:
+        return list(self.db.scalars(select(Subject).order_by(Subject.order_index)).all())
 
-    def progress_by_topic_id(self, user_id: int) -> dict[int, UserTopicProgress]:
-        stmt = select(UserTopicProgress).where(UserTopicProgress.user_id == user_id)
-        rows = self.db.scalars(stmt).all()
+    def list_topics(self) -> list[Topic]:
+        return list(self.db.scalars(select(Topic).order_by(Topic.subject_id, Topic.order_index)).all())
+
+    def progress_by_topic_id(self, user_id: uuid.UUID) -> dict[uuid.UUID, UserTopicProgress]:
+        rows = self.db.scalars(
+            select(UserTopicProgress).where(UserTopicProgress.user_id == user_id)
+        ).all()
         return {row.topic_id: row for row in rows}
 
-    def get_topic(self, topic_id: int) -> Topic | None:
+    def get_topic(self, topic_id: uuid.UUID) -> Topic | None:
         return self.db.get(Topic, topic_id)
 
-    def get_topic_with_subject(self, topic_id: int) -> Topic | None:
-        stmt = select(Topic).options(selectinload(Topic.subject)).where(Topic.id == topic_id)
-        return self.db.scalars(stmt).first()
+    def get_subject(self, subject_id: uuid.UUID) -> Subject | None:
+        return self.db.get(Subject, subject_id)
 
-    def get_topic_resources(self, topic_id: int) -> list[Resource]:
+    def get_topic_resources(self, topic_id: uuid.UUID) -> list[Resource]:
         stmt = (
             select(Resource)
             .join(TopicResource, TopicResource.resource_id == Resource.id)
@@ -38,7 +38,7 @@ class RoadmapRepository:
         )
         return list(self.db.scalars(stmt).all())
 
-    def get_or_create_progress(self, user_id: int, topic_id: int) -> UserTopicProgress:
+    def get_or_create_progress(self, user_id: uuid.UUID, topic_id: uuid.UUID) -> UserTopicProgress:
         stmt = select(UserTopicProgress).where(
             UserTopicProgress.user_id == user_id, UserTopicProgress.topic_id == topic_id
         )

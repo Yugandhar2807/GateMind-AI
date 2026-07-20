@@ -1,3 +1,5 @@
+import uuid
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
@@ -20,7 +22,7 @@ def get_roadmap(
 
 @router.get("/topics/{topic_id}", response_model=TopicDetail)
 def get_topic_detail(
-    topic_id: int,
+    topic_id: uuid.UUID,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> TopicDetail:
@@ -32,7 +34,7 @@ def get_topic_detail(
 
 @router.patch("/topics/{topic_id}/progress", response_model=TopicProgressRead)
 def update_topic_progress(
-    topic_id: int,
+    topic_id: uuid.UUID,
     payload: ProgressUpdateRequest,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),

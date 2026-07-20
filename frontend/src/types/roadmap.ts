@@ -18,7 +18,7 @@ export interface TopicProgress {
 }
 
 export interface TopicNode {
-  id: number
+  id: string
   slug: string
   name: string
   level: NodeLevel
@@ -43,7 +43,7 @@ export interface SubjectProgressSummary {
 }
 
 export interface SubjectNode {
-  id: number
+  id: string
   slug: string
   name: string
   description: string | null

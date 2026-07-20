@@ -12,7 +12,7 @@ export type ResourceType =
 export type ResourceLevel = 'beginner' | 'intermediate' | 'advanced' | 'research'
 
 export interface ResourceRead {
-  id: number
+  id: string
   title: string
   resource_type: ResourceType
   level: ResourceLevel
@@ -24,7 +24,7 @@ export interface ResourceRead {
 }
 
 export interface TopicDetail {
-  id: number
+  id: string
   slug: string
   name: string
   level: NodeLevel
@@ -41,7 +41,7 @@ export interface TopicDetail {
   mind_map_json: string | null
   cheat_sheet_markdown: string | null
   common_mistakes_markdown: string | null
-  subject_id: number
+  subject_id: string
   subject_name: string
   subject_slug: string
   progress: TopicProgress

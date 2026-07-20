@@ -1,9 +1,9 @@
 export type BookmarkType = 'resource' | 'question' | 'topic' | 'formula' | 'note' | 'flashcard'
 
 export interface Bookmark {
-  id: number
+  id: string
   bookmark_type: BookmarkType
-  target_id: number
+  target_id: string
   notes: string | null
   created_at: string
   title: string
@@ -14,5 +14,5 @@ export interface Bookmark {
 
 export interface BookmarkToggleResponse {
   bookmarked: boolean
-  bookmark_id: number | null
+  bookmark_id: string | null
 }

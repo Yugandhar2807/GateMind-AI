@@ -5,7 +5,7 @@ export interface DailyStudyPoint {
 }
 
 export interface UpcomingRevision {
-  topic_id: number
+  topic_id: string
   topic_name: string
   subject_name: string
   scheduled_date: string
@@ -13,7 +13,7 @@ export interface UpcomingRevision {
 }
 
 export interface WeakStrongTopic {
-  topic_id: number
+  topic_id: string
   topic_name: string
   subject_name: string
   accuracy_percent: number

@@ -43,7 +43,7 @@ function EmptySection({ label }: { label: string }) {
   )
 }
 
-function ResourcesTab({ topicId }: { topicId: number }) {
+function ResourcesTab({ topicId }: { topicId: string }) {
   const { data } = useTopicDetail(topicId)
   const resources = data?.resources ?? []
 
@@ -84,7 +84,7 @@ function ResourcesTab({ topicId }: { topicId: number }) {
   )
 }
 
-function NotesTab({ topicId }: { topicId: number }) {
+function NotesTab({ topicId }: { topicId: string }) {
   const { data: notes, isPending } = useNotes(topicId)
   const createNote = useCreateNote()
   const deleteNote = useDeleteNote()
@@ -142,7 +142,7 @@ function NotesTab({ topicId }: { topicId: number }) {
 
 export default function TopicPage() {
   const { topicId } = useParams<{ topicId: string }>()
-  const id = topicId ? Number(topicId) : undefined
+  const id = topicId
   const { data: topic, isPending, isError } = useTopicDetail(id)
   const updateProgress = useUpdateTopicProgress()
   const [status, setStatus] = React.useState<ProgressStatus>('not_started')

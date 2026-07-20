@@ -22,7 +22,7 @@ export default function NotesPage() {
   const updateNote = useUpdateNote()
   const deleteNote = useDeleteNote()
 
-  const [selectedId, setSelectedId] = React.useState<number | 'new' | null>(null)
+  const [selectedId, setSelectedId] = React.useState<string | 'new' | null>(null)
   const [title, setTitle] = React.useState('')
   const [content, setContent] = React.useState('')
   const [mode, setMode] = React.useState<'edit' | 'preview'>('edit')
@@ -46,12 +46,12 @@ export default function NotesPage() {
         { title, content_markdown: content },
         { onSuccess: (note) => setSelectedId(note.id) },
       )
-    } else if (typeof selectedId === 'number') {
+    } else if (selectedId) {
       updateNote.mutate({ id: selectedId, payload: { title, content_markdown: content } })
     }
   }
 
-  function handleDelete(id: number) {
+  function handleDelete(id: string) {
     deleteNote.mutate(id, { onSuccess: () => setSelectedId(null) })
   }
 
@@ -150,8 +150,8 @@ export default function NotesPage() {
                 <Button
                   variant="destructive"
                   size="sm"
-                  disabled={typeof selectedId !== 'number'}
-                  onClick={() => typeof selectedId === 'number' && handleDelete(selectedId)}
+                  disabled={!selectedId || selectedId === 'new'}
+                  onClick={() => selectedId && selectedId !== 'new' && handleDelete(selectedId)}
                 >
                   <Trash2 /> Delete
                 </Button>

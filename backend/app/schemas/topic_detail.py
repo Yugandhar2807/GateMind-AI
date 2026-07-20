@@ -1,3 +1,5 @@
+import uuid
+
 from pydantic import BaseModel, ConfigDict
 
 from app.models.enums import Difficulty, NodeLevel, ResourceLevel, ResourceType
@@ -7,7 +9,7 @@ from app.schemas.roadmap import TopicProgressRead
 class ResourceRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    id: int
+    id: uuid.UUID
     title: str
     resource_type: ResourceType
     level: ResourceLevel
@@ -21,7 +23,7 @@ class ResourceRead(BaseModel):
 class TopicDetail(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    id: int
+    id: uuid.UUID
     slug: str
     name: str
     level: NodeLevel
@@ -41,7 +43,7 @@ class TopicDetail(BaseModel):
     cheat_sheet_markdown: str | None
     common_mistakes_markdown: str | None
 
-    subject_id: int
+    subject_id: uuid.UUID
     subject_name: str
     subject_slug: str
 

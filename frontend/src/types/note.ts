@@ -1,8 +1,8 @@
 export interface Note {
-  id: number
+  id: string
   title: string
   content_markdown: string
-  topic_id: number | null
+  topic_id: string | null
   created_at: string
   updated_at: string
 }
@@ -10,11 +10,11 @@ export interface Note {
 export interface NoteCreate {
   title: string
   content_markdown?: string
-  topic_id?: number | null
+  topic_id?: string | null
 }
 
 export interface NoteUpdate {
   title?: string
   content_markdown?: string
-  topic_id?: number | null
+  topic_id?: string | null
 }

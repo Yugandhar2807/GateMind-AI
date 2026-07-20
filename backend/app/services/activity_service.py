@@ -1,4 +1,5 @@
-from datetime import date, datetime, timedelta
+import uuid
+from datetime import datetime, timedelta, timezone
 
 from sqlalchemy.orm import Session
 
@@ -7,13 +8,15 @@ from app.models.progress import StudySession
 from app.models.user import User
 
 
-def record_activity(db: Session, user: User, *, minutes: int, session_type: SessionType, topic_id: int | None) -> None:
+def record_activity(
+    db: Session, user: User, *, minutes: int, session_type: SessionType, topic_id: uuid.UUID | None
+) -> None:
     """
-    Log a study session and update the user's streak. A single source of truth for "the user
-    did something today" so the dashboard's streak/study-time widgets stay correct regardless
-    of which feature (roadmap, practice, mocks, flashcards) triggered the activity.
+    Log a study session and update the user's streak — one source of truth for "the user did
+    something today" so the dashboard's streak/study-time widgets stay correct regardless of which
+    feature (roadmap, practice, mocks, flashcards) triggered the activity.
     """
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     db.add(
         StudySession(
             user_id=user.id,

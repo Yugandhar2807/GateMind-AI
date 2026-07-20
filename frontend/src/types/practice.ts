@@ -4,8 +4,8 @@ export type QuestionType = 'mcq' | 'msq' | 'nat'
 export type QuestionSource = 'pyq' | 'practice' | 'ai_generated' | 'mock'
 
 export interface QuestionPublic {
-  id: number
-  topic_id: number
+  id: string
+  topic_id: string
   question_type: QuestionType
   difficulty: Difficulty
   source: QuestionSource
@@ -18,20 +18,20 @@ export interface QuestionPublic {
 }
 
 export interface PracticeStartRequest {
-  topic_id?: number
-  subject_id?: number
+  topic_id?: string
+  subject_id?: string
   difficulty?: Difficulty
   question_count: number
 }
 
 export interface PracticeAttemptStarted {
-  attempt_id: number
-  topic_id: number | null
+  attempt_id: string
+  topic_id: string | null
   questions: QuestionPublic[]
 }
 
 export interface PracticeAnswerRequest {
-  question_id: number
+  question_id: string
   selected_indices?: number[]
   nat_value?: number
   is_skipped: boolean
@@ -39,7 +39,7 @@ export interface PracticeAnswerRequest {
 }
 
 export interface PracticeAnswerResult {
-  question_id: number
+  question_id: string
   is_correct: boolean | null
   marks_awarded: number
   correct_option_indices: number[]
@@ -48,7 +48,7 @@ export interface PracticeAnswerResult {
 }
 
 export interface PracticeSubmitResponse {
-  attempt_id: number
+  attempt_id: string
   score: number
   max_score: number
   accuracy_percent: number

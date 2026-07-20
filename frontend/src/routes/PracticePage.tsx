@@ -22,26 +22,26 @@ const DIFFICULTY_OPTIONS: { value: Difficulty | ''; label: string }[] = [
   { value: 'very_hard', label: 'Very Hard' },
 ]
 
-function SetupScreen({ onStart }: { onStart: (topicId: number, count: number, difficulty: Difficulty | '') => void }) {
+function SetupScreen({ onStart }: { onStart: (topicId: string, count: number, difficulty: Difficulty | '') => void }) {
   const { data: subjects, isPending } = useRoadmap()
   const [searchParams] = useSearchParams()
   const presetTopicId = searchParams.get('topic_id')
 
-  const [subjectId, setSubjectId] = React.useState<number | ''>('')
-  const [topicId, setTopicId] = React.useState<number | ''>(presetTopicId ? Number(presetTopicId) : '')
+  const [subjectId, setSubjectId] = React.useState<string>('')
+  const [topicId, setTopicId] = React.useState<string>(presetTopicId ?? '')
   const [count, setCount] = React.useState(10)
   const [difficulty, setDifficulty] = React.useState<Difficulty | ''>('')
 
   React.useEffect(() => {
     if (presetTopicId && subjects) {
-      const id = Number(presetTopicId)
+      const id = presetTopicId
       const subj = subjects.find((s) => s.topics.some((t) => t.id === id))
       if (subj) setSubjectId(subj.id)
       setTopicId(id)
     }
   }, [presetTopicId, subjects])
 
-  const stats = useTopicQuestionStats(typeof topicId === 'number' ? topicId : undefined)
+  const stats = useTopicQuestionStats(topicId || undefined)
   const currentSubject = subjects?.find((s) => s.id === subjectId)
 
   if (isPending) {
@@ -70,7 +70,7 @@ function SetupScreen({ onStart }: { onStart: (topicId: number, count: number, di
             <select
               value={subjectId}
               onChange={(e) => {
-                setSubjectId(e.target.value ? Number(e.target.value) : '')
+                setSubjectId(e.target.value)
                 setTopicId('')
               }}
               className="h-10 rounded-[var(--radius-md)] border border-[var(--border)] bg-[var(--bg-elevated)] px-3 text-sm outline-none focus-visible:border-signal-500"
@@ -88,7 +88,7 @@ function SetupScreen({ onStart }: { onStart: (topicId: number, count: number, di
             <label className="text-xs font-semibold text-[var(--fg-muted)] uppercase">Topic</label>
             <select
               value={topicId}
-              onChange={(e) => setTopicId(e.target.value ? Number(e.target.value) : '')}
+              onChange={(e) => setTopicId(e.target.value)}
               disabled={!currentSubject}
               className="h-10 rounded-[var(--radius-md)] border border-[var(--border)] bg-[var(--bg-elevated)] px-3 text-sm outline-none focus-visible:border-signal-500 disabled:opacity-50"
             >
@@ -171,7 +171,7 @@ function QuestionScreen({
   question: QuestionPublic
   index: number
   total: number
-  attemptId: number
+  attemptId: string
   onAnswered: (result: PracticeAnswerResult) => void
   onNext: () => void
 }) {
@@ -381,11 +381,11 @@ function ResultsScreen({ result, onRestart }: { result: PracticeSubmitResponse; 
 export default function PracticePage() {
   const startMutation = useStartPractice()
   const submitMutation = useSubmitAttempt()
-  const [session, setSession] = React.useState<{ attemptId: number; questions: QuestionPublic[] } | null>(null)
+  const [session, setSession] = React.useState<{ attemptId: string; questions: QuestionPublic[] } | null>(null)
   const [index, setIndex] = React.useState(0)
   const [finalResult, setFinalResult] = React.useState<PracticeSubmitResponse | null>(null)
 
-  function handleStart(topicId: number, count: number, difficulty: Difficulty | '') {
+  function handleStart(topicId: string, count: number, difficulty: Difficulty | '') {
     startMutation.mutate(
       { topic_id: topicId, question_count: count, difficulty: difficulty || undefined },
       {

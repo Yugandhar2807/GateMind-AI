@@ -10,7 +10,7 @@ import type {
   TopicQuestionStats,
 } from '@/types/practice'
 
-export function useTopicQuestionStats(topicId: number | undefined) {
+export function useTopicQuestionStats(topicId: string | undefined) {
   return useQuery({
     queryKey: ['practice', 'stats', topicId],
     enabled: topicId != null,
@@ -30,7 +30,7 @@ export function useStartPractice() {
   })
 }
 
-export function useAnswerQuestion(attemptId: number | null) {
+export function useAnswerQuestion(attemptId: string | null) {
   return useMutation({
     mutationFn: async (payload: PracticeAnswerRequest) => {
       const { data } = await apiClient.post<PracticeAnswerResult>(`/practice/attempts/${attemptId}/answer`, payload)
@@ -42,7 +42,7 @@ export function useAnswerQuestion(attemptId: number | null) {
 export function useSubmitAttempt() {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationFn: async (attemptId: number) => {
+    mutationFn: async (attemptId: string) => {
       const { data } = await apiClient.post<PracticeSubmitResponse>(`/practice/attempts/${attemptId}/submit`)
       return data
     },

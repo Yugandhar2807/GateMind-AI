@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict
@@ -39,7 +40,7 @@ DEFAULT_PROGRESS = TopicProgressRead(
 class TopicNode(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    id: int
+    id: uuid.UUID
     slug: str
     name: str
     level: NodeLevel
@@ -66,7 +67,7 @@ class SubjectProgressSummary(BaseModel):
 class SubjectNode(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    id: int
+    id: uuid.UUID
     slug: str
     name: str
     description: str | None

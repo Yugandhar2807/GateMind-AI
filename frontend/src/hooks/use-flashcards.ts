@@ -13,7 +13,7 @@ export function useDueFlashcards() {
   })
 }
 
-export function useAllFlashcards(topicId?: number) {
+export function useAllFlashcards(topicId?: string) {
   return useQuery({
     queryKey: ['flashcards', 'all', topicId ?? 'any'],
     queryFn: async () => {
@@ -26,7 +26,7 @@ export function useAllFlashcards(topicId?: number) {
 export function useReviewFlashcard() {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationFn: async ({ id, correct }: { id: number; correct: boolean }) => {
+    mutationFn: async ({ id, correct }: { id: string; correct: boolean }) => {
       const { data } = await apiClient.post<Flashcard>(`/flashcards/${id}/review`, { correct })
       return data
     },
@@ -41,7 +41,7 @@ export function useReviewFlashcard() {
 export function useUpdateFlashcardState() {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationFn: async ({ id, payload }: { id: number; payload: FlashcardStateUpdate }) => {
+    mutationFn: async ({ id, payload }: { id: string; payload: FlashcardStateUpdate }) => {
       const { data } = await apiClient.patch<Flashcard>(`/flashcards/${id}/state`, payload)
       return data
     },

@@ -10,7 +10,7 @@ export function BookmarkButton({
   className,
 }: {
   bookmarkType: BookmarkType
-  targetId: number
+  targetId: string
   className?: string
 }) {
   const { data: ids } = useBookmarkedIds(bookmarkType)

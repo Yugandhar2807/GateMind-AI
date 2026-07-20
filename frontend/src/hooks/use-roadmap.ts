@@ -17,7 +17,7 @@ export function useUpdateTopicProgress() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: async ({ topicId, payload }: { topicId: number; payload: ProgressUpdateRequest }) => {
+    mutationFn: async ({ topicId, payload }: { topicId: string; payload: ProgressUpdateRequest }) => {
       const { data } = await apiClient.patch<TopicProgress>(`/roadmap/topics/${topicId}/progress`, payload)
       return data
     },
