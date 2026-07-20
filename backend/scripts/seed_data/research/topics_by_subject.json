@@ -1,0 +1,103 @@
+{
+  "Probability & Statistics": [
+    "Counting: Permutations & Combinations",
+    "Probability Axioms, Sample Space & Events (incl. mutually exclusive / independent events)",
+    "Conditional Probability & Independence",
+    "Bayes' Theorem",
+    "Joint, Marginal Distributions & Random Variables",
+    "Descriptive Statistics (mean, median, mode, standard deviation, variance)",
+    "Correlation & Covariance (incl. conditional expectation/variance)",
+    "Discrete Random Variables & Distributions (discrete uniform, Bernoulli, Binomial)",
+    "Continuous Random Variables & Distributions (uniform, exponential, Poisson, normal)",
+    "t-distribution & Chi-squared distribution (as sampling distributions)",
+    "Cumulative Distribution Function (CDF) & transformations of random variables",
+    "Central Limit Theorem (CLT)",
+    "Confidence Intervals",
+    "Hypothesis Testing (z-test, t-test, chi-squared test)"
+  ],
+  "Linear Algebra": [
+    "Vector spaces, subspaces, basis, dimension, span",
+    "Linear dependence and independence",
+    "Matrices and special matrix types (projection, orthogonal, idempotent, partition matrices)",
+    "Determinants",
+    "Systems of linear equations and Gaussian elimination",
+    "Rank and nullity (rank-nullity theorem, solvability of systems)",
+    "Eigenvalues and eigenvectors (incl. diagonalization, characteristic polynomial, algebraic vs geometric multiplicity)",
+    "Quadratic forms (incl. positive definiteness)",
+    "LU decomposition",
+    "Singular Value Decomposition (SVD)"
+  ],
+  "Calculus & Optimization": [
+    "Limits, Continuity and Differentiability (single-variable)",
+    "Taylor and Maclaurin Series",
+    "Maxima and Minima (first- and second-derivative tests)",
+    "Single-Variable Optimization (incl. closed-interval / applied optimization, convexity intuition)"
+  ],
+  "Programming, Data Structures & Algorithms": [
+    "Python programming fundamentals (syntax, data types, control flow, functions, I/O, string/list/dict/tuple/set operations, mutability, scope)",
+    "Recursion (structure, base cases, recursion trees, recursive vs iterative equivalence)",
+    "Time & space complexity / asymptotic (Big-O) analysis",
+    "Stacks and Queues (operations, applications, array/linked-list implementation)",
+    "Linked Lists (singly/doubly, operations, pointer manipulation)",
+    "Trees (binary trees, BST properties, traversals - inorder/preorder/postorder/level-order, height/depth)",
+    "Hash Tables (hashing functions, collision resolution, load factor)",
+    "Searching algorithms (linear search, binary search)",
+    "Elementary sorting (selection sort, bubble sort, insertion sort)",
+    "Divide-and-conquer sorting (merge sort, quick sort - including stability and worst/average case)",
+    "Graph representation and traversal (adjacency list/matrix, BFS, DFS)",
+    "Graph shortest-path algorithms (Dijkstra's algorithm; conceptually Bellman-Ford/Floyd-Warshall as extensions)"
+  ],
+  "Database Management & Warehousing": [
+    "ER Model & Relational Schema Design",
+    "Relational Algebra & Tuple Relational Calculus",
+    "SQL (DDL/DML/DQL, joins, subqueries, aggregation, GROUP BY/HAVING, views)",
+    "Integrity Constraints & Keys",
+    "Functional Dependencies & Normalization (1NF→2NF→3NF→BCNF)",
+    "Indexing & File Organization (B+ trees, hashing, primary/secondary/clustering index)",
+    "Data Types & Data Transformation for Warehousing (min-max/z-score normalization, discretization, sampling, compression)",
+    "Data Warehouse Modelling & Schemas (star, snowflake, fact constellation, fact/dimension tables, concept hierarchies, measures)",
+    "OLAP Operations & OLTP vs OLAP (roll-up, drill-down, slice, dice, pivot)"
+  ],
+  "Machine Learning": [
+    "Simple & Multiple Linear Regression",
+    "Ridge Regression / Regularization (L2 penalty)",
+    "Logistic Regression",
+    "k-Nearest Neighbours (kNN)",
+    "Naive Bayes Classifier",
+    "Linear Discriminant Analysis (LDA)",
+    "Support Vector Machine (SVM) — hard/soft margin",
+    "Decision Trees (entropy, information gain, Gini index)",
+    "Bias-Variance Trade-off",
+    "Cross-Validation (Leave-One-Out, k-Fold)",
+    "Multi-Layer Perceptron / Feed-Forward Neural Network (incl. backpropagation)",
+    "k-Means / k-Medoid Clustering",
+    "Hierarchical Clustering (agglomerative: single/complete/average linkage)",
+    "Principal Component Analysis (PCA)"
+  ],
+  "Artificial Intelligence": [
+    "Uninformed Search (BFS, DFS, Uniform-Cost Search, Iterative Deepening, Bidirectional Search)",
+    "Informed / Heuristic Search (Greedy Best-First, A*, Admissibility, Consistency)",
+    "Adversarial Search (Minimax, Alpha-Beta Pruning, Game Trees)",
+    "Propositional Logic (Syntax, Semantics, CNF, Resolution, Satisfiability/Validity/Entailment)",
+    "First-Order / Predicate Logic (Quantifiers, Unification, Inference)",
+    "Bayesian Networks & Conditional Independence (DAG structure, joint-distribution factorization, d-separation)",
+    "Exact Inference — Variable Elimination",
+    "Approximate Inference — Sampling Methods (rejection sampling, likelihood weighting, Gibbs/MCMC)"
+  ],
+  "General Aptitude": [
+    "Grammar & Sentence Correction (subject-verb agreement, tenses, prepositions, articles, parallelism)",
+    "Vocabulary (synonyms, antonyms, contextual word usage)",
+    "Reading Comprehension",
+    "Sentence Completion / Cloze & Verbal Analogy",
+    "Narrative Sequencing / Paragraph-jumbles",
+    "Arithmetic (ratio-proportion, percentages, profit-loss, SI/CI, time-speed-distance, time & work, ages, mixtures)",
+    "Numerical Computation & Estimation (powers, exponents, logarithms, number properties)",
+    "Permutations, Combinations & elementary Probability",
+    "Mensuration & Geometry",
+    "Data Interpretation (bar/pie/line graphs, tables, 2D/3D plots)",
+    "Number Series & Pattern Recognition",
+    "Logical Deduction, Syllogisms & Statement-Conclusion Reasoning",
+    "Numerical/Logical Relations, Analogy-based & Coding-Decoding Reasoning",
+    "Spatial Aptitude (shape transformation: rotation/mirror/scaling, paper folding/cutting, assembling/grouping, 2D-3D visualization)"
+  ]
+}

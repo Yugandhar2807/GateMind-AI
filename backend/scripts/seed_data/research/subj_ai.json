@@ -1,0 +1,116 @@
+{
+  "subject": "Artificial Intelligence (Search, Logic, Reasoning under Uncertainty) — GATE DA",
+  "weightagePercent": "6-11% of total marks (~6-11 marks out of 100; roughly 7-13% of the 85-mark core subject section)",
+  "difficulty": "Moderate, and distinctly bimodal. Pure-definition/conceptual items (properties of search algorithms, propositional-logic satisfiability/entailment, Bayes-net conditional independence, exact-vs-approximate inference labeling) are quick and low-risk — 2026 post-exam coaching commentary explicitly calls AI one of the \"easier to manage\" sections relative to Probability & Statistics and Machine Learning. But the 1-2 algorithmic-simulation items that appear most years (large-graph DFS/BFS/UCS traversal with specific tie-break/adjacency rules, or a partially-hidden-value game tree requiring alpha-beta pruning) are deliberately long and error-prone, and have been flagged as among the hardest/longest questions in their papers — e.g. GATE DA 2025 Q65 (DFS on a 101-vertex graph with a decreasing-adjacency-order rule) and Q43 (alpha-beta pruning with an unknown \"triangle\" leaf value, asking for the range that triggers pruning). Net effect: low ceiling for deep theory, but real risk of losing 5-10 minutes to one mis-simulated traversal or tree if you haven't drilled the mechanical process.",
+  "pyqTrendByYear": "2024: ~7 questions / 11 marks — GeeksforGeeks' post-exam analysis of the official 2024 paper states the AI section held \"7 questions worth 11 marks,\" consistent with the parent digest's own 65Q/100M-reconciled coaching table (AI 7Q/11M). 2025: the parent digest's own question-by-question classification of the official IIT Roorkee paper (checked against the syllabus) gives AI only 4Q/6M — noticeably lower than 2024 — while several generic coaching \"weightage\" tables (a GeeksforGeeks template, MadeEasy) still show \"7Q/11M\" for 2025 too, which looks like an un-refreshed copy of the 2024 number rather than an independent recount; treat the digest's own paper-derived 4Q/6M as the more trustworthy 2025 figure. One concretely confirmed 2025 AI item: a question asking whether \"variable elimination is an approximate inference algorithm\" (it is not — it's exact), testing the classic exact-vs-approximate inference distinction. 2026: my own targeted searches found no primary official topic-tagged breakdown (none is ever published by the organizing institutes), but multiple independent 2026 post-exam coaching write-ups (PW Live's GATE DA 2026 exam analysis, Careers360-linked commentary) converge on \"AI ~6% weightage, roughly 2-3 questions / 5-7 marks,\" describing search-algorithm and knowledge-representation questions as \"relatively easier compared to other sections.\" Recalled/memory-based 2026 questions include DFS/BFS/A* search problems, consistent with prior years' pattern of at least one search-simulation item. Net read across n=3: AI's question count looks like it has drifted down slightly (7 → 4 → ~2-3), but sources disagree with each other within the same year (recycled tables vs fresh counts) and n=3 with conflicting methodologies is too thin to call this a confirmed trend rather than noise/estimation variance.",
+  "expected2027": "Medium confidence: expect AI to remain the smallest-or-second-smallest of the 7 syllabus sections by marks, most likely in the 5-11 mark / 2-5 question band, because the official syllabus wording for this section has been byte-for-byte identical for three straight years (per the parent digest's direct PDF diff) and GATE DA's overall pattern (65Q/100M, 15 GA + 85 core) has not changed. Within that budget, expect the recurring mix to persist: one search-algorithm-simulation question (BFS/DFS/UCS/A*/alpha-beta, often deliberately long or graph-heavy), one propositional/predicate-logic conceptual question, and one Bayesian-network/inference conceptual question (frequently testing the exact-vs-approximate distinction between variable elimination and sampling, as it did in 2025). Lower confidence on the exact question count given the apparent 2024→2026 drift and the fact that GATE 2027's organizing institute (widely expected but not yet officially confirmed to be IIT Madras) will appoint its own paper-setters, who have full discretion over the MCQ/MSQ/NAT split and could rebalance marks within AI even if the syllabus text itself doesn't change.",
+  "priorityForTopRank": "Medium-High. The topic set is small, closed, and mechanical compared to Probability & Statistics or Machine Learning — a handful of search algorithms, two logic systems, and a short list of Bayes-net/inference facts — so a working professional with limited hours can plausibly get near-full marks on this section for relatively little study time, which is exactly the kind of favorable marks-per-hour trade a Top-50-200 candidate should prioritize. Do not, however, over-invest: total ceiling is only ~6-11 marks, well below Probability & Statistics, Programming/DSA, or Machine Learning, so time beyond \"master the mechanics + drill 15-20 PYQs/mocks\" has poor marginal ROI. Concretely: (1) memorize and be able to instantly reproduce the properties table (completeness/optimality/time/space) for BFS/DFS/UCS/IDS/Greedy/A*, (2) hand-simulate 8-10 alpha-beta and graph-traversal problems under time pressure until the mechanical process is error-proof (this is where marks are actually lost), (3) nail the conceptual distinctions (admissible vs consistent heuristic; exact [variable elimination] vs approximate [sampling] inference; validity vs satisfiability) since these are cheap, discrete, and repeatedly tested, (4) do not chase deep AIMA-level breadth (e.g., full CSP theory, advanced planning) that sits outside the narrow official syllabus wording.",
+  "booksAndResources": [
+    "Stuart Russell & Peter Norvig, \"Artificial Intelligence: A Modern Approach\" (AIMA) — the near-universal top pick across every source surveyed (GeeksforGeeks, GO Classes, Applied Course, DS-AI-GATE repo, community gist); read Ch.3 (uninformed/informed search), Ch.5 (adversarial search/games), Ch.7-8 (propositional & first-order logic), Ch.13-14 (probabilistic reasoning, Bayesian networks, exact/approximate inference) — skip planning/NLP/robotics chapters, they're outside the DA syllabus.",
+    "NPTEL \"Artificial Intelligence: Search Methods for Problem Solving\" — Prof. Deepak Khemani, IIT Madras (the most consistently cross-cited NPTEL course for the search+logic half of this syllabus section).",
+    "NPTEL \"Introduction to Artificial Intelligence\" — Prof. Mausam, IIT Delhi (broader intro that also covers uncertainty/Bayesian-network material).",
+    "GeeksforGeeks \"Artificial Intelligence for GATE\" topic-notes and quizzes — fast conceptual revision and short practice sets aligned to the exact syllabus wording.",
+    "GATE Overflow — previous-year AI questions and discussion threads (best source for seeing exactly how alpha-beta/logic/Bayes-net questions have actually been phrased in 2024/2025/2026; full wiki pages were unreadable in this session (403 errors) but the question bank itself is reachable).",
+    "All 3 official previous-year papers (GATE DA 2024/2025/2026) — solve the AI-section questions from each under timed conditions; this is a small, closed topic where PYQ drilling has outsized value versus broad theory reading.",
+    "Optional cross-reference for the Bayesian-network/inference sub-topics: Kevin Murphy, \"Machine Learning: A Probabilistic Perspective,\" Ch.10 (graphical models) — useful if AIMA's treatment of variable elimination/sampling feels too brief."
+  ],
+  "cheatSheet": [
+    "Uninformed search — BFS: complete, optimal only if step cost uniform, time/space O(b^d). DFS: not complete (infinite/cyclic spaces), not optimal, space O(bm) — cheap on memory. UCS: expands lowest path-cost g(n) node, complete & optimal for any nonnegative costs. IDS: repeated depth-limited DFS, gets BFS's completeness with DFS's space.",
+    "Informed search — Greedy best-first: f(n)=h(n) only, fast but not optimal. A*: f(n)=g(n)+h(n); optimal with an admissible heuristic in tree search (h(n) never overestimates true cost) and with a consistent heuristic in graph search (h(n) ≤ c(n,n')+h(n') for every edge). Consistent ⇒ admissible, not vice versa.",
+    "Adversarial search — Minimax backs up values bottom-up assuming an optimal opponent. Alpha-beta pruning gives the identical result as plain minimax while visiting fewer nodes; prune a branch when α ≥ β. Best case node count drops from O(b^d) to O(b^(d/2)) with ideal move ordering. Watch for GATE-style questions that hide one leaf value and ask what range of that value would trigger a cut.",
+    "Propositional logic — know the difference between satisfiable (true under ≥1 assignment), valid/tautology (true under all assignments), and unsatisfiable/contradiction. CNF = AND of ORs; resolution refutation proves unsatisfiability. Modus Ponens: from P and P→Q, infer Q.",
+    "First-order/predicate logic — quantifiers ∀/∃ don't commute in general (∀x∃y P ≠ ∃y∀x P). Unification finds a substitution making two expressions identical; Skolemization removes ∃ by introducing new function/constant symbols before resolution.",
+    "Bayesian networks — a DAG where the joint distribution factorizes as the product of each node's conditional probability given its parents. A node is conditionally independent of its non-descendants given its parents (the Markov-blanket-style shortcut). Use d-separation to read independence directly off the graph structure without computing anything.",
+    "Exact vs approximate inference — Variable elimination is an EXACT inference algorithm (sums out variables one at a time using factor products) — a repeatedly-tested trap is calling it 'approximate.' Sampling methods (rejection sampling, likelihood weighting, Gibbs sampling/MCMC) are the APPROXIMATE inference family — they trade exactness for tractability on large networks.",
+    "Time management rule of thumb: if a graph-traversal or game-tree question in this section looks like it needs more than ~3-4 minutes of hand-simulation, mark-and-move — it is usually a 1-2 mark item, and re-checking a smaller Prob-Stats/ML NAT is usually higher ROI."
+  ],
+  "commonMistakes": [
+    "Labeling variable elimination as an 'approximate' inference method (it is exact) — this exact confusion was directly tested in GATE DA 2025 and is the single most concretely documented trap in this section.",
+    "Conflating heuristic admissibility (needed for A* optimality under tree search) with consistency (needed for A* optimality under graph search with re-opened nodes) — many candidates apply the wrong condition or assume all admissible heuristics are automatically consistent.",
+    "Mis-simulating alpha-beta pruning on asymmetric or partially-specified game trees (e.g., a leaf with an unknown/parametric value) — GATE DA 2025 Q43 specifically tested whether candidates could correctly reason about a *range* of an unknown value that would cause pruning, not just execute pruning on fully-known numbers.",
+    "Getting DFS/BFS traversal order wrong on graphs with a non-obvious or non-alphabetical adjacency/tie-break rule (e.g., '2025 Q65' specified a rule like 0<j-i≤2 with decreasing adjacency order) — candidates who default to a 'natural' numeric or alphabetical ordering rather than reading the stated rule lose these marks.",
+    "Confusing satisfiability, validity, and entailment in propositional/predicate logic questions, or getting CNF conversion / De Morgan's steps wrong under time pressure.",
+    "Treating knowledge-representation/predicate-logic quantifier questions as interchangeable when quantifier order is swapped (∀x∃y vs ∃y∀x carry different meanings) — a classic and easy-to-miss GATE-style trap.",
+    "Under-preparing this section because its total weight (~6-11 marks) looks small, then losing disproportionate time on the 1-2 hard algorithmic-simulation questions it does contain — the risk in this topic is concentrated in a couple of long items, not spread evenly.",
+    "Relying on generic/recycled coaching 'subject-wise weightage' tables that reuse a prior year's question/marks count for AI without re-deriving it from that year's actual paper (a discrepancy the parent research digest itself flagged between its own paper-derived 2025 count of 4Q/6M and templated tables still showing 7Q/11M)."
+  ],
+  "subtopics": [
+    {
+      "name": "Uninformed Search (BFS, DFS, Uniform-Cost Search, Iterative Deepening, Bidirectional Search)",
+      "prerequisites": [
+        "Programming, Data Structures & Algorithms — graphs, trees, queues/stacks/priority-queues",
+        "Basic algorithmic complexity (Big-O)"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Appears most years, typically as 1 question — either a direct properties/comparison question (completeness, optimality, time/space complexity) or embedded inside a graph-traversal simulation question (e.g., DA 2025 Q65)."
+    },
+    {
+      "name": "Informed / Heuristic Search (Greedy Best-First, A*, Admissibility, Consistency)",
+      "prerequisites": [
+        "Uninformed Search",
+        "Basic optimization/inequality reasoning"
+      ],
+      "importance1to5": 5,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Recurring across 2024-2026; commonly tests the admissible-vs-consistent distinction or asks candidates to trace A* node expansion order with given heuristic values."
+    },
+    {
+      "name": "Adversarial Search (Minimax, Alpha-Beta Pruning, Game Trees)",
+      "prerequisites": [
+        "Informed / Heuristic Search",
+        "Recursion / tree traversal basics"
+      ],
+      "importance1to5": 5,
+      "difficulty1to5": 4,
+      "pyqFrequency": "Present in multiple years; GATE DA 2025 Q43 (alpha-beta pruning with a partially hidden 'triangle' leaf value) is a documented example and one of the harder items in that paper; 2026 memory-based recalls also mention search-tree questions."
+    },
+    {
+      "name": "Propositional Logic (Syntax, Semantics, CNF, Resolution, Satisfiability/Validity/Entailment)",
+      "prerequisites": [
+        "Discrete math / Boolean algebra basics"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Appears most years, usually 1 conceptual MCQ/MSQ on satisfiability, entailment, or CNF conversion — generally considered one of the 'easier to manage' items when it appears."
+    },
+    {
+      "name": "First-Order / Predicate Logic (Quantifiers, Unification, Inference)",
+      "prerequisites": [
+        "Propositional Logic"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Sporadic — appears in some years, sometimes folded into a combined logic question rather than a standalone item; quantifier-order and unification traps are the typical test point."
+    },
+    {
+      "name": "Bayesian Networks & Conditional Independence (DAG structure, joint-distribution factorization, d-separation)",
+      "prerequisites": [
+        "Probability and Statistics — conditional/joint probability, Bayes' theorem"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Recurring most years, typically 1 conceptual question on reading independence relations off a Bayes-net structure or factorizing a joint distribution."
+    },
+    {
+      "name": "Exact Inference — Variable Elimination",
+      "prerequisites": [
+        "Bayesian Networks & Conditional Independence",
+        "Probability and Statistics"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 4,
+      "pyqFrequency": "Confirmed tested in DA 2025 (a question on whether variable elimination is 'approximate' — it is not); appears as a conceptual or light-computation item, not every year."
+    },
+    {
+      "name": "Approximate Inference — Sampling Methods (rejection sampling, likelihood weighting, Gibbs/MCMC)",
+      "prerequisites": [
+        "Exact Inference — Variable Elimination",
+        "Bayesian Networks & Conditional Independence"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Least-frequently tested of the eight subtopics; when it appears it is almost always conceptual (naming/classifying a method as approximate) rather than requiring a full sampling computation."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "subject": "Data Science &amp; Big Data Tools (collection, preprocessing, visualization, Hadoop/Spark)",
+  "weightagePercent": "~1-3% (roughly 1-3 marks/year, i.e. 0-2 questions) — and that entire slice belongs only to the \"data transformation\" and \"data warehouse modelling\" sub-bullets buried inside the official \"Database Management and Warehousing\" section. For the literal topics named in this subject's title — Hadoop, Spark, data collection, and data visualization — the honest weightage is 0%. I fetched and read the official GATE 2026 syllabus PDF directly (gate2026.iitg.ac.in/doc/GATE2026_Syllabus/DA_2026_Syllabus.pdf) myself and confirmed the words \"Hadoop,\" \"Spark,\" \"visualization,\" \"collection,\" and \"big data\" do not appear anywhere in the document — consistent with the digest's own finding that no standalone Data Science/Big Data-tools section exists. The broader DBMS &amp; Warehousing bucket (which includes ER-model/relational algebra/SQL/normal forms too, not just this subject's topics) runs ~6-8 questions / 7-11 marks/year per the digest and my own corroborating search.",
+  "difficulty": "Low, for the small slice that is actually testable (data transformation techniques; star/snowflake schema and OLAP concept hierarchies) — these are short, definitional MCQs/NATs (e.g., \"which normalization method is this,\" \"identify the OLAP operation,\" compute a min-max/z-score value). \"Not applicable\" for Hadoop/Spark/visualization/data-collection since they are not examined at all — there is nothing to rate the difficulty of.",
+  "pyqTrendByYear": "No confirmed PYQ in 2024, 2025, or 2026 has tested Hadoop, Spark, MapReduce/distributed computing, dedicated data-visualization content, or \"data collection\" methodology — zero hits across the official answer keys and every memory-based/coaching question list reviewed in the digest and in my own searches today. Within the adjacent \"data transformation / data warehousing\" sub-bullets that ARE official syllabus content: 2024 — no explicit warehousing/transformation question was flagged in the digest's notable-question notes for that year (DBMS &amp; Warehousing overall estimated at 6Q/8M by coaching aggregators, not officially broken down further). 2025 — the digest's own rigorous per-question classification (built by manually mapping all 55 core questions to the official syllabus) gives Database Mgmt &amp; Warehousing 7Q/11M overall; none of the specific \"notable/hard questions\" the digest singled out for 2025 (DFS graph, alpha-beta pruning, backprop, SVM, PCA, Python/stack/hash-table items) were warehousing-specific, suggesting this year's 7Q/11M was dominated by core relational-model/SQL/normal-form content with at most a small residual (~1 question) on transformation/warehousing. 2026 — direct evidence exists of one explicit data-warehousing item: a memory-based-question report cites \"an OLAP drill-down question on a 3-D data cube (Product type/Month/Country)\" (per the digest's pyq_2026 entry), confirming this sub-slice is examined roughly once a year rather than never. Net read: this topic-family shows up as at most 1-2 questions/year, is not increasing or decreasing detectably given n=3, and Hadoop/Spark/visualization/collection have a flat, unbroken record of zero appearances.",
+  "expected2027": "Two separable predictions, both hedged by the fact that no official GATE 2027 syllabus/brochure exists yet as of 17 Jul 2026 (gate2027.iitm.ac.in still redirects to the 2026 page per the digest). (1) HIGH confidence: the syllabus wording will again exclude Hadoop, Spark, and dedicated \"data visualization\"/\"data collection\" topics. Basis: the official syllabus text has been byte-for-byte identical for all 3 editions to date (2024/2025/2026, independently confirmed both by the digest's own PDF diff and by my own direct read of the 2026 PDF today), there is no signal anywhere (official or coaching) of a planned syllabus revision, and DA sits in a stable, low-churn \"new-paper settling in\" pattern rather than an expanding one. (2) MEDIUM confidence: roughly 1-2 questions (1-3 marks) will again be drawn from the \"data transformation\" (normalization/discretization/sampling/compression) and \"data warehouse modelling\" (star/snowflake schema, concept hierarchies, OLAP measures) sub-bullets, consistent with the thin-but-nonzero 2025/2026 record — LOW confidence on the exact count or format (conceptual MCQ vs. a compute-the-normalized-value NAT vs. an OLAP-cube scenario) given only one clearly-identified instance (2026) to generalize from.",
+  "priorityForTopRank": "Low time-allocation priority, but high ROI-per-hour on the small part that is real. For a working professional targeting AIR Top 50-200: (a) Spend ZERO hours on Hadoop, Spark, MapReduce, distributed computing, or dedicated data-visualization/plotting-library content — it is not in the syllabus and has never appeared in a PYQ; several SEO/coaching pages (I encountered this directly in my own searches today, e.g. an AI-generated summary asserting \"Hadoop, Spark, and distributed computing is part of the GATE DA 2026 syllabus\") make this false claim, and time spent chasing it is pure opportunity cost against Probability & Stats, ML, and Programming/DSA, which carry the real marks. (b) DO spend 1-2 focused hours making sure you can define/identify: the four data-transformation methods (normalization, discretization, sampling, compression), star vs. snowflake schema, concept hierarchies, and the OLAP roll-up/drill-down/slice/dice/pivot operations — these are cheap, high-certainty marks precisely because most candidates under-index on them as \"not really DS.\" Fold this into your broader DBMS &amp; Warehousing study block rather than treating it as a separate subject.",
+  "cheatSheet": [
+    "The official syllabus section name is \"Database Management and Warehousing,\" not \"Big Data Tools\" — verified by reading the primary GATE 2026 syllabus PDF directly: no mention anywhere of Hadoop, Spark, MapReduce, \"big data,\" \"visualization,\" or \"collection.\"",
+    "Only two official sub-bullets are this subject's real territory: (1) Data transformation — normalization, discretization, sampling, compression; (2) Data warehouse modelling — schema for multidimensional data models, concept hierarchies, measures (categorization + computation).",
+    "Star schema = one central fact table + denormalized dimension tables → fast queries, more redundancy. Snowflake schema = dimension tables further normalized into sub-dimension tables → less redundancy, more joins, more normalized.",
+    "OLAP cube operations: roll-up (aggregate up a concept hierarchy, e.g. city→state), drill-down (reverse of roll-up, more detail), slice (fix one dimension), dice (subcube over 2+ dimensions), pivot/rotate (reorient the cube's axes).",
+    "Concept hierarchy = ordering of an attribute's values from specific to general (e.g. day→month→quarter→year), used to drive roll-up/drill-down.",
+    "Data transformation methods to know cold: Normalization = min-max scaling or z-score standardization of numeric attributes (be ready to compute a value, this is NAT-able). Discretization = binning continuous data into intervals/categorical bins. Sampling = reducing data volume (random/stratified). Compression = reducing size while preserving information (numerosity/dimensionality reduction — this is where the syllabus quietly overlaps with PCA, but PCA itself is graded under Machine Learning → Unsupervised Learning, not here).",
+    "Do NOT double-book PCA study time here — it is officially a Machine Learning/dimensionality-reduction topic (appeared as Q60 in 2025 per the digest) and should be studied once, under ML.",
+    "Zero confirmed PYQ across 2024/2025/2026 on Hadoop, Spark, distributed computing, or dedicated data-visualization/chart-type content — do not prepare separate material for these regardless of what generic \"data science syllabus\" listicles claim.",
+    "One confirmed real-world instance: GATE DA 2026 had a memory-based-reported OLAP drill-down question on a 3-D cube (Product type × Month × Country) — this is exactly the flavor of question this sub-slice produces."
+  ],
+  "commonMistakes": [
+    "Believing coaching/SEO pages that state Hadoop, Spark, or \"big data frameworks\" are part of the GATE DA syllabus — I directly fetched and read the official 2026 syllabus PDF today and confirmed these terms appear nowhere in it; at least one AI-generated web summary I encountered during this research made exactly this false claim, so it is a live, current source of candidate confusion, not a hypothetical one.",
+    "Confusing the two different meanings of \"normalization\" in the syllabus: database normal-form normalization (1NF/2NF/3NF/BCNF, under the relational-model sub-bullet) versus data-transformation normalization (min-max/z-score scaling, under the data-transformation sub-bullet). They are tested differently and mixing them up costs easy marks.",
+    "Skipping star/snowflake schema and OLAP operations because they \"feel like generic DBMS, not real data science\" — this is precisely the under-preparation gap that makes these a high-ROI area, since the concepts take under an hour to master but are frequently tested in a straightforward, definitional way.",
+    "Studying PCA twice — once under a \"data preprocessing/big data\" bucket and again under Machine Learning — instead of recognizing it is a single official topic (Unsupervised Learning → dimensionality reduction) and studying it once, thoroughly.",
+    "Spending study hours on pandas/matplotlib/seaborn plotting syntax, Kaggle-style EDA workflows, or Hadoop/Spark architecture under the assumption that \"Data Science\" in the exam's title implies these are tested — none have appeared in any of the three editions to date, and none are in the official syllabus text.",
+    "Treating \"data collection\" methodology (surveys, sampling designs) as part of this bucket rather than recognizing that the only officially examined \"sampling\" concepts sit in two different places — statistical sampling distributions under Probability & Statistics, and data-volume-reduction sampling under Database Management's data-transformation sub-bullet — and conflating the two."
+  ],
+  "booksAndResources": [
+    "For data transformation + data warehouse modelling (the only genuinely testable slice): Han, Kamber & Pei, 'Data Mining: Concepts and Techniques' — read the data-preprocessing chapter (normalization/discretization/sampling/compression) and the data-warehousing/OLAP chapter (star/snowflake schema, concept hierarchies, cube operations); this is the standard reference the wider prep ecosystem cites for exactly this half of the syllabus.",
+    "Silberschatz, Korth & Sudarshan, 'Database System Concepts,' or Elmasri & Navathe, 'Fundamentals of Database Systems' — for the surrounding ER-model/relational-algebra/SQL/normal-form content that shares the same official syllabus section.",
+    "NPTEL DBMS course (IIT Kharagpur, or the IIT Madras/IIIT Bangalore offering) — covers both relational-model basics and warehousing at GATE-appropriate depth.",
+    "Previous-year GATE DA papers (2024, 2025, 2026) — specifically re-solve every DBMS/Warehousing question across all three years; given the tiny sample size for this sub-slice, exhausting the ~20-25 available real questions in this broader section is more valuable than any secondary source.",
+    "Explicitly NOT recommended for GATE DA prep (useful only for general professional/interview knowledge, not for exam marks): 'Hadoop: The Definitive Guide' (Tom White), 'Learning Spark' (O'Reilly), or any dedicated data-visualization course/library documentation (matplotlib/seaborn/Tableau) — these are legitimate data-science skills but confirmed absent from the GATE DA syllabus and PYQ record, so treat them as out of scope for a time-constrained candidate."
+  ],
+  "subtopics": [
+    {
+      "name": "Data Transformation Techniques (Normalization, Discretization, Sampling, Compression)",
+      "prerequisites": [
+        "Basic descriptive statistics (mean, SD) for z-score normalization",
+        "Basic set/data concepts"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Low — roughly 0-1 question/year historically within the broader DBMS & Warehousing bucket; typically a short conceptual MCQ or a compute-the-normalized-value NAT."
+    },
+    {
+      "name": "Data Warehouse Modelling: Star Schema vs. Snowflake Schema (fact tables, dimension tables)",
+      "prerequisites": [
+        "ER-model",
+        "Relational model basics",
+        "Normal forms (for why snowflake schema is more normalized)"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Low-moderate — direct evidence in GATE DA 2026 (an OLAP/cube question was memory-reported); no confirmed explicit instance located in the 2024/2025 notable-question notes, though the broader DBMS&Warehousing bucket (7Q/11M in 2025 per the digest's own tally) may have included smaller residual coverage."
+    },
+    {
+      "name": "Concept Hierarchies & OLAP Operations (roll-up, drill-down, slice, dice, pivot)",
+      "prerequisites": [
+        "Data Warehouse Modelling: Star/Snowflake Schema"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Low — same question family as warehouse modelling; the confirmed 2026 memory-based question (3-D cube: Product type/Month/Country, drill-down) belongs here."
+    },
+    {
+      "name": "OLAP Measures: Categorization & Computation (distributive/algebraic/holistic aggregate measures)",
+      "prerequisites": [
+        "Concept Hierarchies & OLAP Operations"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Very low/unconfirmed in the PYQ record reviewed — a definitional-terminology trap topic (e.g. distinguishing 'holistic' vs 'algebraic' measures) that is cheap to learn but easy to be wrong-footed by if unfamiliar."
+    },
+    {
+      "name": "Data Preprocessing for Machine Learning (missing values, feature scaling, encoding, outlier handling, PCA-based dimensionality reduction)",
+      "prerequisites": [
+        "Linear Algebra (eigenvalues/eigenvectors, projections, for PCA)",
+        "Probability & Statistics (variance, standardization)",
+        "core Machine Learning (Unsupervised Learning)"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Embedded, not standalone — not a separate official syllabus line; PCA itself is officially graded under Machine Learning → Unsupervised Learning (appeared as a conceptual question, Q60, in GATE DA 2025 per the digest) — study it once under ML, not twice under this subject."
+    },
+    {
+      "name": "Data Visualization (chart-type selection, EDA plots, plotting libraries)",
+      "prerequisites": [],
+      "importance1to5": 1,
+      "difficulty1to5": 1,
+      "pyqFrequency": "None confirmed across 2024, 2025, or 2026 official papers or verified memory-based question lists; the term does not appear anywhere in the official syllabus text (directly verified against the primary 2026 PDF) — do not prepare dedicated content."
+    },
+    {
+      "name": "Big Data Frameworks: Hadoop, Spark, MapReduce, Distributed Computing",
+      "prerequisites": [],
+      "importance1to5": 1,
+      "difficulty1to5": 1,
+      "pyqFrequency": "Zero — confirmed absent from the official syllabus text (I fetched and read the primary GATE 2026 syllabus PDF directly and found no mention) and from every officially-sourced or community-sourced PYQ record reviewed for 2024/2025/2026. Note: multiple secondary/coaching web pages incorrectly assert Hadoop/Spark are 'part of the GATE DA syllabus' (I encountered this claim live in a search today) — this is a verified misconception, not fact, and should not drive study-time allocation."
+    },
+    {
+      "name": "Data Collection / Survey Sampling Methodology",
+      "prerequisites": [
+        "Probability & Statistics (sampling distributions, as a related-but-distinct concept)"
+      ],
+      "importance1to5": 1,
+      "difficulty1to5": 1,
+      "pyqFrequency": "Not separately tested as a data-science-pipeline stage; the only overlap is Probability & Statistics' 'sampling distribution' content, which is a different sense of the word 'sampling' from the data-transformation sub-bullet — do not conflate the two when allocating study time."
+    }
+  ]
+}

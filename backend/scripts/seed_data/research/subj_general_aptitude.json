@@ -1,0 +1,177 @@
+{
+  "subject": "General Aptitude (Verbal + Quantitative) — GATE DA",
+  "weightagePercent": "15% (fixed exactly — 10 questions/15 marks in 2024, 2025, and 2026, zero variation; not a range like other subjects)",
+  "difficulty": "Easy-to-Moderate overall (coaching-consensus label used identically for 2024, 2025 and 2026: \"moderate, testing basic verbal reasoning, quantitative aptitude, and logical thinking\"). Most 1-mark items are genuinely easy; a subset of 2-mark Data-Interpretation, multi-step arithmetic, logical-deduction and spatial-reasoning items spike to Moderate-Hard and are deliberately time-consuming distractor traps. No official IISc/IITR/IITG difficulty rating exists for GA — this is coaching-editorial commentary (GeeksforGeeks, PW Live, IMS, etc.), not a GATE-published metric.",
+  "pyqTrendByYear": "Format has been perfectly stable across all 3 GATE DA editions: 2024 = 10 Q / 15 marks (5×1-mark + 5×2-mark), all MCQ (official Final Answer Key, IISc); 2025 = identical 10 Q / 15 marks, Q1–10 of the paper, all MCQ (official answer key, IIT Roorkee); 2026 = identical 10 Q / 15 marks, all MCQ (official pattern page, IIT Guwahati). Zero structural change in 3/3 years — GA is the single most format-stable component of the whole DA paper (core subject question-type mix, by contrast, has varied MCQ/MSQ/NAT counts each year). Difficulty commentary from coaching sites is consistent too: \"moderate\" in 2024 write-ups, \"moderate\" (with some sources saying \"easy\") in 2025, \"easy to moderate\" in 2026 — directionally flat, not trending harder or easier. Caveat: n=3 editions, and no official source publishes a verbal-vs-quant-vs-analytical-vs-spatial question count for any year — I checked GeeksforGeeks' dedicated 2024 and 2025 GATE DA paper-analysis pages directly and both explicitly state they do NOT break GA down by sub-topic, only give the aggregate 10Q/15M figure and a one-line difficulty verdict. One low-quality secondary source (via WebSearch synthesis) incorrectly claimed DA 2026 has a separate \"13-mark Engineering Mathematics\" block alongside GA — this contradicts the confirmed official pattern (DA has no compulsory Engineering-Mathematics section, per the digest's syllabus_pattern research) and appears to be a templated error copied from a core-engineering-branch GATE analysis article; disregard it.",
+  "expected2027": "High confidence GA stays 10 questions / 15 marks, all-MCQ, standard negative marking (−1/3 for 1-mark, −2/3 for 2-mark) in GATE DA 2027. Reasoning: (1) this exact structure has held in 3/3 DA editions to date under three different organizing institutes (IISc, IIT Roorkee, IIT Guwahati), suggesting it is a GATE-wide constant set by the National Coordination Board rather than a paper-specific or OI-specific choice; (2) GA has used the identical 10Q/15M all-MCQ format across essentially all 30 GATE papers for well over a decade pre-dating DA's 2024 debut, so this is not really an n=3 pattern but an n=30-papers × many-years pattern that DA simply inherited. Medium confidence on which specific sub-topics (verbal vs quantitative vs analytical vs spatial) get emphasized in 2027, since no official or reliable unofficial source publishes that breakdown for any past DA year — expect roughly 2-3 questions each from Verbal, Quantitative/DI, and Analytical reasoning, with Spatial Aptitude typically the lightest (0-1 question), based on the general cross-branch GATE GA pattern, not DA-specific tagged data.",
+  "priorityForTopRank": "High — but as a \"maintain, don't over-invest\" priority, not a \"deep-study\" priority. Rationale for a time-constrained working professional targeting AIR 50-200: (a) GA is worth 15% of total marks — comparable to or larger than several core DA sections (Calculus & Optimization ~8-9%, DBMS ~8-11%, AI ~6-11%) — yet requires no new technical mastery, just speed and accuracy on skills most working professionals already partially have from schooling/other competitive exams; (b) it is the single most predictable, zero-syllabus-drift section of the paper (identical format 3/3 years), so prep time invested here has near-zero risk of being wasted on a topic that doesn't appear; (c) because it is pure MCQ with real negative marking and no partial credit, careless errors are unusually costly per question relative to prep effort needed to avoid them — for a candidate separated from AIR 200 by a handful of marks, avoiding 2-3 silly GA slips can be the difference between missing and making Top-200; (d) ROI per study-hour is very high since 1-2 focused weekend sessions on weak sub-areas (commonly Data Interpretation, spatial reasoning, and grammar/vocabulary for STEM-heavy candidates) plus regular timed PYQ drills (using ANY branch's GATE GA PYQs, since the pool/style is shared across all 30 papers) can lock in most of the 15 marks. Do not treat it as low-priority just because it \"feels non-technical\" — that is the single most common and costly mistake time-constrained candidates make with GA.",
+  "cheatSheet": [
+    "Format lock (3/3 years, high-confidence for 2027 too): 10 Q, 15 marks, 5×1-mark + 5×2-mark, ALL MCQ (never MSQ/NAT) — standard negative marking −1/3 (1-mark) / −2/3 (2-mark) applies to every GA question.",
+    "Official 4-part syllabus (same PDF used by all 30 GATE papers, not DA-specific): Verbal Aptitude, Quantitative Aptitude, Analytical Aptitude, Spatial Aptitude.",
+    "Arithmetic core formulas: SI = PTR/100; CI = P(1+r/n)^(nt) − P; %change = (New−Old)/Old ×100; Profit% = (SP−CP)/CP×100; combined work rate = 1/t1+1/t2; relative speed (same dir) = |v1−v2|, (opp dir) = v1+v2.",
+    "Permutations/Combinations: nPr = n!/(n−r)!, nCr = n!/(r!(n−r)!); basic probability P(A)=favorable/total — overlaps with core Prob&Stats subject, so this is 'free' revision.",
+    "Data Interpretation traps: always check the axis/legend units first (thousands vs lakhs, % vs absolute value) before computing — the single most common GA error across all GATE branches.",
+    "Verbal analogy strategy: name the relationship type first (synonym, part-whole, cause-effect, degree) before hunting for the matching pair — guessing on 'feel' causes avoidable negative marking.",
+    "Reading comprehension: skim the question stems before the passage; RC items are usually literal/inference-based, not requiring memorization of the whole passage.",
+    "Logical deduction/syllogism: use a quick Venn-diagram or 'some/all/no' quantifier check rather than intuition — GATE syllogisms are deliberately built to trip intuitive (wrong) answers.",
+    "Spatial reasoning: mentally track ONE reference point/edge through a rotation/mirror/fold rather than the whole figure — reduces error rate on paper-folding and shape-transformation items.",
+    "Grammar high-yield checklist: subject-verb agreement, correct preposition, parallel structure, and countable/uncountable noun usage cover the large majority of GATE grammar items historically.",
+    "Time budget: GA should cost ~15-18 minutes of the 180-minute exam (never more than ~20) — since each question is worth at most 2 marks, do not let any single GA item eat more than ~2 minutes; mark-for-review and move on.",
+    "Since GA carries real negative marking and zero partial credit, do NOT blind-guess a fully-unknown GA question — leave it blank unless you can eliminate at least 2 of 4 options.",
+    "Practice source hack: because the GA question pool/style is shared across ALL 30 GATE papers (not DA-specific), previous-year GA questions from GATE CS/ME/EC/CE/EE etc. are equally valid, high-yield practice material — this multiplies available PYQ volume roughly 10-15x versus DA-only PYQs.",
+    "Myth to reject: some low-quality secondary sources claim DA has a separate 13-mark 'Engineering Mathematics' block in addition to GA — official pattern confirms DA has NO such block; total is GA 15 + Core 85 = 100, full stop."
+  ],
+  "commonMistakes": [
+    "Deprioritizing GA prep entirely because it 'feels easy/non-technical' relative to ML/Linear Algebra — then losing 2-4 marks to rust/speed issues on exam day, which is disproportionately costly for a candidate a few ranks from the AIR-200 cutoff.",
+    "Careless silly errors (misreading a DI graph's units/scale, sign errors in %change, misparsing a grammar/vocabulary question under time pressure) — costly specifically because GA is pure MCQ with real negative marking and zero partial credit, unlike MSQ/NAT core questions.",
+    "Blind-guessing a fully-unknown GA question instead of leaving it blank — with −1/3 or −2/3 penalty and no partial credit, guessing with fewer than 2 options eliminated is negative expected value.",
+    "Overspending time (5+ minutes) on a single tough Data-Interpretation, spatial-reasoning, or logic-puzzle item instead of marking for review and moving to easier core-subject marks elsewhere — GA questions cap at 2 marks each, the same ceiling as far-cheaper-to-solve core MCQs.",
+    "Assuming DA has a separate compulsory 'Engineering Mathematics' section (a claim seen in some low-quality secondary sources) and misallocating prep time — official pattern confirms no such block exists for DA; only GA (15) + Core (85) = 100.",
+    "Neglecting Spatial Aptitude and Verbal grammar/vocabulary entirely (common among CS/data-science-background candidates who over-index on quantitative skills already used daily) since these sub-areas typically get 0-2 questions total but are easy marks with even modest targeted practice.",
+    "Treating all four sub-areas (Verbal, Quantitative, Analytical, Spatial) as equally worth revision time — Quantitative/Arithmetic/DI and Analytical reasoning are consistently the higher-frequency, higher-mark sub-areas across GATE's history versus Spatial, which is typically the lightest.",
+    "Relying only on DA-labeled GA PYQs for practice (a small pool given only 3 editions = ~30 GA questions total) instead of also drilling GA PYQs from other GATE branches, which use the identical syllabus and question style and multiply available practice material substantially."
+  ],
+  "booksAndResources": [
+    "R.S. Aggarwal — 'Quantitative Aptitude for Competitive Examinations' (arithmetic, permutations/combinations, DI fundamentals) — widely recommended generic-GATE resource, not DA-specific.",
+    "R.S. Aggarwal — 'A Modern Approach to Verbal & Non-Verbal Reasoning' (covers Analytical + Spatial Aptitude sub-areas: syllogisms, series, coding-decoding, shape transformation/folding).",
+    "Arun Sharma — 'How to Prepare for Quantitative Aptitude' (CAT-oriented but commonly used by GATE candidates for deeper DI and arithmetic practice).",
+    "Wren & Martin — 'High School English Grammar and Composition' for grammar fundamentals (subject-verb agreement, tenses, prepositions).",
+    "Norman Lewis — 'Word Power Made Easy' for vocabulary/synonym-antonym practice.",
+    "GATE Overflow (gateoverflow.in) Verbal/Quantitative Aptitude PYQ archives — aggregates GA previous-year questions across ALL GATE branches (note: direct fetch of gateoverflow.in wiki/blog pages returned HTTP 403 in this session and in the digest's own research, so only titles/snippets could be confirmed, not full content).",
+    "Previous-year GATE General Aptitude papers from ANY branch (CS, ME, EC, CE, EE, etc.) — since the GA syllabus PDF is identical across all 30 GATE papers, this is the single highest-volume, highest-ROI practice source and is not limited to DA's own ~30 GA PYQs (3 editions × 10 Q).",
+    "Made Easy's generic GA book — per the digest's own books_resources research, this exists as a template used across all GATE papers rather than DA-tuned content, but still directly on-syllabus for GA.",
+    "Unacademy's DA-specific 5-book 'Complete Guide' bundle (2025-26 edition) includes a dedicated GA volume alongside its DA core-subject books, per the digest's research (Amazon.in listing).",
+    "Free practice sources: IndiaBIX, Testbook GA question banks, GeeksforGeeks Aptitude section — useful for quick daily timed drills rather than deep conceptual study.",
+    "Official GA syllabus PDF (identical for every GATE paper, e.g., gate2026.iitg.ac.in/doc/GATE2026_Syllabus/GA_2026_Syllabus.pdf) — worth reading once directly to confirm the exact 4-part official topic list rather than relying on secondary paraphrases."
+  ],
+  "subtopics": [
+    {
+      "name": "Grammar & Sentence Correction (subject-verb agreement, tenses, prepositions, articles, parallelism)",
+      "prerequisites": [
+        "Basic school-level English"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Appears most years; typically 1 question (1-mark)."
+    },
+    {
+      "name": "Vocabulary (synonyms, antonyms, contextual word usage)",
+      "prerequisites": [
+        "Basic school-level English"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Irregular; 0-1 question per year, no official DA-specific tagged count published."
+    },
+    {
+      "name": "Reading Comprehension",
+      "prerequisites": [
+        "Basic school-level English",
+        "Grammar & Sentence Correction"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Consistent across GATE GA generally; typically 1-2 questions, sometimes a linked pair worth 1+2 marks."
+    },
+    {
+      "name": "Sentence Completion / Cloze & Verbal Analogy",
+      "prerequisites": [
+        "Vocabulary (synonyms, antonyms, contextual word usage)"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 2,
+      "pyqFrequency": "1 question in most years."
+    },
+    {
+      "name": "Narrative Sequencing / Paragraph-jumbles",
+      "prerequisites": [
+        "Reading Comprehension"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Occasional; not every year."
+    },
+    {
+      "name": "Arithmetic (ratio-proportion, percentages, profit-loss, SI/CI, time-speed-distance, time & work, ages, mixtures)",
+      "prerequisites": [
+        "School-level mathematics"
+      ],
+      "importance1to5": 5,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Highest-weight GA sub-area historically; typically 2-3 questions per year across GATE GA generally."
+    },
+    {
+      "name": "Numerical Computation & Estimation (powers, exponents, logarithms, number properties)",
+      "prerequisites": [
+        "Arithmetic (ratio-proportion, percentages, profit-loss, SI/CI, time-speed-distance, time & work, ages, mixtures)"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "1 question in most years."
+    },
+    {
+      "name": "Permutations, Combinations & elementary Probability",
+      "prerequisites": [
+        "Arithmetic (ratio-proportion, percentages, profit-loss, SI/CI, time-speed-distance, time & work, ages, mixtures)",
+        "Overlaps with core Probability & Statistics subject"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 3,
+      "pyqFrequency": "0-1 question per year; effectively 'free' revision given overlap with the core DA syllabus."
+    },
+    {
+      "name": "Mensuration & Geometry",
+      "prerequisites": [
+        "Arithmetic (ratio-proportion, percentages, profit-loss, SI/CI, time-speed-distance, time & work, ages, mixtures)"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Occasional; 0-1 question per year."
+    },
+    {
+      "name": "Data Interpretation (bar/pie/line graphs, tables, 2D/3D plots)",
+      "prerequisites": [
+        "Arithmetic (ratio-proportion, percentages, profit-loss, SI/CI, time-speed-distance, time & work, ages, mixtures)"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Very common across GATE GA generally; typically 1-2 questions, often 2-mark, sometimes a linked pair."
+    },
+    {
+      "name": "Number Series & Pattern Recognition",
+      "prerequisites": [
+        "Arithmetic (ratio-proportion, percentages, profit-loss, SI/CI, time-speed-distance, time & work, ages, mixtures)"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Occasional; not every year."
+    },
+    {
+      "name": "Logical Deduction, Syllogisms & Statement-Conclusion Reasoning",
+      "prerequisites": [
+        "None (pure logic, no math/English prerequisite)"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Consistent across GATE GA generally; typically 1-2 questions per year."
+    },
+    {
+      "name": "Numerical/Logical Relations, Analogy-based & Coding-Decoding Reasoning",
+      "prerequisites": [
+        "None (pure logic)"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 3,
+      "pyqFrequency": "1 question in most years."
+    },
+    {
+      "name": "Spatial Aptitude (shape transformation: rotation/mirror/scaling, paper folding/cutting, assembling/grouping, 2D-3D visualization)",
+      "prerequisites": [
+        "None (visualization skill, improves with targeted practice)"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Lightest sub-area historically across GATE GA; typically 0-1 question per year, no official DA-specific tagged count published."
+    }
+  ]
+}

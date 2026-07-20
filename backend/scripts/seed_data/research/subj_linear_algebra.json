@@ -1,0 +1,142 @@
+{
+  "subject": "Linear Algebra (GATE DA)",
+  "weightagePercent": "8-13% of total 100 marks (≈8-13 marks; roughly 5-8 of the 55 core questions)",
+  "difficulty": "Moderate-to-High. Computationally mechanical once formulas are internalized (eigenvalues, rank, LU), but GATE DA's syllabus is explicitly broader than GATE-CS Linear Algebra — it adds projection/orthogonal/idempotent/partition matrices, quadratic forms, and SVD, none of which are core to a standard CS-track linear algebra course. These \"extra\" topics are where most marks are lost by candidates who reuse old GATE-CS notes. NAT-format questions (Gaussian elimination, rank, eigenvalue computation) add time pressure and no partial credit for arithmetic slips.",
+  "pyqTrendByYear": "Precise official topic-tagging doesn't exist for any year (GATE never publishes it), so these are the best available reconstructions: 2024 ≈ 6 questions / 10 marks (~10% of total) — this is the widely-mirrored GeeksforGeeks-style coaching estimate, internally consistent and summing correctly to 65Q/100M across all subjects. 2025 ≈ 8 questions / 12 marks (~12%) — this figure comes from the digest's own author personally classifying all 55 core GATE DA 2025 questions against the official syllabus PDF (higher confidence than a generic coaching table, though still a judgment call at the margins, e.g. whether a Gaussian-elimination-complexity question is \"Linear Algebra\" or \"Programming/Algorithms\"). 2026: no single reliable breakdown exists; my own targeted searches this session found conflicting unofficial estimates ranging from a low ~5-6Q/8-10M (~8%) to vaguer \"15-20% of core\" framings on different coaching pages, with one source's numbers looking like a possible cross-paper data error (implausibly low 2-3 total marks) — net read is that 2026 likely reverted toward the 2024 level (~8-10%) after 2025's slightly elevated share. Style also drifted: 2025's official paper (per the digest) included a purely conceptual PCA/eigenvalue question (Q60, no computation required) alongside heavier applied-geometry items, suggesting a trend toward blending LA with ML application rather than pure textbook computation — but with only 3 editions this is suggestive, not proven.",
+  "expected2027": "Medium confidence: expect Linear Algebra to hold steady at roughly 8-13% of total marks (5-8 questions), because all three editions to date have fallen in or near that band and the official syllabus wording has been byte-for-byte identical for 2024/2025/2026 with no signal of change (per the syllabus_pattern digest entry). High confidence sub-prediction: SVD and eigenvalue/eigenvector questions will reappear in 2027, since both are explicitly named in the syllabus and both feed directly into the Machine Learning section's PCA topic — coaching sources this session independently converged on SVD as \"the most important LA topic, do not skip it.\" Low confidence: whether 2027 will bring more standalone LA questions or more LA-inside-ML hybrid questions (e.g., \"PCA via eigendecomposition\" style items straddling both syllabus sections) — the n=3 sample is too small and no GATE 2027 brochure/syllabus has been published yet (per the digest's syllabus_pattern entry, as of 17 Jul 2026) to call this confidently.",
+  "priorityForTopRank": "High. For a time-constrained working professional targeting AIR 50-200, Linear Algebra offers unusually good ROI: (1) it is almost purely mechanical/formulaic once mastered, unlike Probability & Statistics or AI which require more scenario judgment; (2) at ~8-13% direct weightage it is comparable to Machine Learning or AI alone, but it also silently underpins ML questions (PCA=SVD/eigendecomposition, linear/ridge regression normal equations, SVM margin geometry) and parts of Calculus & Optimization — so mastering it yields marks in at least two syllabus sections; (3) the \"extra\" DA-specific topics (projection/orthogonal/idempotent/partition matrices, quadratic forms, SVD) are a known blind spot for candidates who only studied GATE-CS-style linear algebra, meaning strong prep here is a real differentiator against the broader applicant pool rather than a commodity skill everyone already has. Recommended allocation: front-load this subject early in a study plan (it has few prerequisites beyond high-school algebra) and revisit it again right before the exam paired with the ML PCA/SVM topics for combined-topic recall.",
+  "cheatSheet": [
+    "Rank-nullity theorem: rank(A) + nullity(A) = n, where n = number of columns of A (dim of domain)",
+    "Eigenvalues from det(A − λI) = 0; trace(A) = Σλ_i; det(A) = Πλ_i — fast sanity checks on any eigenvalue computation",
+    "Symmetric matrices: always have real eigenvalues and an orthogonal eigenvector basis (spectral theorem) — this is why PCA works on covariance matrices",
+    "Orthogonal matrix Q: QᵀQ = I = QQᵀ; preserves lengths/angles; all eigenvalues satisfy |λ| = 1",
+    "Idempotent matrix: A² = A ⇒ eigenvalues ∈ {0, 1} only; a projection matrix is idempotent AND symmetric",
+    "Projection matrix onto column space of A: P = A(AᵀA)⁻¹Aᵀ — appears in linear regression's normal equations (OLS hat matrix)",
+    "SVD: A = UΣVᵀ; singular values σ_i = √(eigenvalues of AᵀA) = √(eigenvalues of AAᵀ); U's columns = eigenvectors of AAᵀ, V's columns = eigenvectors of AᵀA",
+    "SVD ↔ PCA link: PCA = eigendecomposition of the covariance matrix = SVD of the (mean-centered) data matrix — a near-guaranteed cross-topic exam link",
+    "A matrix is diagonalizable iff it has n linearly independent eigenvectors (always true if all n eigenvalues are distinct)",
+    "Quadratic form xᵀAx is positive definite iff all eigenvalues of (symmetric) A are > 0, equivalently all leading principal minors are > 0",
+    "LU decomposition = encoding of Gaussian elimination steps (L = multipliers used, U = row-echelon result); watch for when pivoting/row-swaps are needed (no clean LU without a permutation matrix P)",
+    "Partition/block matrix multiplication follows normal matrix multiplication rules block-by-block, provided block dimensions are conformable",
+    "Determinant properties: det(AB) = det(A)det(B); a row swap flips sign; a row of zeros ⇒ det = 0; det(Aᵀ) = det(A)",
+    "Gaussian elimination row-reduces to find rank quickly: rank = number of non-zero rows in row-echelon form"
+  ],
+  "commonMistakes": [
+    "Reusing old GATE-CS linear algebra notes/courses, which skip DA-specific syllabus items — projection, orthogonal, idempotent, and partition matrices, and quadratic forms — leaving easy marks on the table",
+    "Treating SVD as optional/skippable because it isn't emphasized in generic engineering-math courses, despite being explicitly named in the official syllabus every year since 2024 and repeatedly flagged by coaching sources as the single most important LA topic",
+    "Confusing eigenvalues with singular values (they coincide only for symmetric positive semi-definite matrices) — a frequently-cited specific trap",
+    "Confusing algebraic multiplicity (multiplicity of λ as a root of the characteristic polynomial) with geometric multiplicity (dimension of the eigenspace) — these differ for defective/non-diagonalizable matrices",
+    "Losing NAT marks to arithmetic slips under time pressure during Gaussian elimination or eigenvalue computation — there is no partial credit on NAT, so a single sign error zeroes the question",
+    "Over-investing prep time in numerical-methods-style iterative eigenvalue/rank algorithms that are out of scope for GATE DA's syllabus, at the expense of the syllabus's actual named topics",
+    "Not connecting Linear Algebra prep to the Machine Learning section (PCA, SVM geometry, regression normal equations) — missing 'free' cross-topic marks and under-preparing for hybrid LA+ML questions like 2025's conceptual PCA/eigenvalue item",
+    "Memorizing formulas for special matrices (idempotent, orthogonal, projection) without practicing quickly identifying which type a given matrix is from its stated properties — a recurring GATE DA question pattern per coaching-source review"
+  ],
+  "booksAndResources": [
+    "Gilbert Strang, 'Introduction to Linear Algebra' — the single most cross-source-consistent recommendation across all sources reviewed (GeeksforGeeks, GO Classes, Applied Course, MathsCare, Analytics Vidhya, DS-AI-GATE, community resources)",
+    "Gilbert Strang's MIT 18.06 lecture series (MIT OpenCourseWare) — paired with the textbook by nearly every source",
+    "3Blue1Brown, 'Essence of Linear Algebra' video series — for building geometric intuition on eigenvectors, SVD, projections before grinding computation",
+    "GATE Overflow — Linear Algebra previous-year-question bank (gateoverflow.in/questions/mathematics/linear-algebra) for topic-tagged PYQs and community solutions, though direct full-text fetch of some GATE Overflow pages was blocked (403) in this and prior research sessions — accessible via browser even if not via automated fetch",
+    "Official GATE DA previous-year papers for 2024, 2025, and 2026 (from gate2024.iisc.ac.in, gate2025.iitr.ac.in, gate2026.iitg.ac.in respectively) — solve every LA question untimed first, then re-solve timed, per a recurring coaching recommendation",
+    "practicepaper.in/gate-da/linear-algebra — subject-wise GATE DA-specific LA question compilation",
+    "DS-AI-GATE/dsai-gate community GitHub repo — organized exactly along the 7 official syllabus sections with per-topic Books/NPTEL/Problem-set links, includes a dedicated Linear Algebra folder",
+    "GO Classes and Applied Course (gate.appliedroots.com) DA-specific Linear Algebra course notes — the two coaching brands found to have the most visibly DA-tuned (not generic GATE-CS-recycled) linear algebra content",
+    "Paras Chopra (GATE DA 2024 AIR-2) publicly recommended Gilbert Strang's MIT lectures specifically for this subject, per his prep write-up on piyushwairale.com"
+  ],
+  "subtopics": [
+    {
+      "name": "Vector spaces, subspaces, basis, dimension, span",
+      "prerequisites": [
+        "High-school algebra"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Low-moderate as a standalone question; more often tested implicitly as the conceptual basis for rank/independence questions"
+    },
+    {
+      "name": "Linear dependence and independence",
+      "prerequisites": [
+        "Vector spaces, subspaces, basis, dimension, span"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Low-moderate; frequently embedded inside rank/nullity or eigenvector questions rather than asked alone"
+    },
+    {
+      "name": "Matrices and special matrix types (projection, orthogonal, idempotent, partition matrices)",
+      "prerequisites": [
+        "Vector spaces, subspaces, basis, dimension, span",
+        "Basic matrix algebra"
+      ],
+      "importance1to5": 5,
+      "difficulty1to5": 4,
+      "pyqFrequency": "High and DA-distinctive — explicitly named in the syllabus every year (2024-2026) and flagged by every coaching source as the biggest gap versus GATE-CS-style prep; recurring 'identify the matrix type from given properties' question pattern"
+    },
+    {
+      "name": "Determinants",
+      "prerequisites": [
+        "Basic matrix algebra"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Moderate; usually a supporting tool inside eigenvalue or system-solvability questions rather than a standalone topic"
+    },
+    {
+      "name": "Systems of linear equations and Gaussian elimination",
+      "prerequisites": [
+        "Matrices and special matrix types (projection, orthogonal, idempotent, partition matrices)",
+        "Determinants"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "High; a common source of NAT questions (solve for a variable / determine number of solutions) across all three editions"
+    },
+    {
+      "name": "Rank and nullity (rank-nullity theorem, solvability of systems)",
+      "prerequisites": [
+        "Linear dependence and independence",
+        "Systems of linear equations and Gaussian elimination"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "High; one of the four recurring PYQ clusters identified across 2024-2026 papers per cross-source review this session"
+    },
+    {
+      "name": "Eigenvalues and eigenvectors (incl. diagonalization, characteristic polynomial, algebraic vs geometric multiplicity)",
+      "prerequisites": [
+        "Determinants",
+        "Matrices and special matrix types (projection, orthogonal, idempotent, partition matrices)"
+      ],
+      "importance1to5": 5,
+      "difficulty1to5": 4,
+      "pyqFrequency": "Very high; present in all three editions to date, both as direct computation questions and as the basis for SVD/PCA-linked questions"
+    },
+    {
+      "name": "Quadratic forms (incl. positive definiteness)",
+      "prerequisites": [
+        "Eigenvalues and eigenvectors (incl. diagonalization, characteristic polynomial, algebraic vs geometric multiplicity)"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Low-moderate; explicitly in the syllabus but appears less frequently in reconstructed PYQ tallies than eigenvalues or rank"
+    },
+    {
+      "name": "LU decomposition",
+      "prerequisites": [
+        "Systems of linear equations and Gaussian elimination"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Moderate; syllabus-named, tested more as a computational/NAT item than a conceptual one"
+    },
+    {
+      "name": "Singular Value Decomposition (SVD)",
+      "prerequisites": [
+        "Eigenvalues and eigenvectors (incl. diagonalization, characteristic polynomial, algebraic vs geometric multiplicity)",
+        "Matrices and special matrix types (projection, orthogonal, idempotent, partition matrices)"
+      ],
+      "importance1to5": 5,
+      "difficulty1to5": 5,
+      "pyqFrequency": "High and rated by coaching sources as the single most important LA topic; direct conceptual/computational questions plus indirect appearances via the Machine Learning section's PCA sub-topic (e.g. GATE DA 2025's Q60, a PCA/eigenvalue conceptual question per the digest)"
+    }
+  ]
+}

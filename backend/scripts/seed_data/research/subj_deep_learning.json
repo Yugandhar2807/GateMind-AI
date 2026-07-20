@@ -1,0 +1,137 @@
+{
+  "subject": "Deep Learning (Neural Networks / MLP) — NOTE: not an official standalone GATE DA syllabus section; it exists only as the final sub-bullet (\"multi-layer perceptron, feed-forward neural network\") under Machine Learning → Supervised Learning, identically worded across the 2024/2025/2026 syllabus PDFs. Treat this report as covering that narrow official scope, not the broader industry meaning of \"Deep Learning\" (CNN/RNN/Transformers/optimizers are NOT in the syllabus).",
+  "weightagePercent": "1-3% (roughly 1-3 marks out of 100; typically exactly one question per edition)",
+  "difficulty": "Moderate. Conceptually simple (a single hidden-layer MLP, standard activation functions) but computationally error-prone under exam time pressure — parameter-counting off-by-one errors (forgetting bias terms) and chain-rule/derivative slips in backprop are the main risk. Because the official scope is so narrow (no CNN/RNN/deep architectures), it never reaches \"hard\" in the way Probability & Statistics NAT questions or graph-algorithm questions do — it is a bounded, drillable skill once you've done 10-15 worked examples by hand.",
+  "pyqTrendByYear": "2024: No dedicated MLP/feedforward-NN question could be confirmed in any source reachable in this research (this is a genuine data gap, not a confirmed zero) — the topic was folded into the general ~8Q/11M \"Machine Learning\" bucket that year. 2025: Confirmed — Q42 was a 2-mark NAT requiring backpropagation through a small network with a ReLU activation and concrete numeric weights, sitting inside that year's 9Q/14M Machine Learning bucket (per the digest's own hand-tally of the official answer key). 2026: Confirmed via secondary reporting — a fully-connected feed-forward MLP question specified 30 input neurons, two hidden layers (4 and 3 neurons), and 1 output neuron, almost certainly a parameter-counting or architecture-arithmetic NAT/MCQ item; I could not independently verify its exact mark value beyond secondary sources. Net pattern across the two years with concrete evidence (2025, 2026): exactly one applied/numerical MLP question per edition, worth 1-2 marks, with zero PYQ evidence across all three editions of CNN, RNN, LSTM, attention, dropout/batchnorm, or any optimizer beyond plain gradient descent — consistent with the syllabus text's narrow wording. Sample size is only n=2 confirmed years (n=3 possible), so this should be read as a real but thin pattern.",
+  "expected2027": "Medium confidence — expect GATE DA 2027 to again carry exactly one (occasionally two) computational/conceptual question on MLP/feed-forward NN worth roughly 1-2 marks (~1-2% of the paper), most likely a parameter-counting item or a small forward-pass/one-step-backpropagation calculation. Reasoning: (a) the official syllabus text naming only \"MLP, feed-forward neural network\" has been byte-identical across all three editions so far, giving paper-setters no textual hook to expand into CNN/RNN/deep-architecture territory; (b) both years I could directly confirm (2025, 2026) independently produced exactly one such question in an analogous computational style. Confidence is capped at Medium (not High) because this rests on only two confirmed data points plus a syllabus-text argument, 2024 could not be confirmed either way, and GATE DA's organizing institute rotates yearly (2027 is expected but not yet officially confirmed to be IIT Madras per the digest) — a new setter could stretch into adjacent conceptual trivia (e.g., vanishing gradients, softmax+cross-entropy, universal approximation) without any syllabus change, so I'd rate the narrower claim \"CNN/RNN/optimizers will NOT appear in 2027\" as Medium-Low confidence rather than High.",
+  "priorityForTopRank": "Low-Medium, and one of the lowest-priority pockets in the entire GATE DA syllabus for a time-constrained Top 50-200 candidate. Cap your investment at 2-4 focused hours: master parameter-counting arithmetic and one clean worked example each of forward-pass computation and a single backpropagation weight-update step (sigmoid, tanh, and ReLU variants), because this reliably buys 1-2 \"free\" marks with almost no ambiguity once drilled. Do NOT spend time on CNN, RNN, LSTM, Transformers, dropout/batchnorm, Adam/RMSprop, or any deep-learning framework/coding — none of this is in the official syllabus text and there is zero PYQ evidence for it across all three editions (2024-2026), despite several coaching sites incorrectly implying broader \"deep learning\" coverage. Every hour spent here should be weighed against far higher-yield subjects flagged in the wider digest — Probability & Statistics, Linear Algebra, Programming/DSA, and the rest of Machine Learning (regression/classification/SVM/trees/clustering/PCA) — which carry 3-6x this topic's weightage.",
+  "subtopics": [
+    {
+      "name": "Perceptron & linear separability (single-layer perceptron, XOR problem)",
+      "prerequisites": [
+        "Linear Algebra: vectors and dot products",
+        "Machine Learning: classification basics"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Occasional — appears as a conceptual MCQ trap (e.g., 'can a single perceptron solve XOR?'); no confirmed dedicated question in 2024-2026 records but a classic GATE-style distractor"
+    },
+    {
+      "name": "MLP architecture & parameter counting (layers, neurons, weight-matrix dimensions, bias terms)",
+      "prerequisites": [
+        "Linear Algebra: matrix dimensions/multiplication",
+        "Perceptron & linear separability"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Confirmed in 2026 (30-4-3-1 network architecture question); highest-confidence recurring pattern — the single most drillable 'free marks' sub-topic"
+    },
+    {
+      "name": "Activation functions (sigmoid, tanh, ReLU, softmax) — forms, ranges, derivatives",
+      "prerequisites": [
+        "Calculus and Optimization: single-variable differentiation"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Frequent as an embedded ingredient inside forward-pass/backprop numericals (e.g., 2025's ReLU-based question) rather than a standalone question"
+    },
+    {
+      "name": "Forward propagation (computing layer outputs given weights, inputs, activation function)",
+      "prerequisites": [
+        "Linear Algebra: matrix multiplication",
+        "Activation functions"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Frequent — the computational base for essentially every MLP numerical seen so far (2025, 2026)"
+    },
+    {
+      "name": "Backpropagation & gradient computation (chain rule, weight-update via gradient descent)",
+      "prerequisites": [
+        "Calculus and Optimization: chain rule, partial derivatives, single-variable optimization",
+        "Forward propagation"
+      ],
+      "importance1to5": 5,
+      "difficulty1to5": 4,
+      "pyqFrequency": "Confirmed 2025 (Q42, concrete-number backprop through ReLU) — the single highest-value, most calculation-heavy sub-topic; most common source of arithmetic errors under time pressure"
+    },
+    {
+      "name": "Loss functions for NN training (MSE, cross-entropy) and their pairing with output activation",
+      "prerequisites": [
+        "Probability and Statistics: likelihood basics",
+        "Machine Learning: regression/classification"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Rare as a standalone question; usually implicit inside a backprop/classification question rather than tested in isolation"
+    },
+    {
+      "name": "Bias-variance / overfitting in the NN context (capacity, regularization intuition)",
+      "prerequisites": [
+        "Machine Learning: bias-variance trade-off, cross-validation (official syllabus item)"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Rare — mostly tested via general (non-NN-specific) bias-variance questions elsewhere in the ML section, not as an NN-specific item"
+    },
+    {
+      "name": "Why hidden layers matter (universal approximation intuition, nonlinear decision boundaries)",
+      "prerequisites": [
+        "Perceptron & linear separability"
+      ],
+      "importance1to5": 2,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Rare/conceptual — occasional one-liner MCQ, no confirmed dedicated question 2024-2026"
+    },
+    {
+      "name": "Vanishing/exploding gradients (conceptual awareness only)",
+      "prerequisites": [
+        "Backpropagation & gradient computation"
+      ],
+      "importance1to5": 1,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Very rare to none — not in the official syllabus wording; appears only in some coaching-site 'DL' lists with zero confirmed PYQ evidence in 3 editions"
+    },
+    {
+      "name": "CNN / RNN / LSTM / Transformers / optimizers (Adam, RMSprop) / dropout & batchnorm",
+      "prerequisites": [
+        "MLP architecture",
+        "Backpropagation & gradient computation"
+      ],
+      "importance1to5": 1,
+      "difficulty1to5": 5,
+      "pyqFrequency": "None observed in any of the 3 editions (2024-2026) and not present in the official syllabus text — explicitly deprioritize; several coaching sites list these under 'Deep Learning' but this is scope inflation beyond what GATE DA actually examines"
+    }
+  ],
+  "cheatSheet": [
+    "Official syllabus scope is exactly: 'multi-layer perceptron (MLP), feed-forward neural network' — a single sub-bullet inside Machine Learning → Supervised Learning, byte-identical in 2024/2025/2026. No CNN, RNN, LSTM, Transformer, GAN, autoencoder, Adam/RMSprop, dropout, or batchnorm appears anywhere in the official text.",
+    "Parameter count of a fully-connected layer = (n_inputs × n_outputs) weights + n_outputs biases. Total trainable parameters of an MLP = sum of this over every consecutive layer pair. (This is the exact pattern behind the confirmed 2026 question: a 30-4-3-1 network.)",
+    "Forward pass, one neuron: output = activation(Σ w_i·x_i + b).",
+    "Sigmoid: σ(x) = 1/(1+e^-x); derivative = σ(x)·(1-σ(x)); output range (0,1); saturates for large |x|.",
+    "Tanh: derivative = 1 - tanh²(x); output range (-1,1).",
+    "ReLU: f(x) = max(0,x); derivative = 1 for x>0, 0 for x<0 (treat x=0 per the question's stated convention — this exact function was the basis of GATE DA 2025's backprop NAT question).",
+    "Softmax (multi-class output layer) is conventionally paired with cross-entropy loss; sigmoid output is paired with binary cross-entropy; linear output is paired with MSE (regression).",
+    "Backpropagation is chain rule applied layer-by-layer, output-to-input: ∂L/∂w = (∂L/∂output)·(∂output/∂net)·(∂net/∂w). Weight update: w_new = w_old − η·(∂L/∂w), where η is the learning rate.",
+    "XOR is not linearly separable → a single-layer perceptron cannot solve it; at least one hidden layer is required. (Classic conceptual trap MCQ.)",
+    "Drill target: given a small network (e.g., 2 input – 2 hidden – 1 output), be able to compute the full forward pass AND one backprop weight-update step by hand in under 4 minutes — this single skill covers essentially all PYQ evidence seen so far (2025, 2026).",
+    "Time-box rule: if a question mentions CNN/RNN/Transformer/optimizer-name/regularization technique, it is very likely testing general ML vocabulary recognition, not deep architecture mechanics — don't over-invest trying to derive convolution arithmetic etc., since none of that is in the syllabus."
+  ],
+  "commonMistakes": [
+    "Assuming 'Deep Learning' is a broad syllabus area and spending disproportionate hours on CNNs, RNNs, Transformers, or DL frameworks (PyTorch/TensorFlow) that are not in the official GATE DA syllabus and have zero PYQ evidence across 2024-2026.",
+    "Miscounting MLP parameters — most commonly forgetting to add the bias term per neuron, or transposing the weight-matrix dimension order between two layers of different sizes.",
+    "Chain-rule/derivative slips during backpropagation, especially with ReLU's non-differentiability at x=0, or mixing up σ(1-σ) (sigmoid derivative) with 1-tanh²(x) (tanh derivative).",
+    "Treating a multi-layer numerical (2+ hidden layers) as requiring memorized matrix-calculus notation rather than just repeating the same single-neuron forward/backward computation layer by layer — this causes unnecessary panic and wasted time under exam pressure.",
+    "Under-preparing the Calculus & Optimization fundamentals (chain rule, partial derivatives) that backpropagation silently depends on, then being unable to execute the arithmetic quickly even though the 'ML concept' is understood.",
+    "Ignoring this topic entirely because it 'feels advanced,' and thereby forfeiting a near-guaranteed 1-2 marks that require only a few hours of targeted arithmetic drilling rather than deep conceptual mastery.",
+    "Confusing syllabus-driven exam prep with general data-science learning — reading a full Deep Learning textbook (e.g., Goodfellow et al.) end-to-end for a topic that occupies at most one sub-bullet and 1-3% of the paper is a poor time trade-off for a time-constrained working professional."
+  ],
+  "booksAndResources": [
+    "GATE DA official syllabus PDF (any year's — text is identical) — read literally to keep your MLP/DL scope disciplined and avoid over-studying CNN/RNN content that isn't examined.",
+    "3Blue1Brown 'Neural Networks' YouTube series (4 videos) — the most time-efficient way to build correct forward-pass and backpropagation intuition visually; matches this narrow syllabus scope well and is repeatedly cross-referenced by GATE DA prep sources per the broader digest.",
+    "Andrew Ng, Coursera 'Neural Networks and Deep Learning' (Course 1 of the Deep Learning Specialization only — do NOT need Courses 2-5 on CNNs/sequence models/hyperparameter tuning) — covers forward/backward propagation mechanics rigorously with worked examples.",
+    "Christopher Bishop, 'Pattern Recognition and Machine Learning,' Chapter 5 (Neural Networks) — a bounded, rigorous treatment matching GATE's classical-ML framing of MLPs; already the most-recommended ML text across the wider DA prep ecosystem per the digest.",
+    "Previous-year GATE DA papers (2024, 2025, 2026 official question papers/answer keys from gate2024.iisc.ac.in, gate2025.iitr.ac.in, gate2026.iitg.ac.in) — the single best resource: practice the exact parameter-counting and backprop-arithmetic style actually tested, e.g. 2025's ReLU-backprop NAT and 2026's 30-4-3-1 architecture question.",
+    "GO Classes / Applied Course DA-specific Machine Learning modules — per the wider digest these DA-focused coaching platforms fold MLP/feed-forward NN into their broader ML material rather than treating it as a separate deep-learning course, which mirrors the syllabus's own framing.",
+    "Explicitly skip for exam purposes (high effort, ~zero syllabus/PYQ ROI): Goodfellow, Bengio & Courville 'Deep Learning' (full text), any CNN/RNN/Transformer-specific course, and any hands-on PyTorch/TensorFlow tutorial — none of these map to tested content across 2024-2026."
+  ]
+}

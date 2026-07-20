@@ -1,0 +1,662 @@
+[
+  {
+    "resources": [
+      {
+        "title": "Bayes Theorem | Statement, Formula, Derivation, and Examples",
+        "url": "https://www.geeksforgeeks.org/maths/bayes-theorem/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "beginner",
+        "description": "Gives the exact formula, a full derivation from conditional probability and the law of total probability, and worked examples for prior/posterior/likelihood terms that GATE DA numericals on Bayes' theorem directly test.",
+        "is_free": true
+      },
+      {
+        "title": "Lec-48: Bayes Theorem & Total Probability with Examples",
+        "url": "https://www.youtube.com/watch?v=SktJqrYereQ",
+        "platform": "YouTube",
+        "instructor": "Gate Smashers",
+        "resource_type": "video",
+        "level": "intermediate",
+        "description": "A GATE-exam-focused walkthrough (published Jan 2024) that pairs the total probability theorem with Bayes' theorem and solves multiple exam-style numericals step by step, which is exactly the problem-solving skill GATE DA questions on this topic require.",
+        "is_free": true
+      },
+      {
+        "title": "Pattern Recognition: Lecture 16 - Bayes Theorem",
+        "url": "https://www.youtube.com/watch?v=GSEu5hn2q98",
+        "platform": "NPTEL (YouTube)",
+        "instructor": "Prof. Sukhendu Das, IIT Madras",
+        "resource_type": "lecture_series",
+        "level": "intermediate",
+        "description": "An NPTEL lecture segment titled specifically \"Bayes Theorem\" (Mod-02 Lec-16 of the IIT Madras Pattern Recognition course) that derives the theorem rigorously and connects it to classification/decision-making, bridging pure probability into the ML applications GATE DA also tests.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Bayes' Theorem",
+    "subject": "Probability & Statistics"
+  },
+  {
+    "resources": [
+      {
+        "title": "Continuous Probability Distributions (Uniform, Exponential, Normal — PDFs, mean, variance)",
+        "url": "https://www.geeksforgeeks.org/maths/continuous-probability-distributions/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "intermediate",
+        "description": "Lays out, in one compact page, the exact PDF/mean/variance formulas for uniform, exponential, and normal distributions that GATE DA numericals directly test, with worked examples rather than generic probability theory.",
+        "is_free": true
+      },
+      {
+        "title": "NOC: Probability Theory for Data Science — Week 3 (Poisson, Uniform, Exponential, Gamma, Normal distributions)",
+        "url": "https://nptel.ac.in/courses/111106525",
+        "platform": "NPTEL",
+        "resource_type": "lecture_series",
+        "level": "intermediate",
+        "instructor": "Prof. Ishapathik Das, IIT Tirupati",
+        "description": "This is the rare NPTEL course framed specifically for data science (not generic engineering probability), and its Week 3 module is dedicated entirely to Poisson, uniform, exponential, and normal distributions — the exact four listed in this GATE DA topic.",
+        "is_free": true
+      },
+      {
+        "title": "Probability Ch3: Geometric, Binomial, Poisson, Uniform, Exponential, Normal Distributions",
+        "url": "https://www.youtube.com/watch?v=4j2Qint4AfE",
+        "platform": "YouTube",
+        "resource_type": "video",
+        "level": "beginner",
+        "instructor": "Diana Lee (Santa Clara Univ., Amth108 course)",
+        "description": "A single focused lecture that walks through Poisson, uniform, exponential, and normal distributions back-to-back with derivations, which is useful for building the side-by-side intuition (PDF shape, memoryless property, when each applies) that GATE DA conceptual questions probe.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Continuous Random Variables & Distributions (uniform, exponential, Poisson, normal)",
+    "subject": "Probability & Statistics"
+  },
+  {
+    "resources": [
+      {
+        "title": "T-test: Types, Formulas & Worked Examples",
+        "url": "https://www.geeksforgeeks.org/t-test/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "intermediate",
+        "description": "Walks through all three t-test variants (one-sample, independent two-sample, paired) with the exact test-statistic formulas, degrees-of-freedom, and numerical worked examples that GATE DA questions require you to compute by hand.",
+        "is_free": true
+      },
+      {
+        "title": "Z-test: Formula, Types, Examples",
+        "url": "https://www.geeksforgeeks.org/z-test/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "intermediate",
+        "description": "Derives the Z = (x̄ − μ)/(σ/√n) statistic and shows one-sample and two-sample z-test numericals, directly targeting the large-sample/known-variance scenario GATE DA distinguishes from the t-test.",
+        "is_free": true
+      },
+      {
+        "title": "Inference for categorical data (chi-square tests) — unit",
+        "url": "https://www.khanacademy.org/math/statistics-probability/inference-categorical-data-chi-square-tests",
+        "platform": "Khan Academy",
+        "resource_type": "lecture_series",
+        "level": "intermediate",
+        "description": "A free, no-signup video-and-practice unit built specifically around chi-square goodness-of-fit and independence tests, giving the conceptual intuition plus step-by-step calculation of the χ² = Σ(O−E)²/E statistic that GATE DA's categorical-data questions test.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Hypothesis Testing (z-test, t-test, chi-squared test)",
+    "subject": "Probability & Statistics"
+  },
+  {
+    "topic_id": 0,
+    "resources": [
+      {
+        "title": "Lecture 16: Projection Matrices and Least Squares (18.06 Linear Algebra)",
+        "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-16-projection-matrices-and-least-squares/",
+        "platform": "MIT OpenCourseWare",
+        "instructor": "Gilbert Strang",
+        "resource_type": "video",
+        "level": "intermediate",
+        "description": "Strang derives the projection matrix P = A(A^T A)^-1 A^T from first principles and proves its defining idempotent (P^2=P) and symmetric (P^T=P) properties on the board, which is exactly the derivation GATE DA questions on projection/orthogonal-projection matrices are built around.",
+        "is_free": true
+      },
+      {
+        "title": "Projection Matrix",
+        "url": "https://www.geeksforgeeks.org/engineering-mathematics/projection-matrix/",
+        "platform": "GeeksforGeeks",
+        "instructor": "",
+        "resource_type": "article",
+        "level": "beginner",
+        "description": "This write-up directly connects the three related special-matrix concepts in the topic (projection, idempotent P^2=P, and orthogonal projection when P is also symmetric) with worked numeric examples, making it a fast reference for exam-style property checks.",
+        "is_free": true
+      },
+      {
+        "title": "Partition Matrix",
+        "url": "https://www.geeksforgeeks.org/engineering-mathematics/partition-matrix/",
+        "platform": "GeeksforGeeks",
+        "instructor": "",
+        "resource_type": "article",
+        "level": "beginner",
+        "description": "Covers the one sub-topic (partitioned/block matrices) not addressed by the projection-matrix resources above, with a worked 4x4 block decomposition and block-level addition/multiplication/inverse rules that mirror how GATE DA tests partitioned-matrix operations.",
+        "is_free": true
+      }
+    ],
+    "topic_name": "Matrices and special matrix types (projection, orthogonal, idempotent, partition matrices)",
+    "subject": "Linear Algebra"
+  },
+  {
+    "resources": [
+      {
+        "title": "Eigenvectors and eigenvalues | Essence of linear algebra, Chapter 14",
+        "url": "https://www.youtube.com/watch?v=PFDu9oVAE-g",
+        "platform": "YouTube",
+        "resource_type": "video",
+        "instructor": "3Blue1Brown (Grant Sanderson)",
+        "level": "beginner",
+        "description": "Builds the core geometric intuition for exactly this topic (why Av=λv means the vector's span doesn't rotate) that most GATE aspirants skip in favor of rote characteristic-polynomial mechanics, making the subsequent algebra (det(A-λI)=0, multiplicities) click conceptually rather than by memorization.",
+        "is_free": true
+      },
+      {
+        "title": "Algebraic and Geometric Multiplicity",
+        "url": "https://www.geeksforgeeks.org/engineering-mathematics/algebraic-and-geometric-multiplicity/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "instructor": "GeeksforGeeks",
+        "level": "intermediate",
+        "description": "Directly targets the exact GATE-testable sub-skill this topic emphasizes — computing the characteristic polynomial via det(A−λI) and then distinguishing algebraic vs. geometric multiplicity (with the key inequality geometric ≤ algebraic) — through five fully worked 2x2/3x3 examples, free with no signup.",
+        "is_free": true
+      },
+      {
+        "title": "Mod-01 Lec-06: Method to Find Eigenvalues and Eigenvectors, Diagonalization of Matrices",
+        "url": "https://www.youtube.com/watch?v=6Zacf25sXhk",
+        "platform": "YouTube (NPTEL)",
+        "resource_type": "lecture_series",
+        "instructor": "NPTEL (Advanced Engineering Mathematics course, IIT)",
+        "level": "intermediate",
+        "description": "An NPTEL lecture segment that walks through the actual computational procedure GATE expects — finding eigenvalues/eigenvectors from the characteristic equation and then using them to diagonalize a matrix (A = PDP⁻¹) — rather than a generic full-course linear algebra lecture.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Eigenvalues and eigenvectors (incl. diagonalization, characteristic polynomial, algebraic vs geometric multiplicity)",
+    "subject": "Linear Algebra"
+  },
+  {
+    "resources": [
+      {
+        "title": "Lecture 13: Introduction to Singular Value Decomposition (Part-1) | GO Classes Linear Algebra GATE DA",
+        "url": "https://www.youtube.com/watch?v=s4V2sN3nduI",
+        "platform": "YouTube",
+        "resource_type": "video",
+        "level": "intermediate",
+        "description": "This is a GATE DA-specific lecture dedicated entirely to introducing SVD, taught at the exact depth and exam-orientation the candidate needs rather than a generic linear-algebra treatment.",
+        "is_free": true,
+        "instructor": "GO Classes"
+      },
+      {
+        "title": "Lecture 29: Singular Value Decomposition (18.06 Linear Algebra, Spring 2010)",
+        "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-29-singular-value-decomposition/",
+        "platform": "MIT OpenCourseWare",
+        "resource_type": "video",
+        "level": "intermediate",
+        "description": "Gilbert Strang devotes this entire lecture to deriving SVD as the factorization A = U*Sigma*V^T that works for every matrix, giving the rigorous conceptual foundation (why U and V are orthogonal, why singular values are ordered) that GATE-level questions probe.",
+        "is_free": true,
+        "instructor": "Gilbert Strang"
+      },
+      {
+        "title": "Singular Value Decomposition (SVD)",
+        "url": "https://www.geeksforgeeks.org/machine-learning/singular-value-decomposition-svd/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "intermediate",
+        "description": "Provides a step-by-step worked numerical example computing U, Sigma, V for a small matrix by hand (via eigenvalues of A^T A), which directly mirrors the manual computation style GATE DA numerical-answer questions on SVD require, with no signup needed.",
+        "is_free": true,
+        "instructor": ""
+      }
+    ],
+    "topic_id": 1,
+    "topic_name": "Singular Value Decomposition (SVD)",
+    "subject": "Linear Algebra"
+  },
+  {
+    "resources": [
+      {
+        "title": "Taylor series | Essence of calculus, chapter 11",
+        "url": "https://www.youtube.com/watch?v=3d6DsjIBzJ4",
+        "platform": "YouTube",
+        "resource_type": "video",
+        "level": "intermediate",
+        "instructor": "3Blue1Brown (Grant Sanderson)",
+        "description": "Builds the exact intuition GATE DA candidates need for this topic — why matching successive derivatives at a point produces an ever-better polynomial approximation of a function — through a visual, term-by-term construction rather than rote formula memorization.",
+        "is_free": true
+      },
+      {
+        "title": "Taylor Series | Theorem, Proof, Formula & Applications in Engineering",
+        "url": "https://www.geeksforgeeks.org/engineering-mathematics/taylor-series/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "intermediate",
+        "instructor": "",
+        "description": "A GATE-oriented written explainer covering the Taylor/Maclaurin formula, proof, and derivations for sin(x), cos(x), e^x, plus five solved examples and a dedicated GATE CSE previous-year-questions section, making it directly exam-relevant for GATE DA's engineering mathematics syllabus.",
+        "is_free": true
+      },
+      {
+        "title": "Lecture 05: Taylor Polynomial, Taylor Series (NPTEL Engineering Mathematics - I)",
+        "url": "https://www.youtube.com/watch?v=LLHjZ5fhY4U",
+        "platform": "NPTEL (YouTube)",
+        "resource_type": "lecture_series",
+        "level": "intermediate",
+        "instructor": "NPTEL, IIT Kharagpur (course 111105121)",
+        "description": "A full-length NPTEL lecture devoted entirely to Taylor polynomials and Taylor series within the standard Engineering Mathematics-I curriculum, giving the rigorous derivation and remainder-term treatment that GATE-level problems on this topic expect.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Taylor and Maclaurin Series",
+    "subject": "Calculus & Optimization"
+  },
+  {
+    "resources": [
+      {
+        "title": "Programming, Data Structures And Algorithms Using Python",
+        "url": "https://nptel.ac.in/courses/106106145",
+        "platform": "NPTEL",
+        "instructor": "Prof. Madhavan Mukund (Chennai Mathematical Institute)",
+        "resource_type": "lecture_series",
+        "level": "beginner",
+        "description": "This NPTEL course's foundational weeks build up exactly this syllabus item in sequence -- variables, conditionals, loops, functions, then Python's string/list/tuple/dict types -- taught rigorously by a CMI/IIT-affiliated CS professor for learners with zero prior programming background, and is free to watch with no signup.",
+        "is_free": true
+      },
+      {
+        "title": "Python Programming 01 | Basics, Data Types & Operator | DA | GATE Crash Course",
+        "url": "https://www.youtube.com/watch?v=vTDF8xg_kxE",
+        "platform": "YouTube",
+        "instructor": "GeeksforGeeks GATE English",
+        "resource_type": "video",
+        "level": "beginner",
+        "description": "Lecture 1 of a dedicated GATE-DA Python crash course from GeeksforGeeks's official GATE-prep channel that opens with precisely the basics/data-types/operators sub-slice of this syllabus item in an exam-oriented format aimed at Indian GATE DA aspirants.",
+        "is_free": true
+      },
+      {
+        "title": "Last Minute Notes (LMNs) - Python Programming",
+        "url": "https://www.geeksforgeeks.org/python/lmns-python-programming/",
+        "platform": "GeeksforGeeks",
+        "instructor": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "intermediate",
+        "description": "A single condensed reference page that maps almost one-to-one onto this exact syllabus line -- variables/scope, all core data types, I/O, operators, control statements, functions, and string operations with runnable code examples -- making it ideal for rapid targeted revision of precisely this topic rather than a generic Python tutorial.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Python programming fundamentals (syntax, data types, control flow, functions, I/O, string/list/dict/tuple/set operations, mutability, scope)",
+    "subject": "Programming, Data Structures & Algorithms"
+  },
+  {
+    "topic_id": 0,
+    "resources": [
+      {
+        "title": "Graph Data Structure Notes for GATE Exam",
+        "url": "https://www.geeksforgeeks.org/dsa/graphs-notes-for-gate-exam/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "intermediate",
+        "description": "A GATE-specific consolidated note that covers both adjacency-matrix/adjacency-list representation and BFS/DFS traversal with O(V+E) complexity analysis, then pairs the theory directly with 11 solved GATE CSE previous-year questions (2006-2021) on exactly this topic.",
+        "is_free": true,
+        "instructor": ""
+      },
+      {
+        "title": "L-4.15: BFS & DFS | Breadth First Search | Depth First Search | Graph Traversing | DAA",
+        "url": "https://www.youtube.com/watch?v=N2P7w22tN9c",
+        "platform": "YouTube",
+        "resource_type": "video",
+        "level": "beginner",
+        "description": "A Gate Smashers (a channel built specifically for GATE CSE/DA aspirants) lecture that works through BFS and DFS traversal step-by-step on example graphs using queue/stack/recursion mechanics, which is exactly the operational detail GATE numerical questions on traversal order test.",
+        "is_free": true,
+        "instructor": "Varun (Gate Smashers)"
+      },
+      {
+        "title": "Graph and its Representations",
+        "url": "https://www.geeksforgeeks.org/dsa/graph-and-its-representations/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "beginner",
+        "description": "Isolates the representation half of the topic, contrasting adjacency-matrix vs. adjacency-list construction with diagrams and multi-language code, which is the foundation needed before reasoning about BFS/DFS time-complexity trade-offs on adjacency-list vs. adjacency-matrix graphs in GATE questions.",
+        "is_free": true,
+        "instructor": ""
+      }
+    ],
+    "topic_name": "Graph representation and traversal (adjacency list/matrix, BFS, DFS)",
+    "subject": "Programming, Data Structures & Algorithms"
+  },
+  {
+    "resources": [
+      {
+        "title": "SQL Tutorial (full reference covering DDL/DML/DQL, Joins, Subqueries, Aggregate Functions, GROUP BY/HAVING, Views)",
+        "url": "https://www.geeksforgeeks.org/sql/sql-tutorial/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "beginner",
+        "instructor": "",
+        "is_free": true,
+        "description": "One organized page maps almost exactly onto this syllabus line item, with dedicated sections for SQL Commands (DDL/DQL/DML), Joins (inner/left/right/full/self/cross), Subqueries (nested and correlated), aggregate Functions (COUNT/SUM/AVG/MAX/MIN), Clauses (GROUP BY/HAVING/WHERE/ORDER BY), and Views (CREATE/UPDATE/DROP), so a candidate can walk the entire topic in one sitting without hunting across pages."
+      },
+      {
+        "title": "#16 Basic SQL Query Block & Subqueries | Introduction to Database Systems (NPTEL, Prof. P. Sreenivasa Kumar, IIT Madras)",
+        "url": "https://www.youtube.com/watch?v=9oAWVvUfa-E",
+        "platform": "YouTube (NPTEL)",
+        "resource_type": "video",
+        "level": "intermediate",
+        "instructor": "Prof. P. Sreenivasa Kumar, IIT Madras",
+        "is_free": true,
+        "description": "This NPTEL lecture walks through the SQL select-from-where query block and nested/correlated subqueries from first principles, giving IIT-level rigor on exactly the subquery mechanics (rather than generic DBMS theory) that GATE questions probe with tricky nested-query outputs."
+      },
+      {
+        "title": "Lec-43: Introduction to Joins and its Types | DBMS (Gate Smashers)",
+        "url": "https://www.youtube.com/watch?v=zYH-e6tUYbw",
+        "platform": "YouTube",
+        "resource_type": "video",
+        "level": "beginner",
+        "instructor": "Gate Smashers",
+        "is_free": true,
+        "description": "Gate Smashers is a channel built specifically for GATE aspirants, and this lecture isolates SQL joins (inner/outer/self/equi) with worked examples in the exact GATE question style, complementing the same channel's companion lectures on GROUP BY/HAVING and subqueries (e.g. Lec-69) for the rest of this topic."
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "SQL (DDL/DML/DQL, joins, subqueries, aggregation, GROUP BY/HAVING, views)",
+    "subject": "Database Management & Warehousing"
+  },
+  {
+    "resources": [
+      {
+        "title": "Normal Forms in DBMS",
+        "url": "https://www.geeksforgeeks.org/dbms/normal-forms-in-dbms/",
+        "platform": "GeeksforGeeks",
+        "instructor": "",
+        "resource_type": "article",
+        "level": "beginner",
+        "description": "Walks through 1NF through BCNF (and 4NF/5NF) back-to-back, each with a worked violation-and-fix table example, mirroring exactly the 'identify the highest normal form of this relation' question format GATE DA repeats almost every year.",
+        "is_free": true
+      },
+      {
+        "title": "Lec-33: All Normal Forms with Real Life Examples | 1NF, 2NF, 3NF, BCNF, 4NF, 5NF | All in One",
+        "url": "https://www.youtube.com/watch?v=EGEwkad_llA",
+        "platform": "YouTube (Gate Smashers)",
+        "instructor": "Gate Smashers",
+        "resource_type": "video",
+        "level": "beginner",
+        "description": "A single GATE-aspirant-targeted video (2.5M+ views) that builds up the normalization ladder step-by-step with worked functional-dependency and candidate-key examples, ideal for locking in the exact 1NF-to-BCNF decomposition procedure GATE numericals demand.",
+        "is_free": true
+      },
+      {
+        "title": "Lecture - 8: Functional Dependencies and Normal Form (NPTEL DBMS Lecture Series)",
+        "url": "https://www.youtube.com/watch?v=YD8dhOmuVnY",
+        "platform": "NPTEL (YouTube, nptelhrd channel)",
+        "instructor": "NPTEL",
+        "resource_type": "lecture_series",
+        "level": "intermediate",
+        "description": "A full NPTEL lecture devoted entirely to functional dependencies and the normal-form hierarchy, giving the formal, closure-based derivation behind FD-closure and BCNF-decomposition problems rather than a generic DBMS overview.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 45,
+    "topic_name": "Functional Dependencies & Normalization (1NF→2NF→3NF→BCNF)",
+    "subject": "Database Management & Warehousing"
+  },
+  {
+    "resources": [
+      {
+        "title": "Week 2 Lecture 8 - Linear Regression (NPTEL: Introduction to Machine Learning)",
+        "url": "https://www.youtube.com/watch?v=_M7Km1XZERU",
+        "platform": "YouTube (NPTEL, IIT Madras)",
+        "resource_type": "video",
+        "level": "intermediate",
+        "instructor": "Prof. Balaraman Ravindran, IIT Madras",
+        "description": "This is the exact lecture segment from the flagship NPTEL 'Introduction to Machine Learning' course that derives simple linear regression from first principles (least-squares, error minimization) in the same rigorous, GATE-aligned style as the exam's official reference course.",
+        "is_free": true
+      },
+      {
+        "title": "Multiple Regression, Clearly Explained!!!",
+        "url": "https://www.youtube.com/watch?v=EkAQAi3a4js",
+        "platform": "YouTube",
+        "resource_type": "video",
+        "level": "beginner",
+        "instructor": "Josh Starmer (StatQuest)",
+        "description": "Picks up exactly where simple regression leaves off, using clear visual geometry to show how adding a second (and further) predictor variables extends the least-squares line to a best-fit plane/hyperplane, which is precisely the conceptual leap this topic requires.",
+        "is_free": true
+      },
+      {
+        "title": "Multiple Linear Regression using Python - ML",
+        "url": "https://www.geeksforgeeks.org/machine-learning/ml-multiple-linear-regression-using-python/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "intermediate",
+        "instructor": "GeeksforGeeks",
+        "description": "A concise written reference giving the exact multiple linear regression equation (y = β0 + β1X1 + ... + βnXn), the four core assumptions (linearity, homoscedasticity, multivariate normality, no multicollinearity) and a worked example, making it ideal for quick formula/assumption revision right before GATE-style questions.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 1,
+    "topic_name": "Simple & Multiple Linear Regression",
+    "subject": "Machine Learning"
+  },
+  {
+    "topic_id": 0,
+    "resources": [
+      {
+        "title": "Lecture 23: Backpropagation Learning (NOC: Deep Learning course)",
+        "url": "https://www.youtube.com/watch?v=dLKqcDpuSp8",
+        "platform": "NPTEL (IIT Kharagpur) / YouTube",
+        "instructor": "Prof. P.K. Biswas, IIT Kharagpur",
+        "resource_type": "lecture_series",
+        "level": "intermediate",
+        "description": "A standalone NPTEL lecture devoted entirely to deriving the backpropagation learning algorithm for feed-forward multi-layer perceptrons, giving the academic depth and rigor GATE DA questions expect rather than a generic deep-learning overview.",
+        "is_free": true
+      },
+      {
+        "title": "Neural Networks Pt. 2: Backpropagation Main Ideas",
+        "url": "https://www.youtube.com/watch?v=IN2XmBhILt4",
+        "platform": "YouTube (StatQuest with Josh Starmer)",
+        "instructor": "Josh Starmer",
+        "resource_type": "video",
+        "level": "beginner",
+        "description": "Builds the backpropagation intuition step-by-step on a simple feed-forward network with clear visuals, ideal for quickly internalizing why the chain rule flows backward through an MLP's layers before attempting GATE numericals.",
+        "is_free": true
+      },
+      {
+        "title": "Backpropagation in Neural Network",
+        "url": "https://www.geeksforgeeks.org/machine-learning/backpropagation-in-neural-network/",
+        "platform": "GeeksforGeeks",
+        "instructor": "",
+        "resource_type": "article",
+        "level": "intermediate",
+        "description": "Walks through a fully worked numeric forward-pass/backward-pass example with explicit sigmoid-derivative and weight-update arithmetic, directly mirroring the style of GATE-style backpropagation calculation questions rather than describing the algorithm only in the abstract.",
+        "is_free": true
+      }
+    ],
+    "topic_name": "Multi-Layer Perceptron / Feed-Forward Neural Network (incl. backpropagation)",
+    "subject": "Machine Learning"
+  },
+  {
+    "resources": [
+      {
+        "title": "StatQuest: Principal Component Analysis (PCA), Step-by-Step",
+        "url": "https://www.youtube.com/watch?v=FgakZw6K1QQ",
+        "platform": "YouTube",
+        "resource_type": "video",
+        "instructor": "Josh Starmer",
+        "level": "beginner",
+        "description": "A focused, purely visual step-by-step walkthrough of how PCA turns correlated variables into a small number of uncorrelated principal components by maximizing variance along the covariance matrix's eigenvectors, building exactly the conceptual intuition GATE DA's PCA questions assume before any eigen-math is applied.",
+        "is_free": true
+      },
+      {
+        "title": "Principal Component Analysis (PCA)",
+        "url": "https://www.geeksforgeeks.org/machine-learning/principal-component-analysis-pca/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "instructor": "GeeksforGeeks",
+        "level": "intermediate",
+        "description": "Lays out the exact four-step PCA computational pipeline — standardization, covariance matrix construction, eigenvalue/eigenvector extraction, and top-component selection — with worked Python code, mirroring the precise sequence of steps GATE DA numerical PCA questions test.",
+        "is_free": true
+      },
+      {
+        "title": "NOC: Essential Mathematics for Machine Learning",
+        "url": "https://nptel.ac.in/courses/111107137",
+        "platform": "NPTEL / IIT Roorkee",
+        "resource_type": "lecture_series",
+        "instructor": "Prof. S. K. Gupta & Prof. Sanjeev Kumar, IIT Roorkee",
+        "level": "advanced",
+        "description": "An NPTEL course built specifically around the eigenvalue/eigenvector and covariance-matrix machinery PCA is derived from, giving the derivation-level rigor needed for the linear-algebra-heavy PCA numericals GATE DA is known to ask (dedicated PCA lecture sessions within its syllabus).",
+        "is_free": true
+      }
+    ],
+    "topic_id": 63,
+    "topic_name": "Principal Component Analysis (PCA)",
+    "subject": "Machine Learning"
+  },
+  {
+    "resources": [
+      {
+        "title": "Informed Search: Greedy Best First Search and A* Search (Week 3, Lecture 2) — NPTEL 'An Introduction to Artificial Intelligence'",
+        "url": "https://www.youtube.com/watch?v=b2ARNZ17mHU",
+        "platform": "YouTube (NPTEL, IIT Delhi)",
+        "resource_type": "lecture_series",
+        "level": "intermediate",
+        "description": "This is the exact NPTEL lecture segment (Prof. Mausam, IIT Delhi) where Greedy Best-First Search and A* Search are introduced and worked through with examples, making it a direct GATE-aligned match rather than a generic AI-course video.",
+        "instructor": "Prof. Mausam, IIT Delhi",
+        "is_free": true
+      },
+      {
+        "title": "Informed Search: Proof of Optimality of A* (Week 3, Lecture 4) — NPTEL 'An Introduction to Artificial Intelligence'",
+        "url": "https://www.youtube.com/watch?v=Q-Q7Bvy8qWo",
+        "platform": "YouTube (NPTEL, IIT Delhi)",
+        "resource_type": "lecture_series",
+        "level": "intermediate",
+        "description": "This follow-up lecture in the same NPTEL sequence walks through the A* optimality proof, which is precisely the standard vehicle used to formally define and derive admissibility and consistency of heuristics — the two theoretical sub-points this topic explicitly calls out.",
+        "instructor": "Prof. Mausam, IIT Delhi",
+        "is_free": true
+      },
+      {
+        "title": "A* Algorithm and its Heuristic Search Strategy in Artificial Intelligence",
+        "url": "https://www.geeksforgeeks.org/artificial-intelligence/a-algorithm-and-its-heuristic-search-strategy-in-artificial-intelligence/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "beginner",
+        "description": "Verified to cover the f(n)=g(n)+h(n) formulation of A*, admissibility (heuristic never overestimates), and consistency (monotonicity) all in one concise page, making it a quick single-stop written revision source for this exact combination of sub-topics.",
+        "instructor": "N/A",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Informed / Heuristic Search (Greedy Best-First, A*, Admissibility, Consistency)",
+    "subject": "Artificial Intelligence"
+  },
+  {
+    "resources": [
+      {
+        "title": "Lecture 6: Search: Games, Minimax, and Alpha-Beta (6.034 Artificial Intelligence, Fall 2010)",
+        "url": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/resources/lecture-6-search-games-minimax-and-alpha-beta/",
+        "platform": "MIT OpenCourseWare",
+        "resource_type": "video",
+        "level": "intermediate",
+        "instructor": "Patrick H. Winston",
+        "description": "A full free lecture (streamable/downloadable video plus transcript, no signup) devoted entirely to adversarial game-tree search, deriving the minimax algorithm from scratch and then showing exactly how alpha-beta pruning cuts branches without changing the result, matching this topic's precise scope rather than a broad AI survey.",
+        "is_free": true
+      },
+      {
+        "title": "Alpha-Beta Pruning | Artificial Intelligence | GATE DA 2024 | Lecture 18",
+        "url": "https://www.youtube.com/watch?v=VOveuWL5tW0",
+        "platform": "YouTube (GATE Exam channel)",
+        "resource_type": "video",
+        "level": "intermediate",
+        "instructor": "GATE Exam (channel)",
+        "description": "Part of a lecture series built specifically around the GATE DA syllabus (its companion Lecture 16, https://www.youtube.com/watch?v=P0-FAgMXSb4, covers plain Minimax first), so the worked game-tree examples are pitched at the exact question style and difficulty GATE DA sets on this topic rather than a generic CS-course framing.",
+        "is_free": true
+      },
+      {
+        "title": "Alpha-Beta Pruning in Adversarial Search Algorithms",
+        "url": "https://www.geeksforgeeks.org/artificial-intelligence/alpha-beta-pruning-in-adversarial-search-algorithms/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "level": "beginner",
+        "description": "A concise written explainer that walks through a labeled MAX/MIN game tree step by step showing where each branch gets pruned, gives the alpha/beta pseudocode, and states the O(b^(d/2)) best-case complexity result, making it an ideal fast, no-video revision page for exactly this topic before the exam.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Adversarial Search (Minimax, Alpha-Beta Pruning, Game Trees)",
+    "subject": "Artificial Intelligence"
+  },
+  {
+    "resources": [
+      {
+        "title": "Quantitative Aptitude (Ratio-Proportion, Percentage, Profit & Loss, Simple/Compound Interest, Time-Speed-Distance, Time & Work, Ages, Mixtures & Alligation)",
+        "url": "https://www.geeksforgeeks.org/aptitude/quantitative-aptitude/",
+        "platform": "GeeksforGeeks",
+        "instructor": "",
+        "resource_type": "article",
+        "level": "beginner",
+        "description": "This is GeeksforGeeks' dedicated Quantitative Aptitude hub, with separate formula-plus-solved-example sub-pages for every named skill in this exact syllabus line (ratio-proportion, percentage, profit-loss, SI/CI, time-speed-distance, time-and-work, ages, mixtures), so a candidate can drill precisely the sub-topics this bucket groups together in one place rather than a generic maths refresher.",
+        "is_free": true
+      },
+      {
+        "title": "General Aptitude 01 | Percentage, Profit & Loss and DI | All Branches | GATE Crash Course",
+        "url": "https://www.youtube.com/watch?v=fO52jwkjiBo",
+        "platform": "YouTube",
+        "instructor": "GATE Exam",
+        "resource_type": "video",
+        "level": "intermediate",
+        "description": "A GATE-crash-course lecture that works exam-style numericals on percentage and profit-loss back to back using the speed-oriented shortcut methods GATE's negative-marking, time-boxed format demands, rather than generic percentage/profit-loss tutoring aimed at other exams.",
+        "is_free": true
+      },
+      {
+        "title": "General Aptitude | Time and Distance in One Shot | GATE 2023",
+        "url": "https://www.youtube.com/watch?v=5zvqqnKIXxU",
+        "platform": "YouTube",
+        "instructor": "GATE Exam",
+        "resource_type": "video",
+        "level": "intermediate",
+        "description": "A GATE-specific 'in one shot' lecture that derives and drills the relative-speed, average-speed, and train/boat-crossing formulas that are the recurring pattern behind GATE's time-speed-distance questions within this arithmetic topic.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Arithmetic (ratio-proportion, percentages, profit-loss, SI/CI, time-speed-distance, time & work, ages, mixtures)",
+    "subject": "General Aptitude"
+  },
+  {
+    "resources": [
+      {
+        "title": "Backpropagation calculus | Deep Learning Chapter 4",
+        "url": "https://www.youtube.com/watch?v=tIeHLnjs5U8",
+        "platform": "YouTube",
+        "resource_type": "video",
+        "instructor": "3Blue1Brown (Grant Sanderson)",
+        "level": "intermediate",
+        "description": "Walks through exactly how the chain rule stacks up across layers to produce the weight and bias gradients, giving the visual/calculus intuition behind the backprop formulas GATE DA tests numerically.",
+        "is_free": true
+      },
+      {
+        "title": "Backpropagation in Neural Network",
+        "url": "https://www.geeksforgeeks.org/machine-learning/backpropagation-in-neural-network/",
+        "platform": "GeeksforGeeks",
+        "resource_type": "article",
+        "instructor": "",
+        "level": "beginner",
+        "description": "Provides a fully worked forward-pass/backward-pass numeric example with sigmoid activations showing the chain-rule gradient derivation and the exact weight-update (gradient descent) equations, ideal for quick formula revision before GATE.",
+        "is_free": true
+      },
+      {
+        "title": "L24: Backpropagation (intuition) | how neural nets learn",
+        "url": "https://www.youtube.com/watch?v=i0YC2jZuxUI",
+        "platform": "YouTube (IIT Madras Deep Learning course)",
+        "resource_type": "lecture_series",
+        "instructor": "Prof. Mitesh M. Khapra",
+        "level": "intermediate",
+        "description": "A dedicated lecture from IIT Madras's Deep Learning course (the same CS7015/NPTEL-affiliated syllabus track) that derives layer-by-layer how errors propagate backward via the chain rule, matching the rigor and notation GATE DA expects.",
+        "is_free": true
+      }
+    ],
+    "topic_id": 0,
+    "topic_name": "Backpropagation & gradient computation (chain rule, weight-update via gradient descent)",
+    "subject": "Deep Learning (MLP sub-topic)"
+  }
+]

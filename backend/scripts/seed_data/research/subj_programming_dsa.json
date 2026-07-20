@@ -1,0 +1,162 @@
+{
+  "subject": "Programming, Data Structures & Algorithms (Python)",
+  "weightagePercent": "14-21% of total 100 marks (~9-13 of 55 subject questions, ~14-21 of 85 subject marks). 2024 actual (GeeksforGeeks paper analysis, cross-checked): 13Q/21M = 21%. 2025 actual (deep-research digest's own hand-tally against the official answer key): 9Q/14M = 14%. Careers360's cumulative 2024+2025 count (22 questions total) exactly equals 13+9, cross-validating both single-year figures. 2026 per-year split not found at primary-source granularity in this session; qualitative coaching sources (GeeksforGeeks, KollegeApply, Careers360) still rank it among the top 3 highest-weightage sections behind/alongside Machine Learning and Probability & Statistics, consistent with continuation of the 14-21% band. Treat the range, not a single point estimate, as the reliable takeaway given n=2 hard data points.",
+  "difficulty": "Moderate overall, bimodal in practice. The \"core\" half (Python syntax/semantics, elementary sorting, stacks/queues, linked lists) is Easy-to-Moderate and highly learnable — mostly code-tracing MCQs/NATs with a single correct mechanical answer. The \"algorithmic\" half (graph traversal/shortest-path, recursion-heavy trees, complexity analysis on non-trivial inputs) skews Moderate-to-Hard and is frequently used for the paper's hardest/last questions — e.g. GATE DA 2025's Q65 (DFS order on a 101-vertex graph with a non-obvious adjacency rule) was flagged in the digest as among the hardest items in that entire paper. Coaching reviews of 2026 similarly call the programming/DSA and DBMS sections \"comparatively moderate\" versus a \"calculation-heavy\" math core, but note some genuinely tricky trace-based items. Because MSQ/NAT carry no partial credit, a single mis-simulated pointer/index step converts a \"moderate\" question into a full miss — the practical difficulty is higher than the topic's conceptual difficulty suggests.",
+  "pyqTrendByYear": "2024 (IISc): 13 questions / 21 marks per GeeksforGeeks' official-answer-key-based paper analysis (mix confirmed as roughly 3×1-mark MCQ + 3×2-mark MCQ + 1×2-mark MSQ + 1×1-mark NAT among sampled items, i.e., all three question types used). 2025 (IIT Roorkee): 9 questions / 14 marks per the prior deep-research digest's own classification of all 55 core questions against the official syllabus (this is a hand-verified primary-source tally, not a copy-pasted coaching number) — a visible drop in both question count and share (21%→14%) versus 2024, with Probability & Statistics and Machine Learning absorbing relatively more weight that year. 2026 (IIT Guwahati): no independently verified per-year split found; multiple 2026 post-exam coaching write-ups (GeeksforGeeks, KollegeApply, Careers360) continue to describe Programming/DSA as one of the highest-weightage sections (estimates cluster around 15-20% of the paper) and cite DFS/BFS/graph-traversal, binary-tree-traversal, and Python-logic questions as present — directionally consistent with 2024/2025 but not independently number-verified here, so treat 2026's exact count as an estimate, not a confirmed fact. Net 3-year read: weightage fluctuates year to year (21%→14%→~15-20% est.) rather than holding a fixed value, but the topic has appeared as a substantial, non-negotiable chunk of the paper in all three editions — never the top-weighted section (that's ML or Probability & Statistics) but consistently top-3.",
+  "expected2027": "Syllabus wording: High confidence it stays verbatim unchanged (Python; stacks, queues, linked lists, trees, hash tables; linear/binary search; selection/bubble/insertion/merge/quick sort; graph traversals and shortest path) — based on the ground-truth digest's finding that the DA syllabus text has been byte-for-byte identical across all 3 editions to date (2024/2025/2026), and there is no signal of any planned change. Weightage/question-count: Medium confidence it stays in the roughly 9-13 questions / 14-21 marks (14-21%) band observed in 2024-2025 — this rests on only 2 hard-verified data points with a real 7-point swing already observed between them (21%→14%), so a repeat swing of similar magnitude in 2027 would not be surprising; if IIT Madras (the presumptively likely but not yet officially confirmed 2027 organizing institute) sets a Python-heavier or graph-algorithm-heavier paper, this section could push toward the upper end of the range or slightly above it, since IITM has a strong CS/algorithms culture. Question style: Medium confidence that NAT-based code/graph-tracing questions (in the mold of 2025's Q65 and 2026's DFS/BFS items) remain a recurring hard-question archetype, since this style has appeared in some form in multiple editions already, though this is pattern-matching on n=3, not a documented policy.",
+  "priorityForTopRank": "High. For a time-constrained working professional targeting AIR 50-200, this section offers unusually good return on study time relative to Probability & Statistics or Machine Learning: (1) it is consistently a top-3-weighted section (14-21% of the paper) across all 3 editions; (2) unlike calculation-heavy Probability/Stats or conceptually dense ML, most of its sub-skills (Python semantics, elementary DS operations, standard sorting/searching, BFS/DFS mechanics) have single, mechanically-verifiable correct answers that are fully masterable through structured practice rather than judgment calls, making them efficient \"banked marks\"; (3) many working professionals already have real coding exposure, so the marginal effort to convert that into exam-ready fluency (trace discipline, complexity recall, GATE's specific Python-output-prediction style) is lower than building fresh statistical or ML intuition from scratch; (4) it overlaps almost entirely with the much larger, more mature GATE-CS PYQ bank, so practice material is abundant and well-vetted. The one caution: do not under-invest in graph-algorithm/complex-recursion tracing specifically, since that sub-slice is where the section's hardest, most time-costly (and NAT/MSQ zero-partial-credit) questions concentrate — budget deliberate practice time there rather than assuming \"programming = easy.\"",
+  "subtopics": [
+    {
+      "name": "Python programming fundamentals (syntax, data types, control flow, functions, I/O, string/list/dict/tuple/set operations, mutability, scope)",
+      "prerequisites": [
+        "None (foundational)"
+      ],
+      "importance1to5": 5,
+      "difficulty1to5": 2,
+      "pyqFrequency": "High and consistent every year (2024-2026); typically 2-4 questions per paper, usually code-output-prediction MCQ/NAT items testing mutability, aliasing, slicing, or dict/set semantics."
+    },
+    {
+      "name": "Recursion (structure, base cases, recursion trees, recursive vs iterative equivalence)",
+      "prerequisites": [
+        "Python programming fundamentals"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Appears most years, usually not standalone but embedded inside tree, sorting, or DFS-related questions (1-2 questions/year touch recursion directly or indirectly)."
+    },
+    {
+      "name": "Time & space complexity / asymptotic (Big-O) analysis",
+      "prerequisites": [
+        "Python programming fundamentals",
+        "basic algebra/logarithms"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Not a standalone syllabus line item but a near-universal sub-skill tested within sorting/searching/graph questions; expect complexity reasoning required in roughly 2-3 questions per year even if not badged as its own topic."
+    },
+    {
+      "name": "Stacks and Queues (operations, applications, array/linked-list implementation)",
+      "prerequisites": [
+        "Python programming fundamentals"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Occasional but recurring, roughly 1 question per year, often as a trace-based or applications question (e.g., balanced parentheses, queue-based BFS)."
+    },
+    {
+      "name": "Linked Lists (singly/doubly, operations, pointer manipulation)",
+      "prerequisites": [
+        "Python programming fundamentals",
+        "stacks and queues"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Occasional, roughly 0-1 question per year; more often tested implicitly via pointer/reference reasoning than as a dedicated question."
+    },
+    {
+      "name": "Trees (binary trees, BST properties, traversals - inorder/preorder/postorder/level-order, height/depth)",
+      "prerequisites": [
+        "Recursion",
+        "linked lists"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Consistent across all 3 editions, roughly 1-2 questions per year; binary-tree traversal was explicitly reported among 2026's recalled questions."
+    },
+    {
+      "name": "Hash Tables (hashing functions, collision resolution, load factor)",
+      "prerequisites": [
+        "Python programming fundamentals",
+        "arrays/lists"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Occasional, roughly 1 question in most years, often a conceptual MCQ/MSQ on collision handling rather than a full trace."
+    },
+    {
+      "name": "Searching algorithms (linear search, binary search)",
+      "prerequisites": [
+        "Python programming fundamentals",
+        "sorted-array concept"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Frequently embedded within complexity or NAT-counting questions rather than asked standalone; low-difficulty when it does appear."
+    },
+    {
+      "name": "Elementary sorting (selection sort, bubble sort, insertion sort)",
+      "prerequisites": [
+        "Python programming fundamentals",
+        "arrays/lists"
+      ],
+      "importance1to5": 3,
+      "difficulty1to5": 2,
+      "pyqFrequency": "Appears most years, roughly 1 question, usually a trace-the-passes or count-comparisons/swaps NAT."
+    },
+    {
+      "name": "Divide-and-conquer sorting (merge sort, quick sort - including stability and worst/average case)",
+      "prerequisites": [
+        "Recursion",
+        "elementary sorting"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 3,
+      "pyqFrequency": "Consistent, roughly 1-2 questions per year across the 3 editions; frequently used for NAT questions counting recursive calls/comparisons or for worst-case-input MCQs."
+    },
+    {
+      "name": "Graph representation and traversal (adjacency list/matrix, BFS, DFS)",
+      "prerequisites": [
+        "Stacks and queues",
+        "trees",
+        "recursion"
+      ],
+      "importance1to5": 5,
+      "difficulty1to5": 4,
+      "pyqFrequency": "High and possibly rising: flagged as a recurring hard/late-paper question archetype in both 2025 (Q65, DFS order on a 101-vertex graph) and 2026 (DFS/BFS explicitly recalled); typically 1-3 questions per year, some overlapping with the AI syllabus section's 'uninformed search' framing, which creates a classification boundary case."
+    },
+    {
+      "name": "Graph shortest-path algorithms (Dijkstra's algorithm; conceptually Bellman-Ford/Floyd-Warshall as extensions)",
+      "prerequisites": [
+        "Graph representation and traversal",
+        "greedy-algorithm/priority-queue concept"
+      ],
+      "importance1to5": 4,
+      "difficulty1to5": 4,
+      "pyqFrequency": "Consistent presence, roughly 1 question per year, usually a 2-mark MCQ or NAT requiring a full manual run of the algorithm on a small graph — time-costly relative to its single-question payoff."
+    }
+  ],
+  "cheatSheet": [
+    "Complexity ordering: O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n) < O(n!) — know where each standard algorithm sits.",
+    "Sorting complexity/stability table: Selection sort O(n^2)/O(n^2)/O(n^2), not stable; Bubble sort O(n)/O(n^2)/O(n^2), stable; Insertion sort O(n)/O(n^2)/O(n^2), stable; Merge sort O(n log n) all cases, stable, O(n) extra space; Quick sort O(n log n) avg / O(n^2) worst (sorted input + bad pivot), in-place, NOT stable.",
+    "BFS uses a queue (FIFO) and finds shortest path in unweighted graphs, O(V+E); DFS uses a stack or recursion (LIFO), O(V+E) — the single most-confused pair in this section.",
+    "Dijkstra's algorithm: O((V+E) log V) with a min-heap/priority queue; fails with negative edge weights (use Bellman-Ford, O(V·E), instead).",
+    "Binary search tree: search/insert/delete average O(log n), worst O(n) if degenerate (unbalanced) — always check whether a question's tree is balanced before assuming O(log n).",
+    "Tree traversal quick recall: Inorder(L,Root,R) on a BST yields sorted order; Preorder(Root,L,R) useful for copying a tree; Postorder(L,R,Root) useful for deletion; Level-order = BFS on a tree using a queue.",
+    "Hash table load factor α = n/m (n=entries, m=buckets); expected search time O(1) average with good hashing, O(n) worst case with many collisions.",
+    "Python gotchas: lists/dicts/sets are mutable (aliasing risk, especially as default function arguments); tuples/strings/frozensets are immutable; `is` checks identity, `==` checks value equality; list slicing `a[i:j]` never raises IndexError even out of range.",
+    "Recursion costs O(depth) extra stack space in addition to its time complexity — always mention space complexity separately when a question asks for it.",
+    "Stack applications: expression evaluation/conversion (infix-postfix), function call management, DFS, balanced-parentheses checking. Queue applications: BFS, task scheduling, buffering."
+  ],
+  "commonMistakes": [
+    "Reversing stack-vs-queue usage in BFS/DFS (using a stack for BFS or a queue for DFS mentally while tracing) — the single most common conceptual slip in this section.",
+    "Losing track of adjacency-list ORDER when hand-simulating BFS/DFS on a given graph — GATE DA questions (e.g. 2025's Q65) deliberately specify a non-default neighbor order, and candidates who traverse in 'natural' numeric order instead of the stated order get a confidently wrong answer.",
+    "Assuming quicksort is always O(n log n) — forgetting the O(n^2) worst case on already-sorted/reverse-sorted input with a naive (first/last-element) pivot choice.",
+    "Conflating sorting-algorithm STABILITY (quicksort and heapsort are not stable; merge/insertion/bubble sort are) — a frequent MCQ/MSQ trap.",
+    "Python mutable-default-argument and aliasing traps: assuming `list2 = list1` creates a copy, or that a function with a mutable default argument resets that default on every call — both cause wrong output-prediction answers.",
+    "Off-by-one errors in manual trace/NAT questions (loop bounds, array indices, recursion base cases) — costly because NAT/MSQ questions carry zero partial credit for an otherwise-correct method.",
+    "Forgetting to account for recursive call-stack space when a question asks for space complexity, not just time complexity.",
+    "Under-practicing graph/shortest-path hand-simulation because it 'feels like CS, not DS/AI/ML' — candidates from non-CS backgrounds often deprioritize this even though it recurs as one of the paper's hardest question types every year.",
+    "Over-spending time on a single long trace-based graph or recursion question at the cost of easier marks elsewhere in the 3-hour paper — this section's hardest items (e.g., DFS on a 100+ vertex graph) are individually high-effort for only 1-2 marks."
+  ],
+  "booksAndResources": [
+    "Goodrich, Tamassia, Goldwasser — 'Data Structures and Algorithms in Python' (the most cross-source-consistent textbook recommendation for this exact GATE DA section across GeeksforGeeks, GO Classes, DS-AI-GATE repo, MathsCare, and Analytics Vidhya).",
+    "NPTEL 'Programming, Data Structures and Algorithms Using Python' (Prof. Madhavan Mukund, CMI/IIT-affiliated) — matches this syllabus section's name almost exactly and is widely cited in DA-specific resource lists.",
+    "MIT OpenCourseWare 6.006 'Introduction to Algorithms' — for rigorous complexity/algorithm-design grounding, repeatedly cited alongside the Goodrich text.",
+    "CLRS ('Introduction to Algorithms' by Cormen, Leiserson, Rivest, Stein) — heavier but authoritative reference specifically for sorting, graph traversal, and shortest-path algorithm correctness/complexity proofs; use selectively (relevant chapters only) given time constraints.",
+    "GeeksforGeeks DSA + Python tutorial sections, plus its GATE-CSE-tagged 'Algorithms' and 'Data Structures' PYQ pages — large bank of GATE-style practice questions (the DSA topic overlaps heavily with the far more mature GATE-CS PYQ corpus).",
+    "LeetCode / HackerRank (easy-medium tagged problems on arrays, trees, graphs, sorting) — for building trace-speed and pattern recognition under time pressure, repeatedly recommended across GATE DA prep aggregators.",
+    "GATE Overflow — community-curated previous-year GATE DA and GATE CS questions with discussion threads; useful for seeing multiple solution approaches to trace-based questions.",
+    "Previous-year GATE DA official question papers (2024 IISc, 2025 IIT Roorkee, 2026 IIT Guwahati) and the overlapping GATE CS programming/DSA PYQ set — the single highest-value resource since question style/difficulty calibration is exam-specific.",
+    "DS-AI-GATE community GitHub repo (topic-organized Books/NPTEL/Problem-sets aligned to the official 7-section DA syllabus) — a useful free curation, though unofficial/community-maintained."
+  ]
+}
