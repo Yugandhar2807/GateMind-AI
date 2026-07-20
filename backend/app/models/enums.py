@@ -138,3 +138,46 @@ class ReminderType(str, enum.Enum):
 class UserRole(str, enum.Enum):
     STUDENT = "student"
     ADMIN = "admin"
+
+
+class AuthProvider(str, enum.Enum):
+    PASSWORD = "password"
+    GOOGLE = "google"
+    GITHUB = "github"
+
+
+class AttemptType(str, enum.Enum):
+    PRACTICE = "practice"
+    MOCK = "mock"
+
+
+class AttemptStatus(str, enum.Enum):
+    IN_PROGRESS = "in_progress"
+    SUBMITTED = "submitted"
+    ABANDONED = "abandoned"
+
+
+class AiRole(str, enum.Enum):
+    SYSTEM = "system"
+    USER = "user"
+    ASSISTANT = "assistant"
+
+
+class FileKind(str, enum.Enum):
+    AVATAR = "avatar"
+    ATTACHMENT = "attachment"
+    AI_NOTE = "ai_note"
+    IMPORT = "import"
+
+
+class ContentCategory(str, enum.Enum):
+    """Which GATE-DA-2027 source doc a `content_documents` row was ingested from."""
+
+    ROADMAP = "roadmap"
+    SUBJECT_ANALYSIS = "subject_analysis"
+    TREND_ANALYSIS = "trend_analysis"
+    DEPENDENCY_MAP = "dependency_map"
+    SOURCE_RESEARCH = "source_research"
+    ERROR_NOTEBOOK = "error_notebook"
+    PROGRESS_LOG = "progress_log"
+    OTHER = "other"

@@ -1,61 +1,79 @@
 from __future__ import annotations
 
-from datetime import date, time
-from typing import TYPE_CHECKING
+import uuid
+from datetime import date, datetime, time
 
-from sqlalchemy import Date, Enum, Float, Integer, String, Time
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy import (
+    Boolean,
+    Date,
+    DateTime,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Time,
+    UniqueConstraint,
+)
+from sqlalchemy.orm import Mapped, mapped_column
 
-from app.db.base_class import Base
-from app.models.enums import PreferredStudyTime, UserRole
-
-if TYPE_CHECKING:
-    from app.models.progress import UserTopicProgress, StudySession
-    from app.models.mock import QuizAttempt
-    from app.models.bookmark import Bookmark
-    from app.models.flashcard import UserFlashcard
-    from app.models.mistake import Mistake
-    from app.models.note import Note
-    from app.models.reminder import Reminder
-    from app.models.revision import RevisionSchedule
-    from app.models.analytics import AnalyticsSnapshot
-    from app.models.course import UserCourseProgress
+from app.db.base_class import Base, SoftDeleteMixin, enum_col
+from app.models.enums import AuthProvider, PreferredStudyTime, UserRole
 
 
-class User(Base):
+class User(Base, SoftDeleteMixin):
     __tablename__ = "users"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     email: Mapped[str] = mapped_column(String(255), unique=True, index=True, nullable=False)
-    hashed_password: Mapped[str] = mapped_column(String(255), nullable=False)
+    # Nullable: OAuth-only accounts have no local password.
+    hashed_password: Mapped[str | None] = mapped_column(String(255), nullable=True)
     full_name: Mapped[str] = mapped_column(String(255), nullable=False)
-    role: Mapped[UserRole] = mapped_column(Enum(UserRole), default=UserRole.STUDENT, nullable=False)
+    role: Mapped[UserRole] = mapped_column(enum_col(UserRole), default=UserRole.STUDENT, nullable=False)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    email_verified: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
 
-    # Profile
+    # Profile / preferences
     photo_url: Mapped[str | None] = mapped_column(String(512), nullable=True)
     target_score: Mapped[int | None] = mapped_column(Integer, nullable=True)
     target_air: Mapped[int | None] = mapped_column(Integer, nullable=True)
     daily_study_hours: Mapped[float | None] = mapped_column(Float, nullable=True)
     preferred_study_time: Mapped[PreferredStudyTime | None] = mapped_column(
-        Enum(PreferredStudyTime), nullable=True
+        enum_col(PreferredStudyTime), nullable=True
     )
     exam_date: Mapped[date | None] = mapped_column(Date, nullable=True)
     gym_time: Mapped[time | None] = mapped_column(Time, nullable=True)
-    is_active: Mapped[bool] = mapped_column(default=True, nullable=False)
+    timezone: Mapped[str] = mapped_column(String(64), default="Asia/Kolkata", nullable=False)
 
-    # Streak tracking (denormalized for fast dashboard reads; recomputed by scheduler)
+    # Denormalized streak (recomputed by the scheduler; fast dashboard reads)
     current_streak_days: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     longest_streak_days: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     last_active_date: Mapped[date | None] = mapped_column(Date, nullable=True)
 
-    topic_progress: Mapped[list["UserTopicProgress"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    study_sessions: Mapped[list["StudySession"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    quiz_attempts: Mapped[list["QuizAttempt"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    bookmarks: Mapped[list["Bookmark"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    flashcards: Mapped[list["UserFlashcard"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    mistakes: Mapped[list["Mistake"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    notes: Mapped[list["Note"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    reminders: Mapped[list["Reminder"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    revision_schedules: Mapped[list["RevisionSchedule"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    analytics_snapshots: Mapped[list["AnalyticsSnapshot"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    course_progress: Mapped[list["UserCourseProgress"]] = relationship(back_populates="user", cascade="all, delete-orphan")
+
+class AuthIdentity(Base):
+    """Links a User to an external identity provider (Google/GitHub) or the local password."""
+
+    __tablename__ = "auth_identities"
+    __table_args__ = (
+        UniqueConstraint("provider", "provider_user_id"),
+    )
+
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False
+    )
+    provider: Mapped[AuthProvider] = mapped_column(enum_col(AuthProvider), nullable=False)
+    provider_user_id: Mapped[str] = mapped_column(String(255), nullable=False)
+    email: Mapped[str | None] = mapped_column(String(255), nullable=True)
+
+
+class RefreshToken(Base):
+    """Hashed refresh tokens with rotation/revocation support."""
+
+    __tablename__ = "refresh_tokens"
+
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False
+    )
+    token_hash: Mapped[str] = mapped_column(String(128), unique=True, index=True, nullable=False)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    user_agent: Mapped[str | None] = mapped_column(String(255), nullable=True)

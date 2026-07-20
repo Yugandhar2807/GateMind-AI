@@ -1,13 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.v1.routers import auth, bookmarks, dashboard, flashcards, notes, practice, roadmap, users
-
+# Feature routers (auth, users, roadmap, dashboard, notes, flashcards, bookmarks, practice)
+# are being rebuilt on the greenfield UUID/Postgres schema phase-by-phase (Phase 5+).
+# Until then the API exposes only /api/health (defined in app.main).
 api_router = APIRouter(prefix="/api/v1")
-api_router.include_router(auth.router)
-api_router.include_router(users.router)
-api_router.include_router(roadmap.router)
-api_router.include_router(dashboard.router)
-api_router.include_router(notes.router)
-api_router.include_router(flashcards.router)
-api_router.include_router(bookmarks.router)
-api_router.include_router(practice.router)
