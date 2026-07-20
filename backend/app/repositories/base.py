@@ -15,7 +15,7 @@ class BaseRepository(Generic[ModelType]):
         self.model = model
         self.db = db
 
-    def get(self, id: int) -> ModelType | None:
+    def get(self, id: Any) -> ModelType | None:
         return self.db.get(self.model, id)
 
     def list(self, *, offset: int = 0, limit: int = 100) -> list[ModelType]:
@@ -31,8 +31,7 @@ class BaseRepository(Generic[ModelType]):
 
     def update(self, obj: ModelType, updates: dict[str, Any]) -> ModelType:
         for field, value in updates.items():
-            if value is not None:
-                setattr(obj, field, value)
+            setattr(obj, field, value)
         self.db.commit()
         self.db.refresh(obj)
         return obj

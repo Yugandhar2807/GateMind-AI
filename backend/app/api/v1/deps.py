@@ -1,3 +1,4 @@
+import uuid
 from collections.abc import Generator
 
 from fastapi import Depends, HTTPException, status
@@ -34,11 +35,12 @@ def get_current_user(
     except TokenPayloadError as exc:
         raise credentials_error from exc
 
-    user_id = payload.get("sub")
-    if user_id is None:
-        raise credentials_error
+    try:
+        user_id = uuid.UUID(str(payload.get("sub")))
+    except (ValueError, TypeError) as exc:
+        raise credentials_error from exc
 
-    user = UserRepository(db).get(int(user_id))
+    user = UserRepository(db).get(user_id)
     if user is None or not user.is_active:
         raise credentials_error
 

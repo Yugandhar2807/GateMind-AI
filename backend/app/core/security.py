@@ -1,3 +1,4 @@
+import hashlib
 from datetime import datetime, timedelta, timezone
 from typing import Any, Literal
 
@@ -15,6 +16,11 @@ def hash_password(plain_password: str) -> str:
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     return _pwd_context.verify(plain_password, hashed_password)
+
+
+def hash_token(token: str) -> str:
+    """Deterministic hash for storing refresh tokens (the raw token is never persisted)."""
+    return hashlib.sha256(token.encode("utf-8")).hexdigest()
 
 
 def _create_token(subject: str, expires_delta: timedelta, token_type: Literal["access", "refresh"]) -> str:

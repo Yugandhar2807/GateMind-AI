@@ -1,3 +1,4 @@
+import uuid
 from datetime import date, time
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
@@ -24,12 +25,13 @@ class UserProfileUpdate(BaseModel):
     preferred_study_time: PreferredStudyTime | None = None
     exam_date: date | None = None
     gym_time: time | None = None
+    timezone: str | None = Field(default=None, max_length=64)
 
 
 class UserRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    id: int
+    id: uuid.UUID
     email: EmailStr
     full_name: str
     role: UserRole
@@ -40,6 +42,8 @@ class UserRead(BaseModel):
     preferred_study_time: PreferredStudyTime | None
     exam_date: date | None
     gym_time: time | None
+    timezone: str
+    email_verified: bool
     current_streak_days: int
     longest_streak_days: int
     is_active: bool
