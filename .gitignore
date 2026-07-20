@@ -6,6 +6,7 @@ backend/.env
 backend/uploads/*
 !backend/uploads/.gitkeep
 backend/*.log
+backend/static/
 
 # Frontend
 frontend/node_modules/

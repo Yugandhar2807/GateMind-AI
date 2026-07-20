@@ -1,0 +1,25 @@
+# Render Blueprint — one Docker web service serving the GateMind AI frontend + API.
+# Create it on Render via: New → Blueprint → connect Yugandhar2807/GateMind-AI.
+# Then set the two secret env vars (DATABASE_URL, JWT_SECRET_KEY) in the dashboard.
+services:
+  - type: web
+    name: gatemind-ai
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL          # your Neon pooled connection string (copy from backend/.env)
+        sync: false
+      - key: JWT_SECRET_KEY        # copy from backend/.env (or generate a new 64+ char secret)
+        sync: false
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: CORS_ORIGINS          # same-origin serving, so this is not exercised by the browser
+        value: "*"
+      - key: GATE_EXAM_DATE
+        value: "2027-02-07"

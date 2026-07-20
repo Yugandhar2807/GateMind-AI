@@ -1,0 +1,15 @@
+**/node_modules
+**/venv
+**/__pycache__
+**/*.pyc
+**/*.log
+.git
+.gitignore
+backend/.env
+backend/static
+backend/uploads/*
+!backend/uploads/.gitkeep
+frontend/dist
+frontend/.vite
+docs
+GATE-DA-2027
