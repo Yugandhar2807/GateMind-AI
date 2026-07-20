@@ -21,6 +21,16 @@ export interface ResourceRead {
   instructor: string | null
   description: string | null
   is_free: boolean
+  ranking?: string | null
+  category?: string | null
+  organization?: string | null
+  channel?: string | null
+  year?: number | null
+  duration_minutes?: number | null
+  rating?: number | null
+  language?: string | null
+  why_recommended?: string | null
+  needs_review?: boolean
 }
 
 export interface TopicDetail {

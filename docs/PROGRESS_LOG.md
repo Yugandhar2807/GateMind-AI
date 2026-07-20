@@ -137,5 +137,28 @@ topic stats; accuracy rolled into progress. `tsc -b` clean.
 **MILESTONE: core study loop is fully functional** (auth · dashboard · study sessions · roadmap ·
 topic · notes · flashcards · bookmarks · practice) on Neon Postgres.
 
-**Remaining:** Roadmap/Topic premium redesign · Mock Engine · Analytics · AI Mentor (Ollama) ·
-Gamification · Settings/Notifications/Admin · full PYQ + resource curation · Deployment.
+## 2026-07-20 — Phase 10: Learning Resources Platform (researched, ranked, admin-managed) ✅
+**Why:** make the platform "best-in-class" for resources — every resource researched, verified,
+ranked, and fully DB-driven/editable (never hardcoded).
+- **Rich schema** (migration `321862e89b84`): `resources` gains category, ranking (gold/silver/
+  bronze), instructor, channel, organization, language, year, rating, why_recommended,
+  thumbnail_url, confidence_score, last_verified, needs_review, is_approved, is_obsolete; new
+  `user_resources` table (favorite/completed/watch_progress/rating/notes). Enums `ResourceRank`,
+  `ResourceCategory`.
+- **Real web-verified curation:** dispatched 3 expert research subagents (Linear Algebra, Machine
+  Learning, Probability & Statistics) that used WebSearch/WebFetch to verify every URL — **102
+  gold/silver resources across 38 topics, only 1 needs_review**, written to
+  `seed_data/resources_*.json` and imported via `import_resources.py` (**77 new, 52 gold + 25
+  silver, dedup by URL, ranked so gold sorts first**). Never fabricated a link.
+- **Topic page** now renders rich resource cards: ranking stars, organization/instructor/year,
+  duration, "why recommended", needs-review flag, open-on-source. (`topic_detail.ResourceRead`
+  enriched; `TopicPage` Resources tab redesigned.)
+- **Admin API** (`routers/admin.py`, role-gated by `get_current_admin`): list (filter
+  needs_review/approved/obsolete) · create (+link topic) · update · approve · mark obsolete ·
+  delete. `scripts/make_admin.py` promotes a user to admin.
+**Verified on Neon:** 211 resources (52 gold/25 silver, 77 web-verified); admin 403 for students,
+200 for admins; SVD topic shows 3 gold incl. MIT 18.06 Strang. `tsc` clean.
+
+**Remaining:** research the other 7 subjects' resources · full verified PYQ bank · Admin UI +
+Learning-Path visualization + resource watch-progress UI · Mock Engine · Analytics · AI Mentor
+(Ollama) · Gamification · Settings/Notifications · Deployment.

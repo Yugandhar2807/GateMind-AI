@@ -181,3 +181,33 @@ class ContentCategory(str, enum.Enum):
     ERROR_NOTEBOOK = "error_notebook"
     PROGRESS_LOG = "progress_log"
     OTHER = "other"
+
+
+class ResourceRank(str, enum.Enum):
+    GOLD = "gold"
+    SILVER = "silver"
+    BRONZE = "bronze"
+
+
+class ResourceCategory(str, enum.Enum):
+    """Fine-grained learning-resource category (curation buckets)."""
+
+    BEST_PLAYLIST = "best_playlist"
+    BEST_SINGLE_VIDEO = "best_single_video"
+    NPTEL = "nptel"
+    IIT_LECTURE = "iit_lecture"
+    MIT_OCW = "mit_ocw"
+    STANFORD = "stanford"
+    HARVARD = "harvard"
+    COURSERA = "coursera"
+    EDX = "edx"
+    DOCUMENTATION = "documentation"
+    REFERENCE_BOOK = "reference_book"
+    PRACTICE_WEBSITE = "practice_website"
+    PYQ_EXPLANATION = "pyq_explanation"
+    CHEAT_SHEET = "cheat_sheet"
+    FORMULA_NOTES = "formula_notes"
+    GITHUB = "github"
+    VISUALIZATION = "visualization"
+    RESEARCH_PAPER = "research_paper"
+    OTHER = "other"

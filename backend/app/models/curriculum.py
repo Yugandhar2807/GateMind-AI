@@ -1,13 +1,22 @@
 from __future__ import annotations
 
 import uuid
+from datetime import date
 
-from sqlalchemy import Boolean, Float, ForeignKey, Integer, String, Text, UniqueConstraint
+from sqlalchemy import Boolean, Date, Float, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base_class import Base, enum_col
-from app.models.enums import Difficulty, NodeLevel, PriorityLevel, ResourceLevel, ResourceType
+from app.models.enums import (
+    Difficulty,
+    NodeLevel,
+    PriorityLevel,
+    ResourceCategory,
+    ResourceLevel,
+    ResourceRank,
+    ResourceType,
+)
 
 # ---- Global curriculum (shared by all users; sourced from GATE-DA-2027) ----
 
@@ -88,6 +97,23 @@ class Resource(Base):
     level: Mapped[ResourceLevel | None] = mapped_column(enum_col(ResourceLevel), nullable=True)
     duration_minutes: Mapped[int | None] = mapped_column(Integer, nullable=True)
     is_free: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    # ---- Rich curation metadata ----
+    category: Mapped[ResourceCategory | None] = mapped_column(enum_col(ResourceCategory), nullable=True)
+    ranking: Mapped[ResourceRank | None] = mapped_column(enum_col(ResourceRank), nullable=True)
+    instructor: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    channel: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    organization: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    language: Mapped[str] = mapped_column(String(64), default="English", nullable=False)
+    year: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    rating: Mapped[float | None] = mapped_column(Float, nullable=True)
+    why_recommended: Mapped[str | None] = mapped_column(Text, nullable=True)
+    thumbnail_url: Mapped[str | None] = mapped_column(String(1024), nullable=True)
+    confidence_score: Mapped[float | None] = mapped_column(Float, nullable=True)
+    last_verified: Mapped[date | None] = mapped_column(Date, nullable=True)
+    needs_review: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    is_approved: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    is_obsolete: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
 
 
 class TopicResource(Base):

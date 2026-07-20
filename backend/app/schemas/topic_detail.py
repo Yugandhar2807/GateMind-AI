@@ -19,6 +19,18 @@ class ResourceRead(BaseModel):
     description: str | None
     is_free: bool
 
+    # Rich curation metadata
+    ranking: str | None = None
+    category: str | None = None
+    organization: str | None = None
+    channel: str | None = None
+    year: int | None = None
+    duration_minutes: int | None = None
+    rating: float | None = None
+    language: str | None = None
+    why_recommended: str | None = None
+    needs_review: bool = False
+
 
 class TopicDetail(BaseModel):
     model_config = ConfigDict(from_attributes=True)

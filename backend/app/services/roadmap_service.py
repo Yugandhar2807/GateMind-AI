@@ -133,12 +133,23 @@ class RoadmapService:
                     resource_type=r.type,
                     level=r.level or ResourceLevel.INTERMEDIATE,
                     url=r.url,
-                    platform=r.provider,
-                    instructor=r.author,
+                    platform=r.provider or r.organization or r.channel,
+                    instructor=r.instructor or r.author,
                     description=r.description,
                     is_free=r.is_free,
+                    ranking=r.ranking.value if r.ranking else None,
+                    category=r.category.value if r.category else None,
+                    organization=r.organization,
+                    channel=r.channel,
+                    year=r.year,
+                    duration_minutes=r.duration_minutes,
+                    rating=r.rating,
+                    language=r.language,
+                    why_recommended=r.why_recommended,
+                    needs_review=r.needs_review,
                 )
                 for r in resources
+                if not r.is_obsolete
             ],
         )
 

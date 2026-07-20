@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from app.api.v1.routers import (
+    admin,
     auth,
     bookmarks,
     dashboard,
@@ -24,3 +25,4 @@ api_router.include_router(notes.router)
 api_router.include_router(flashcards.router)
 api_router.include_router(bookmarks.router)
 api_router.include_router(practice.router)
+api_router.include_router(admin.router)

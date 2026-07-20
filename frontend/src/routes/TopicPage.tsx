@@ -43,6 +43,12 @@ function EmptySection({ label }: { label: string }) {
   )
 }
 
+const RANK_META: Record<string, { label: string; stars: string; cls: string }> = {
+  gold: { label: 'Gold', stars: '★★★★★', cls: 'border-ember-500/40 bg-ember-500/10 text-ember-500' },
+  silver: { label: 'Silver', stars: '★★★★', cls: 'border-[var(--border)] bg-[var(--bg-inset)] text-[var(--fg-muted)]' },
+  bronze: { label: 'Bronze', stars: '★★★', cls: 'border-ember-400/30 bg-ember-400/10 text-ember-400' },
+}
+
 function ResourcesTab({ topicId }: { topicId: string }) {
   const { data } = useTopicDetail(topicId)
   const resources = data?.resources ?? []
@@ -50,36 +56,82 @@ function ResourcesTab({ topicId }: { topicId: string }) {
   if (!resources.length) return <EmptySection label="No resources are linked to this topic" />
 
   return (
-    <div className="flex flex-col gap-2.5">
-      {resources.map((r) => (
-        <Card key={r.id}>
-          <CardContent className="flex items-start justify-between gap-3 py-4">
-            <div className="min-w-0">
-              <div className="flex flex-wrap items-center gap-2">
-                <p className="font-medium">{r.title}</p>
-                {r.platform && <Badge variant="default">{r.platform}</Badge>}
-                <Badge variant="outline" className="text-[10px] capitalize">
-                  {r.resource_type.replace('_', ' ')}
-                </Badge>
+    <div className="flex flex-col gap-3">
+      {resources.map((r) => {
+        const rank = r.ranking ? RANK_META[r.ranking] : null
+        const meta = [r.organization || r.platform, r.instructor, r.year ? String(r.year) : null]
+          .filter(Boolean)
+          .join(' · ')
+        const extra = [
+          r.duration_minutes ? `${r.duration_minutes} min` : null,
+          r.rating ? `★ ${r.rating}` : null,
+          r.language && r.language !== 'English' ? r.language : null,
+        ]
+          .filter(Boolean)
+          .join(' · ')
+        return (
+          <Card key={r.id}>
+            <CardContent className="flex items-start justify-between gap-3 py-4">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  {rank && (
+                    <span
+                      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold ${rank.cls}`}
+                      title={`${rank.label}-tier resource`}
+                    >
+                      {rank.stars}
+                    </span>
+                  )}
+                  {r.url ? (
+                    <a
+                      href={r.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium hover:text-signal-500 hover:underline"
+                    >
+                      {r.title}
+                    </a>
+                  ) : (
+                    <p className="font-medium">{r.title}</p>
+                  )}
+                  <Badge variant="outline" className="text-[10px] capitalize">
+                    {r.resource_type.replace(/_/g, ' ')}
+                  </Badge>
+                  {r.needs_review && (
+                    <Badge variant="ember" className="text-[10px]">
+                      Needs review
+                    </Badge>
+                  )}
+                </div>
+                {(meta || extra) && (
+                  <p className="mt-1 text-xs text-[var(--fg-muted)]">
+                    {meta}
+                    {meta && extra ? ' · ' : ''}
+                    {extra}
+                  </p>
+                )}
+                {(r.why_recommended || r.description) && (
+                  <p className="mt-1.5 text-xs text-[var(--fg-faint)]">{r.why_recommended || r.description}</p>
+                )}
               </div>
-              {r.description && <p className="mt-1 text-xs text-[var(--fg-faint)]">{r.description}</p>}
-            </div>
-            <div className="flex shrink-0 items-center gap-1">
-              <BookmarkButton bookmarkType="resource" targetId={r.id} />
-              {r.url && (
-                <a
-                  href={r.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex size-7 items-center justify-center rounded-[var(--radius-sm)] text-[var(--fg-faint)] hover:bg-[var(--bg-inset)] hover:text-signal-500"
-                >
-                  <ExternalLink className="size-4" />
-                </a>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      ))}
+              <div className="flex shrink-0 items-center gap-1">
+                <BookmarkButton bookmarkType="resource" targetId={r.id} />
+                {r.url && (
+                  <a
+                    href={r.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open resource"
+                    className="inline-flex size-7 items-center justify-center rounded-[var(--radius-sm)] text-[var(--fg-faint)] hover:bg-[var(--bg-inset)] hover:text-signal-500"
+                  >
+                    <ExternalLink className="size-4" />
+                  </a>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        )
+      })}
     </div>
   )
 }

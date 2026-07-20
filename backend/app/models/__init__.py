@@ -25,6 +25,7 @@ from app.models.progress import (  # noqa: F401
     StudySession,
     RevisionSchedule,
     UserFlashcard,
+    UserResource,
 )
 from app.models.activity import (  # noqa: F401
     Attempt,

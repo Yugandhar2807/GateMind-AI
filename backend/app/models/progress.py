@@ -104,3 +104,24 @@ class UserFlashcard(Base):
     times_correct: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     is_favorite: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     review_later: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+
+
+class UserResource(Base):
+    """Per-user state for a learning resource: favorite, completion, watch progress, rating, notes."""
+
+    __tablename__ = "user_resources"
+    __table_args__ = (
+        UniqueConstraint("user_id", "resource_id"),
+    )
+
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("users.id", ondelete="CASCADE"), index=True, nullable=False
+    )
+    resource_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("resources.id", ondelete="CASCADE"), index=True, nullable=False
+    )
+    is_favorite: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    is_completed: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    watch_progress_seconds: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    rating: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
