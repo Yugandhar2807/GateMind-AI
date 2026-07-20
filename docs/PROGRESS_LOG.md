@@ -159,6 +159,14 @@ ranked, and fully DB-driven/editable (never hardcoded).
 **Verified on Neon:** 211 resources (52 gold/25 silver, 77 web-verified); admin 403 for students,
 200 for admins; SVD topic shows 3 gold incl. MIT 18.06 Strang. `tsc` clean.
 
-**Remaining:** research the other 7 subjects' resources · full verified PYQ bank · Admin UI +
-Learning-Path visualization + resource watch-progress UI · Mock Engine · Analytics · AI Mentor
-(Ollama) · Gamification · Settings/Notifications · Deployment.
+## 2026-07-20 — Phase 10b: Resource curation expanded to 7 subjects ✅
+Foreground research agents (network-enabled; background agents are sandboxed and correctly refused
+to fabricate) web-verified and curated **Calculus (14), DSA (37), DBMS (29), AI (27) = 108 more
+resources across 33 topics**, imported via `import_resources.py`. Platform total: **292 resources,
+87 Gold / 71 Silver, 73/103 topics covered, only 8 needs_review** (flagged for admin review — never
+fabricated). Integrity-checked (e.g. MIT OCW 18.06 = Strang, confirmed via WebFetch).
+
+**Remaining resource work:** General Aptitude · Deep Learning · Data Science subjects.
+**Remaining platform:** full verified PYQ bank · Admin UI + Learning-Path visualization + resource
+watch-progress UI · Mock Engine · Analytics · AI Mentor (Ollama) · Gamification ·
+Settings/Notifications · Deployment.
